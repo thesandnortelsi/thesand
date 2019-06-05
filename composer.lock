@@ -297,8 +297,6 @@
             "time": "2017-12-24T21:09:29+00:00"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "fzaninotto/faker",
             "version": "v1.8.0",
             "source": {
@@ -349,7 +347,7 @@
             "time": "2018-07-12T10:23:15+00:00"
         },
         {
->>>>>>> master
+
             "name": "mobiledetect/mobiledetectlib",
             "version": "2.8.33",
             "source": {
