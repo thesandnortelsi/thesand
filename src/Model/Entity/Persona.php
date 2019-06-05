@@ -47,7 +47,5 @@ class Persona extends Entity
         'perUsrModifica' => true,
         'perFecModifica' => true,
         'tdiId' => true,
-        'personacol' => true,
-        'personacol1' => true
-    ];
+            ];
 }

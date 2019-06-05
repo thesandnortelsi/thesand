@@ -430,3 +430,10 @@ Stack Trace:
 #23 {main}
 
 
+2019-06-05 22:44:14 Error: [RuntimeException] Unknown command `cake schema`. Run `cake --help` to get the list of valid commands. in D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 346
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(157): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'schema')
+#1 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+

@@ -101,17 +101,7 @@ class PersonaTable extends Table
             ->integer('tdiId')
             ->requirePresence('tdiId', 'create')
             ->allowEmptyString('tdiId', false);
-
-        $validator
-            ->scalar('personacol')
-            ->maxLength('personacol', 45)
-            ->allowEmptyString('personacol');
-
-        $validator
-            ->scalar('personacol1')
-            ->maxLength('personacol1', 45)
-            ->allowEmptyString('personacol1');
-
+            
         $validator
             ->integer('dirId')
             ->allowEmptyString('dirId', 'create');
