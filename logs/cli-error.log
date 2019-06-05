@@ -43,3 +43,150 @@ Stack Trace:
 #17 {main}
 
 
+2019-06-05 16:16:36 Error: [InvalidArgumentException] There was a problem connecting to the database: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+ in D:\xampp\htdocs\thesand\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\MysqlAdapter.php on line 127
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\PdoAdapter.php(136): Phinx\Db\Adapter\MysqlAdapter->connect()
+#1 D:\xampp\htdocs\thesand\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\AdapterWrapper.php(469): Phinx\Db\Adapter\PdoAdapter->getConnection()
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\CakeAdapter.php(56): Phinx\Db\Adapter\AdapterWrapper->getConnection()
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\CommandTrait.php(78): Migrations\CakeAdapter->__construct(Object(Phinx\Db\Adapter\TimedOutputAdapter), Object(Cake\Database\Connection))
+#4 D:\xampp\htdocs\thesand\vendor\robmorgan\phinx\src\Phinx\Console\Command\Create.php(153): Migrations\Command\Create->bootstrap(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\CommandTrait.php(35): Phinx\Console\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\Create.php(72): Migrations\Command\Create->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 D:\xampp\htdocs\thesand\vendor\symfony\console\Command\Command.php(255): Migrations\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(921): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(273): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Create), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'create', 'create_Personas')
+#13 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#14 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#15 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#16 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#17 {main}
+
+
+2019-06-05 16:17:37 Error: [InvalidArgumentException] The migration class name "create_Personas" is invalid. Please use CamelCase format. in D:\xampp\htdocs\thesand\vendor\robmorgan\phinx\src\Phinx\Console\Command\Create.php on line 176
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\CommandTrait.php(35): Phinx\Console\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\Create.php(72): Migrations\Command\Create->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 D:\xampp\htdocs\thesand\vendor\symfony\console\Command\Command.php(255): Migrations\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(921): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(273): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Create), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'create', 'create_Personas')
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#11 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#12 {main}
+
+
+2019-06-05 16:17:45 Error: [InvalidArgumentException] The migration class name "create_Personas" is invalid. Please use CamelCase format. in D:\xampp\htdocs\thesand\vendor\robmorgan\phinx\src\Phinx\Console\Command\Create.php on line 176
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\CommandTrait.php(35): Phinx\Console\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\Create.php(72): Migrations\Command\Create->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 D:\xampp\htdocs\thesand\vendor\symfony\console\Command\Command.php(255): Migrations\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(921): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(273): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Create), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'create', 'create_Personas')
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#11 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#12 {main}
+
+
+2019-06-05 16:18:28 Error: [InvalidArgumentException] The migration class name "createPersonas" is invalid. Please use CamelCase format. in D:\xampp\htdocs\thesand\vendor\robmorgan\phinx\src\Phinx\Console\Command\Create.php on line 176
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\CommandTrait.php(35): Phinx\Console\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\Create.php(72): Migrations\Command\Create->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 D:\xampp\htdocs\thesand\vendor\symfony\console\Command\Command.php(255): Migrations\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(921): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(273): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Create), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'create', 'createPersonas')
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#11 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#12 {main}
+
+
+2019-06-05 16:18:35 Error: [InvalidArgumentException] The migration class name "createPersonas" is invalid. Please use CamelCase format. in D:\xampp\htdocs\thesand\vendor\robmorgan\phinx\src\Phinx\Console\Command\Create.php on line 176
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\CommandTrait.php(35): Phinx\Console\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\Create.php(72): Migrations\Command\Create->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 D:\xampp\htdocs\thesand\vendor\symfony\console\Command\Command.php(255): Migrations\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(921): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(273): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Create), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'create', 'createPersonas')
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#11 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#12 {main}
+
+
+2019-06-05 16:40:01 Error: [Symfony\Component\Console\Exception\CommandNotFoundException] Command "DropPersonas" is not defined. in D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php on line 652
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(237): Symfony\Component\Console\Application->find('DropPersonas')
+#1 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'DropPersonas')
+#4 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#7 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#8 {main}
+
+
+2019-06-05 16:40:33 Error: [Symfony\Component\Console\Exception\CommandNotFoundException] Command "drop" is not defined. in D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php on line 652
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(237): Symfony\Component\Console\Application->find('drop')
+#1 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'drop', 'DropPersonas')
+#4 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#7 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#8 {main}
+
+
+2019-06-05 16:40:57 Error: [Symfony\Component\Console\Exception\CommandNotFoundException] Command "Drop" is not defined. in D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php on line 652
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(237): Symfony\Component\Console\Application->find('Drop')
+#1 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'Drop', 'DropPersonas')
+#4 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#7 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#8 {main}
+
+
+2019-06-05 17:22:03 Error: [Symfony\Component\Console\Exception\RuntimeException] Too many arguments, expected arguments "command" "name". in D:\xampp\htdocs\thesand\vendor\symfony\console\Input\ArgvInput.php on line 183
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\symfony\console\Input\ArgvInput.php(86): Symfony\Component\Console\Input\ArgvInput->parseArgument('function')
+#1 D:\xampp\htdocs\thesand\vendor\symfony\console\Input\Input.php(55): Symfony\Component\Console\Input\ArgvInput->parse()
+#2 D:\xampp\htdocs\thesand\vendor\symfony\console\Command\Command.php(214): Symfony\Component\Console\Input\Input->bind(Object(Symfony\Component\Console\Input\InputDefinition))
+#3 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(921): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(273): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Create), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'create', 'public', 'function', 'change()')
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#11 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#12 {main}
+
+
