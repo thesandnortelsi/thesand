@@ -7,7 +7,7 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Rol Model
+ * Rols Model
  *
  * @method \App\Model\Entity\Rol get($primaryKey, $options = [])
  * @method \App\Model\Entity\Rol newEntity($data = null, array $options = [])
@@ -17,8 +17,10 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Rol patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Rol[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Rol findOrCreate($search, callable $callback = null, $options = [])
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class RolTable extends Table
+class RolsTable extends Table
 {
     /**
      * Initialize method
@@ -30,9 +32,11 @@ class RolTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('rol');
-        $this->setDisplayField('rolId');
-        $this->setPrimaryKey('rolId');
+        $this->setTable('rols');
+        $this->setDisplayField('name');
+        $this->setPrimaryKey('rol_id');
+
+        $this->addBehavior('Timestamp');
     }
 
     /**
@@ -44,34 +48,26 @@ class RolTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('rolId')
-            ->allowEmptyString('rolId', 'create');
+            ->integer('rol_id')
+            ->allowEmptyString('rol_id', 'create');
 
         $validator
-            ->scalar('rolDescripcion')
-            ->maxLength('rolDescripcion', 100)
-            ->allowEmptyString('rolDescripcion');
+            ->scalar('name')
+            ->maxLength('name', 100)
+            ->allowEmptyString('name');
 
         $validator
-            ->scalar('rolEstado')
-            ->maxLength('rolEstado', 8)
-            ->allowEmptyString('rolEstado');
+            ->scalar('state')
+            ->maxLength('state', 8)
+            ->allowEmptyString('state');
 
         $validator
-            ->integer('rolUsrCrea')
-            ->allowEmptyString('rolUsrCrea');
+            ->integer('user_created')
+            ->allowEmptyString('user_created');
 
         $validator
-            ->dateTime('rolFecCrea')
-            ->allowEmptyDateTime('rolFecCrea');
-
-        $validator
-            ->integer('rolUsrModifica')
-            ->allowEmptyString('rolUsrModifica');
-
-        $validator
-            ->dateTime('rolFecModifica')
-            ->allowEmptyDateTime('rolFecModifica');
+            ->integer('user_modified')
+            ->allowEmptyString('user_modified');
 
         return $validator;
     }
