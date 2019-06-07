@@ -505,3 +505,38 @@ Stack Trace:
 #18 {main}
 
 
+2019-06-07 20:31:30 Error: [RuntimeException] Unknown command `cake clear_all`. Run `cake --help` to get the list of valid commands. in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 346
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(157): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'clear_all')
+#1 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+
+2019-06-07 20:32:21 Error: [RuntimeException] Unknown command `cake clear_all`. Run `cake --help` to get the list of valid commands. in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 346
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(157): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'clear_all')
+#1 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+
+2019-06-07 20:32:47 Error: [RuntimeException] Unknown command `cake clear_all`. Run `cake --help` to get the list of valid commands. in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 346
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(157): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'clear_all')
+#1 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+
+2019-06-07 20:33:56 Error: [RuntimeException] Unknown command `cake clear_all`. Run `cake --help` to get the list of valid commands. in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 346
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(157): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'clear_all')
+#1 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+
+2019-06-07 20:42:01 Error: [RuntimeException] Unknown command `cake bike`. Run `cake --help` to get the list of valid commands. in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 346
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(157): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'bike')
+#1 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+

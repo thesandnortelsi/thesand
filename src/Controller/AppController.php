@@ -82,4 +82,9 @@ class AppController extends Controller
     {
         return true;
     }
+
+    public function beforeFilter(Event $event)
+    {
+        $this->set('current_user', $this->Auth->user());
+    }
 }
