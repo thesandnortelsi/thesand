@@ -40,7 +40,11 @@ class UsersController extends AppController
             'contain' => ['Persons', 'Rols']
         ]);
 
-        $this->set('user', $user);
+        // $this->set('user', $user);
+        $modifico = $this->Users->find()->select(['username'])->where(['user_id' => $user->user_modified]);
+        // $modifico = $user->user_modified;
+
+        $this->set(compact('user', 'modifico'));
     }
 
     /**

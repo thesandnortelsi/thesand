@@ -6,19 +6,18 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Rols'), ['action' => 'index']) ?></li>
+        <li class="heading"><?= __('Opciones') ?></li>
+        <li><?= $this->Html->link(__('Lista Rol'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
 <div class="rols form large-9 medium-8 columns content">
     <?= $this->Form->create($rol) ?>
     <fieldset>
-        <legend><?= __('Add Rol') ?></legend>
+        <legend><?= __('Nuevo Rol') ?></legend>
         <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('state');
-            echo $this->Form->control('user_created');
-            echo $this->Form->control('user_modified');
+            echo $this->Form->control('name', ['label' => 'Nombre']);
+            echo $this->Form->control('state', ['options' => ['ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO'], 'label' => 'Estado']);
+            echo $this->Form->control('user_created', ['type' => 'hidden', 'value' => $current_user['user_id'] ]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

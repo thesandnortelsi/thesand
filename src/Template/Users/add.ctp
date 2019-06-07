@@ -24,6 +24,7 @@
             echo $this->Form->control('username', [ 'label' => 'Usuario']);
             echo $this->Form->control('password', [ 'label' => 'Contraseña']);
             echo $this->Form->control('state', [ 'label' => 'Estado', 'options' => ['Activo' => 'Activo', 'Inactivo' => 'Inactivo']]);
+            echo $this->Form->control('user_created', ['type' => 'hidden', 'value' => $current_user['user_id'] ]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
