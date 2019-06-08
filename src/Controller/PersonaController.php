@@ -2,6 +2,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use App\Forms\Fornulario;
+
 
 /**
  * Persona Controller
@@ -48,6 +50,7 @@ class PersonaController extends AppController
     public function add()
     {
         $persona = $this->Persona->newEntity();
+
         if ($this->request->is('post')) {
             $persona = $this->Persona->patchEntity($persona, $this->request->getData());
             if ($this->Persona->save($persona)) {
@@ -102,5 +105,9 @@ class PersonaController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    public function form(){
+
+        $formulario = new Fornulario();
     }
 }
