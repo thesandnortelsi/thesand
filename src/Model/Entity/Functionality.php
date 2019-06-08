@@ -4,17 +4,18 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Rol Entity
+ * Functionality Entity
  *
- * @property int $rol_id
+ * @property int $functionality_id
  * @property string|null $name
+ * @property string|null $description
  * @property string|null $state
- * @property int|null $user_created
- * @property \Cake\I18n\FrozenTime|null $created
  * @property int|null $user_modified
  * @property \Cake\I18n\FrozenTime|null $modified
+ *
+ * @property \App\Model\Entity\Rol[] $rols
  */
-class Rol extends Entity
+class Functionality extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -27,10 +28,10 @@ class Rol extends Entity
      */
     protected $_accessible = [
         'name' => true,
+        'description' => true,
         'state' => true,
-        'user_created' => true,
-        'created' => true,
         'user_modified' => true,
-        'modified' => true
+        'modified' => true,
+        'rols' => true
     ];
 }

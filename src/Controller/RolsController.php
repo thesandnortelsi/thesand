@@ -4,13 +4,12 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 /**
- * Rol Controller
+ * Rols Controller
  *
- * @property \App\Model\Table\RolTable $Rol
  *
  * @method \App\Model\Entity\Rol[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class RolController extends AppController
+class RolsController extends AppController
 {
     /**
      * Index method
@@ -19,8 +18,9 @@ class RolController extends AppController
      */
     public function index()
     {
-        $rols = $this->paginate($this->Rol);
-        $this->set('rol', $rols);
+        $rols = $this->paginate($this->Rols);
+
+        $this->set(compact('rols'));
     }
 
     /**
@@ -32,7 +32,7 @@ class RolController extends AppController
      */
     public function view($id = null)
     {
-        $rol = $this->Rol->get($id, [
+        $rol = $this->Rols->get($id, [
             'contain' => []
         ]);
 
@@ -46,15 +46,15 @@ class RolController extends AppController
      */
     public function add()
     {
-        $rol = $this->Rol->newEntity();
+        $rol = $this->Rols->newEntity();
         if ($this->request->is('post')) {
-            $rol = $this->Rol->patchEntity($rol, $this->request->getData());
-            if ($this->Rol->save($rol)) {
-                $this->Flash->success(__('Rol guardado correctamente.'));
+            $rol = $this->Rols->patchEntity($rol, $this->request->getData());
+            if ($this->Rols->save($rol)) {
+                $this->Flash->success(__('The rol has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('Rol no pudo ser guardado. Por favor, intenta nuevamente.'));
+            $this->Flash->error(__('The rol could not be saved. Please, try again.'));
         }
         $this->set(compact('rol'));
     }
@@ -68,17 +68,17 @@ class RolController extends AppController
      */
     public function edit($id = null)
     {
-        $rol = $this->Rol->get($id, [
+        $rol = $this->Rols->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $rol = $this->Rol->patchEntity($rol, $this->request->getData());
-            if ($this->Rol->save($rol)) {
-                $this->Flash->success(__('Rol guardado correctamente.'));
+            $rol = $this->Rols->patchEntity($rol, $this->request->getData());
+            if ($this->Rols->save($rol)) {
+                $this->Flash->success(__('The rol has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('Rol no pudo ser guardado. Por favor, intenta nuevamente.'));
+            $this->Flash->error(__('The rol could not be saved. Please, try again.'));
         }
         $this->set(compact('rol'));
     }
@@ -93,11 +93,11 @@ class RolController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $rol = $this->Rol->get($id);
-        if ($this->Rol->delete($rol)) {
-            $this->Flash->success(__('Rol ha sido borrado.'));
+        $rol = $this->Rols->get($id);
+        if ($this->Rols->delete($rol)) {
+            $this->Flash->success(__('The rol has been deleted.'));
         } else {
-            $this->Flash->error(__('Rol no pudo ser borrado. Por favor, intenta nuevamente.'));
+            $this->Flash->error(__('The rol could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
