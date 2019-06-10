@@ -104,4 +104,14 @@ class UsersTable extends Table
 
         return $rules;
     }
+
+    public function findAuth(\Cake\ORM\Query $query, array $options)
+    {
+
+        $query
+            ->select(['user_id', 'username', 'password', 'rol_id'])
+            ->where(['Users.state' => 'ACTIVO']);
+
+            return $query;
+    }
 }

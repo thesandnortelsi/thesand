@@ -18,7 +18,7 @@
     </ul>
 </nav>
 <div class="users view large-9 medium-8 columns content">
-    <h3><?= h($user->person->name.' '.$user->person->surname_father.' '.$user->person->surname_mother) ?></h3>
+    <h3><?= h($user->username) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Personal') ?></th>
@@ -39,7 +39,8 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Usuario Creó') ?></th>
-            <td><?= $this->Number->format($user->user_created) ?></td>
+            <!-- <td><?= $this->Number->format($user->user_created) ?></td> -->
+            <td><?php if(!empty($creo)) { echo $creo->username; }  ?></td>
         </tr>
 
         <tr>
@@ -49,7 +50,8 @@
 
         <tr>
             <th scope="row"><?= __('Usuario Modificó') ?></th>
-            <td><?= $this->Number->format($user->user_modified) ?></td>
+            <!-- <td><?= $this->Number->format($user->user_modified) ?></td> -->
+            <td><?php if(!empty($modifico)) { echo $modifico->username; }  ?></td>
         </tr>
         
         <tr>

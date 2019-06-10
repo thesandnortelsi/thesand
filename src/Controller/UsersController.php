@@ -40,11 +40,16 @@ class UsersController extends AppController
             'contain' => ['Persons', 'Rols']
         ]);
 
-        // $this->set('user', $user);
-        $modifico = $this->Users->find()->select(['username'])->where(['user_id' => $user->user_modified]);
-        // $modifico = $user->user_modified;
+        if (!empty($user->user_created)) 
+        {
+            $creo = $this->Users->get($user->user_created);
+        }
+        if (!empty($user->user_modified)) 
+        {
+            $modifico = $this->Users->get($user->user_modified);
+        }
 
-        $this->set(compact('user', 'modifico'));
+        $this->set(compact('user', 'creo', 'modifico'));
     }
 
     /**
@@ -140,5 +145,22 @@ class UsersController extends AppController
     public function logout()
     {
         return $this->redirect($this->Auth->logout());
+    }
+
+    public function usrById($id) 
+    {
+        return $this->Users->get($id);
+    }
+
+    public function isAuthorized($user)
+    {
+        $modulo = "usuarios";
+
+        if (isset($user['rol_id']) && $user['rol_id'] == 1) 
+        {
+            return true;
+        }
+
+        return false;
     }
 }
