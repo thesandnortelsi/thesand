@@ -6,6 +6,10 @@ use App\Controller\AppController;
 /**
  * Persons Controller
  *
+<<<<<<< HEAD
+=======
+ * @property \App\Model\Table\PersonsTable $Persons
+>>>>>>> 7747fcb38dddfd4c2886690f21b823f2e4b82de5
  *
  * @method \App\Model\Entity\Person[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
@@ -18,6 +22,12 @@ class PersonsController extends AppController
      */
     public function index()
     {
+<<<<<<< HEAD
+=======
+        $this->paginate = [
+            'contain' => ['IdentificationDocuments', 'Addresses']
+        ];
+>>>>>>> 7747fcb38dddfd4c2886690f21b823f2e4b82de5
         $persons = $this->paginate($this->Persons);
 
         $this->set(compact('persons'));
@@ -33,7 +43,11 @@ class PersonsController extends AppController
     public function view($id = null)
     {
         $person = $this->Persons->get($id, [
+<<<<<<< HEAD
             'contain' => []
+=======
+            'contain' => ['IdentificationDocuments', 'Addresses']
+>>>>>>> 7747fcb38dddfd4c2886690f21b823f2e4b82de5
         ]);
 
         $this->set('person', $person);
@@ -56,7 +70,13 @@ class PersonsController extends AppController
             }
             $this->Flash->error(__('The person could not be saved. Please, try again.'));
         }
+<<<<<<< HEAD
         $this->set(compact('person'));
+=======
+        $identificationDocuments = $this->Persons->IdentificationDocuments->find('list', ['limit' => 200]);
+        $addresses = $this->Persons->Addresses->find('list', ['limit' => 200]);
+        $this->set(compact('person', 'identificationDocuments', 'addresses'));
+>>>>>>> 7747fcb38dddfd4c2886690f21b823f2e4b82de5
     }
 
     /**
@@ -80,7 +100,13 @@ class PersonsController extends AppController
             }
             $this->Flash->error(__('The person could not be saved. Please, try again.'));
         }
+<<<<<<< HEAD
         $this->set(compact('person'));
+=======
+        $identificationDocuments = $this->Persons->IdentificationDocuments->find('list', ['limit' => 200]);
+        $addresses = $this->Persons->Addresses->find('list', ['limit' => 200]);
+        $this->set(compact('person', 'identificationDocuments', 'addresses'));
+>>>>>>> 7747fcb38dddfd4c2886690f21b823f2e4b82de5
     }
 
     /**

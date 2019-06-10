@@ -62,6 +62,7 @@ class PersonsFixture extends TestFixture
                 'name' => 'Lorem ipsum dolor sit amet',
                 'document' => 'Lorem ipsum d',
                 'email' => 'Lorem ipsum dolor sit amet',
+<<<<<<< HEAD
                 'birthdate' => '2019-06-10',
                 'gender' => 'Lore',
                 'state' => 'Lorem ',
@@ -69,6 +70,15 @@ class PersonsFixture extends TestFixture
                 'created' => '2019-06-10 21:25:07',
                 'user_modified' => 1,
                 'modified' => '2019-06-10 21:25:07'
+=======
+                'birthdate' => '2019-06-09',
+                'gender' => 'Lore',
+                'state' => 'Lorem ',
+                'user_created' => 1,
+                'created' => '2019-06-09 15:47:30',
+                'user_modified' => 1,
+                'modified' => '2019-06-09 15:47:30'
+>>>>>>> 7747fcb38dddfd4c2886690f21b823f2e4b82de5
             ],
         ];
         parent::init();

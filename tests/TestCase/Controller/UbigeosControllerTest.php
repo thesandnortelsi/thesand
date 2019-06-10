@@ -1,14 +1,14 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\PersonsController;
+use App\Controller\UbigeosController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\PersonsController Test Case
+ * App\Controller\UbigeosController Test Case
  */
-class PersonsControllerTest extends TestCase
+class UbigeosControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -18,13 +18,7 @@ class PersonsControllerTest extends TestCase
      * @var array
      */
     public $fixtures = [
-<<<<<<< HEAD
-        'app.Persons'
-=======
-        'app.Persons',
-        'app.IdentificationDocuments',
-        'app.Addresses'
->>>>>>> 7747fcb38dddfd4c2886690f21b823f2e4b82de5
+        'app.Ubigeos'
     ];
 
     /**
