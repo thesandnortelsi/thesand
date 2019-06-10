@@ -4,19 +4,28 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Rol Entity
+ * Person Entity
  *
- * @property int $rol_id
+ * @property int $person_id
+ * @property int|null $identification_document_id
+ * @property int|null $address_id
+ * @property string|null $surname_father
+ * @property string|null $surname_mother
  * @property string|null $name
+ * @property string|null $document
+ * @property string|null $email
+ * @property \Cake\I18n\FrozenDate|null $birthdate
+ * @property string|null $gender
  * @property string|null $state
  * @property int|null $user_created
  * @property \Cake\I18n\FrozenTime|null $created
  * @property int|null $user_modified
  * @property \Cake\I18n\FrozenTime|null $modified
  *
- * @property \App\Model\Entity\Functionality[] $functionalities
+ * @property \App\Model\Entity\IdentificationDocument $identification_document
+ * @property \App\Model\Entity\Address $address
  */
-class Rol extends Entity
+class Person extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -28,12 +37,21 @@ class Rol extends Entity
      * @var array
      */
     protected $_accessible = [
+        'identification_document_id' => true,
+        'address_id' => true,
+        'surname_father' => true,
+        'surname_mother' => true,
         'name' => true,
+        'document' => true,
+        'email' => true,
+        'birthdate' => true,
+        'gender' => true,
         'state' => true,
         'user_created' => true,
         'created' => true,
         'user_modified' => true,
         'modified' => true,
-        'functionalities' => true
+        'identification_document' => true,
+        'address' => true
     ];
 }

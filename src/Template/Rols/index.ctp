@@ -8,19 +8,17 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Opciones') ?></li>
         <li><?= $this->Html->link(__('Nuevo Rol'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Lista Funcionalidades'), ['controller' => 'Functionalities', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Nueva Functionalidad'), ['controller' => 'Functionalities', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="rols index large-9 medium-8 columns content">
-    <h3><?= __('Rol:') ?></h3>
+    <h3><?= __('Rols') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <!-- <th scope="col"><?= $this->Paginator->sort('rol_id') ?></th> -->
                 <th scope="col"><?= $this->Paginator->sort('Nombre') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('Estado') ?></th>
-                <!-- <th scope="col"><?= $this->Paginator->sort('user_created') ?></th> -->
-                <!-- <th scope="col"><?= $this->Paginator->sort('Fecha Creación') ?></th> -->
-                <!-- <th scope="col"><?= $this->Paginator->sort('user_modified') ?></th> -->
                 <th scope="col"><?= $this->Paginator->sort('Fecha Modificación') ?></th>
                 <th scope="col" class="actions"><?= __('Acciones') ?></th>
             </tr>
@@ -28,12 +26,8 @@
         <tbody>
             <?php foreach ($rols as $rol): ?>
             <tr>
-                <!-- <td><?= $this->Number->format($rol->rol_id) ?></td> -->
                 <td><?= h($rol->name) ?></td>
                 <td><?= h($rol->state) ?></td>
-                <!-- <td><?= $this->Number->format($rol->user_created) ?></td> -->
-                <!-- <td><?= h($rol->created) ?></td> -->
-                <!-- <td><?= $this->Number->format($rol->user_modified) ?></td> -->
                 <td><?= h($rol->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Ver'), ['action' => 'view', $rol->rol_id]) ?>

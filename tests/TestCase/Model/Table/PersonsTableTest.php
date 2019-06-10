@@ -1,21 +1,21 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\RolsTable;
+use App\Model\Table\PersonsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\RolsTable Test Case
+ * App\Model\Table\PersonsTable Test Case
  */
-class RolsTableTest extends TestCase
+class PersonsTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\RolsTable
+     * @var \App\Model\Table\PersonsTable
      */
-    public $Rols;
+    public $Persons;
 
     /**
      * Fixtures
@@ -23,8 +23,9 @@ class RolsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.Rols',
-        'app.Functionalities'
+        'app.Persons',
+        'app.IdentificationDocuments',
+        'app.Addresses'
     ];
 
     /**
@@ -35,8 +36,8 @@ class RolsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::getTableLocator()->exists('Rols') ? [] : ['className' => RolsTable::class];
-        $this->Rols = TableRegistry::getTableLocator()->get('Rols', $config);
+        $config = TableRegistry::getTableLocator()->exists('Persons') ? [] : ['className' => PersonsTable::class];
+        $this->Persons = TableRegistry::getTableLocator()->get('Persons', $config);
     }
 
     /**
@@ -46,7 +47,7 @@ class RolsTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Rols);
+        unset($this->Persons);
 
         parent::tearDown();
     }
@@ -67,6 +68,16 @@ class RolsTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

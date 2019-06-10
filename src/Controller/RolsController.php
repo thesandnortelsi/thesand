@@ -6,6 +6,7 @@ use App\Controller\AppController;
 /**
  * Rols Controller
  *
+ * @property \App\Model\Table\RolsTable $Rols
  *
  * @method \App\Model\Entity\Rol[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
@@ -33,10 +34,19 @@ class RolsController extends AppController
     public function view($id = null)
     {
         $rol = $this->Rols->get($id, [
-            'contain' => []
+            'contain' => ['Functionalities']
         ]);
 
-        $this->set('rol', $rol);
+        if (!empty($rol->user_created)) 
+        {
+            $creo = (new UsersController())->usrById($rol->user_created);
+        }
+        if (!empty($rol->user_modified)) 
+        {
+            $modifico = (new UsersController())->usrById($rol->user_modified);
+        }
+
+        $this->set(compact('rol', 'creo', 'modifico'));
     }
 
     /**
@@ -56,7 +66,8 @@ class RolsController extends AppController
             }
             $this->Flash->error(__('The rol could not be saved. Please, try again.'));
         }
-        $this->set(compact('rol'));
+        $functionalities = $this->Rols->Functionalities->find('list', ['limit' => 200]);
+        $this->set(compact('rol', 'functionalities'));
     }
 
     /**
@@ -69,7 +80,7 @@ class RolsController extends AppController
     public function edit($id = null)
     {
         $rol = $this->Rols->get($id, [
-            'contain' => []
+            'contain' => ['Functionalities']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $rol = $this->Rols->patchEntity($rol, $this->request->getData());
@@ -80,7 +91,8 @@ class RolsController extends AppController
             }
             $this->Flash->error(__('The rol could not be saved. Please, try again.'));
         }
-        $this->set(compact('rol'));
+        $functionalities = $this->Rols->Functionalities->find('list', ['limit' => 200]);
+        $this->set(compact('rol', 'functionalities'));
     }
 
     /**

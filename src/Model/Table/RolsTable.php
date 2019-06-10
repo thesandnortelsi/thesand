@@ -9,6 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Rols Model
  *
+ * @property \App\Model\Table\FunctionalitiesTable|\Cake\ORM\Association\BelongsToMany $Functionalities
+ *
  * @method \App\Model\Entity\Rol get($primaryKey, $options = [])
  * @method \App\Model\Entity\Rol newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\Rol[] newEntities(array $data, array $options = [])
@@ -37,6 +39,12 @@ class RolsTable extends Table
         $this->setPrimaryKey('rol_id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsToMany('Functionalities', [
+            'foreignKey' => 'rol_id',
+            'targetForeignKey' => 'functionality_id',
+            'joinTable' => 'functionalities_rols'
+        ]);
     }
 
     /**
