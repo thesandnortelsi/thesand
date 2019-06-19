@@ -21,7 +21,7 @@
             echo $this->Form->control('perDocumento',['label'=>'Num Documento']);
             echo $this->Form->control('perEmail',['label'=>'Correo Elecctronico']);
             echo $this->Form->control('perFecNacimiento', ['empty' => true,'label'=>'Fecha de Nacimiento']);              
-            echo $this->Form->control('tdiId',['label'=>'Tipo de documento']);
+            echo $this->Form->control('tdiId',['label'=>'Tipo de documento',$options=>['1','2']]);
             
         ?>
     </fieldset>
