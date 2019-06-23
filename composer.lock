@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+
+    
+
     "content-hash": "1ebc135bfdd252e46b5868f891a30404",
+
     "packages": [
         {
             "name": "aura/intl",
@@ -343,6 +347,7 @@
             "time": "2018-07-12T10:23:15+00:00"
         },
         {
+
             "name": "mobiledetect/mobiledetectlib",
             "version": "2.8.33",
             "source": {

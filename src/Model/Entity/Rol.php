@@ -6,13 +6,15 @@ use Cake\ORM\Entity;
 /**
  * Rol Entity
  *
- * @property int $rolId
- * @property string|null $rolDescripcion
- * @property string|null $rolEstado
- * @property int|null $rolUsrCrea
- * @property \Cake\I18n\FrozenTime|null $rolFecCrea
- * @property int|null $rolUsrModifica
- * @property \Cake\I18n\FrozenTime|null $rolFecModifica
+ * @property int $rol_id
+ * @property string|null $name
+ * @property string|null $state
+ * @property int|null $user_created
+ * @property \Cake\I18n\FrozenTime|null $created
+ * @property int|null $user_modified
+ * @property \Cake\I18n\FrozenTime|null $modified
+ *
+ * @property \App\Model\Entity\Functionality[] $functionalities
  */
 class Rol extends Entity
 {
@@ -26,17 +28,12 @@ class Rol extends Entity
      * @var array
      */
     protected $_accessible = [
-        'rolDescripcion' => true,
-        'rolEstado' => true,
-        'rolUsrCrea' => true,
-        'rolFecCrea' => true,
-        'rolUsrModifica' => true,
-        'rolFecModifica' => true
+        'name' => true,
+        'state' => true,
+        'user_created' => true,
+        'created' => true,
+        'user_modified' => true,
+        'modified' => true,
+        'functionalities' => true
     ];
-
-    protected function _setRolFecCrea($value){
-        $today = date("Y-m-d H:i:s");
-        $value = $today;
-        return $value;
-    }
 }

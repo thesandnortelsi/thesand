@@ -1,0 +1,76 @@
+[1mdiff --cc composer.lock[m
+[1mindex e9545ee,dd06423..0000000[m
+[1m--- a/composer.lock[m
+[1m+++ b/composer.lock[m
+[36m@@@ -4,7 -4,7 +4,11 @@@[m
+          "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",[m
+          "This file is @generated automatically"[m
+      ],[m
+[32m++<<<<<<< HEAD[m
+[32m +    "content-hash": "32760e8a171dfd583adaca92290363a1",[m
+[32m++=======[m
+[32m+     "content-hash": "1ebc135bfdd252e46b5868f891a30404",[m
+[32m++>>>>>>> master[m
+      "packages": [[m
+          {[m
+              "name": "aura/intl",[m
+[36m@@@ -293,6 -293,56 +297,59 @@@[m
+              "time": "2017-12-24T21:09:29+00:00"[m
+          },[m
+          {[m
+[32m++<<<<<<< HEAD[m
+[32m++=======[m
+[32m+             "name": "fzaninotto/faker",[m
+[32m+             "version": "v1.8.0",[m
+[32m+             "source": {[m
+[32m+                 "type": "git",[m
+[32m+                 "url": "https://github.com/fzaninotto/Faker.git",[m
+[32m+                 "reference": "f72816b43e74063c8b10357394b6bba8cb1c10de"[m
+[32m+             },[m
+[32m+             "dist": {[m
+[32m+                 "type": "zip",[m
+[32m+                 "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/f72816b43e74063c8b10357394b6bba8cb1c10de",[m
+[32m+                 "reference": "f72816b43e74063c8b10357394b6bba8cb1c10de",[m
+[32m+                 "shasum": ""[m
+[32m+             },[m
+[32m+             "require": {[m
+[32m+                 "php": "^5.3.3 || ^7.0"[m
+[32m+             },[m
+[32m+             "require-dev": {[m
+[32m+                 "ext-intl": "*",[m
+[32m+                 "phpunit/phpunit": "^4.8.35 || ^5.7",[m
+[32m+                 "squizlabs/php_codesniffer": "^1.5"[m
+[32m+             },[m
+[32m+             "type": "library",[m
+[32m+             "extra": {[m
+[32m+                 "branch-alias": {[m
+[32m+                     "dev-master": "1.8-dev"[m
+[32m+                 }[m
+[32m+             },[m
+[32m+             "autoload": {[m
+[32m+                 "psr-4": {[m
+[32m+                     "Faker\\": "src/Faker/"[m
+[32m+                 }[m
+[32m+             },[m
+[32m+             "notification-url": "https://packagist.org/downloads/",[m
+[32m+             "license": [[m
+[32m+                 "MIT"[m
+[32m+             ],[m
+[32m+             "authors": [[m
+[32m+                 {[m
+[32m+                     "name": "François Zaninotto"[m
+[32m+                 }[m
+[32m+             ],[m
+[32m+             "description": "Faker is a PHP library that generates fake data for you.",[m
+[32m+             "keywords": [[m
+[32m+                 "data",[m
+[32m+                 "faker",[m
+[32m+                 "fixtures"[m
+[32m+             ],[m
+[32m+             "time": "2018-07-12T10:23:15+00:00"[m
+[32m+         },[m
+[32m+         {[m
+[32m++>>>>>>> master[m
+              "name": "mobiledetect/mobiledetectlib",[m
+              "version": "2.8.33",[m
+              "source": {[m
