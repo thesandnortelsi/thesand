@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use App\Model\Entity\DateHorometersMachine;
 use Cake\Datasource\ConnectionManager;
+// use Cake\I18n\Time;
 
 /**
  * DateHorometers Controller
@@ -57,6 +58,8 @@ class DateHorometersController extends AppController
 
         if ($this->request->is('post')) {
 
+            // $now = Time::parse('2014-10-31');
+
 // $connection = ConnectionManager::get('default');
 
             $dateHorometer = $this->DateHorometers->patchEntity($dateHorometer, $this->request->getData());
@@ -64,10 +67,13 @@ class DateHorometersController extends AppController
 
 // $horometers = $this->request->data();
 
+            $dateInput = $this->request->getData(['date']);
+
             $dateHorometer->user_created = $this->Auth->user('user_id');
+            $dateHorometer->state = 'ACTIVO';
 
             $existe = $this->DateHorometers->find('all', [
-                'conditions' => ['date' => date('Y-m-d')]
+                'conditions' => ['date' => $dateInput]
             ]);
             $existe = $existe->first();
 
@@ -84,38 +90,6 @@ class DateHorometersController extends AppController
             {
                 return $this->redirect(['action' => 'edit', $existe->date_horometer_id]);
             }
-
-            
-
-
-            // for ($i=0; $i < count($horometers['date_horometers_machines']['day']); $i++) 
-            // {
-            //     if (!empty($horometers['date_horometers_machines']['day'][$i]) )
-            //     {
-            //         $dia = $horometers['date_horometers_machines']['day'][$i];
-            //     }
-            //     else
-            //     {
-            //         $dia = '0.00';
-            //     }
-
-            //     if (!empty($horometers['date_horometers_machines']['night'][$i]) )
-            //     {
-            //         $noche = $horometers['date_horometers_machines']['night'][$i];
-            //     }
-            //     else
-            //     {
-            //         $noche = '0.00';
-            //     }
-
-            //     $connection->insert('date_horometers_machines', [
-            //         'date_horometer_id' => $date_id,
-            //         'machine_id' => $horometers['date_horometers_machines']['machine_id'][$i],
-            //         'day' => $dia,
-            //         'night' => $noche
-            //     ]);
-                
-            // }
 
         }
         $machines = $this->DateHorometers->Machines->find('list', ['limit' => 200]);
@@ -137,11 +111,19 @@ class DateHorometersController extends AppController
         $dateHorometer = $this->DateHorometers->get($id, [
             'contain' => ['Machines']
         ]);
+
+        $this->loadModel('DateHorometersMachines');
+
         if ($this->request->is(['patch', 'post', 'put'])) 
         {
             // $dateHorometer = $this->DateHorometers->patchEntity($dateHorometer, $this->request->getData());
             // if ($this->DateHorometers->save($dateHorometer)) 
             // {
+
+                $this->DateHorometersMachines->deleteAll([
+                    'date_horometer_id' => $id
+                ]);
+
                 $connection = ConnectionManager::get('default');
                 $horometers = $this->request->data();     
 
@@ -174,17 +156,41 @@ class DateHorometersController extends AppController
                     ]);
                     
                 }
-                // $this->Flash->success(__('The date horometer has been saved.'));
+                
+                $this->Flash->success(__('Guardado Correctamente.'));
 
-                // return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'edit', $id]);
             // }
             // $this->Flash->error(__('The date horometer could not be saved. Please, try again.'));
         }
-        $machines = $this->DateHorometers->Machines->find('list', ['limit' => 200]);
+        // $machines = $this->DateHorometers->Machines->find('list', ['limit' => 200]);
 
-        $listMachine = $this->DateHorometers->Machines->find('all');
+        // $listMachine = $this->Machines->find('all')->innerJoinWith(
+        //         'Models'
+        //     );
 
-        $this->set(compact('dateHorometer', 'machines', 'listMachine'));
+        $connection = ConnectionManager::get('default');
+        $results = $connection->execute("SELECT m.machine_id, m.name name, m.code code, ml.name model FROM Machines m INNER JOIN Models ml ON m.model_id = ml.model_id");
+
+        $this->set('film_all', $results);
+        // $listMachine = $this->DateHorometers->Machines->Models->find('all');
+
+        // debug($listMachine);
+
+
+        $horometerByDate = $this->DateHorometersMachines->find('all', [
+                'conditions' => ['date_horometer_id' => $id]
+            ]);
+
+        $createdDate = $dateHorometer->date->i18nFormat('Y-MM-dd' );
+        $horometerOld = $this->DateHorometersMachines->find('all', [
+                'conditions' => ['date' => date("Y-m-d", strtotime($createdDate."- 1 days"))]
+            ])->innerJoinWith('DateHorometers');
+       
+
+        // debug(date("Y-m-d",strtotime($createdDate."- 1 days")));
+
+        $this->set(compact('dateHorometer', 'horometerByDate', 'film_all', 'horometerOld'));
     }
 
     /**

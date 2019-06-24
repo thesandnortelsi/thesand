@@ -17,12 +17,12 @@
     <fieldset>
         <legend><?= __('Nuevo Ingreso Horómetro') ?></legend>
         <?php
-            echo $this->Form->control('date', ['label' => 'Fecha']);            
+            echo $this->Form->control('date', ['label' => 'Fecha', 'type' => 'date', 'value' => date('Y-m-d')]);            
         ?>
-
         <?= $this->Form->button(__('Generar')) ?>
+        
 
-            <table cellpadding="0" cellspacing="0">
+            <!-- <table cellpadding="0" cellspacing="0">
                 <thead>
                     <tr>
                         <th scope="col">Código</th>
@@ -46,7 +46,7 @@
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
-            </table>
+            </table> -->
     </fieldset>
     
     <?= $this->Form->end() ?>
