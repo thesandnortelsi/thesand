@@ -17,9 +17,11 @@
     <fieldset>
         <legend><?= __('Nuevo Ingreso Horómetro') ?></legend>
         <?php
-            echo $this->Form->control('date', ['label' => 'Fecha']);
-
+            echo $this->Form->control('date', ['label' => 'Fecha']);            
         ?>
+
+        <?= $this->Form->button(__('Generar')) ?>
+
             <table cellpadding="0" cellspacing="0">
                 <thead>
                     <tr>
@@ -38,21 +40,14 @@
                         <td><?= h($machine->name) ?></td>
                         <td><?= h($machine->name) ?></td>
                         <td><?= h($machine->name) ?></td>
-                        <td><?= $this->Form->control('date_horometers_machines.day', ['label' => '']) ?></td>
-                        <td><?= $this->Form->control('date_horometers_machines.night', ['label' => '']) ?></td>
-                        
+                        <td><?= $this->Form->control('date_horometers_machines.day[]', ['label' => '']) ?></td>
+                        <td><?= $this->Form->control('date_horometers_machines.night[]', ['label' => '']) ?></td>
+                        <?= $this->Form->control('date_horometers_machines.machine_id[]', ['label' => '', 'value' => $machine->machine_id, 'type' => 'hidden']) ?>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
-
-        <!-- <?php
-            echo $this->Form->control('state');
-            echo $this->Form->control('user_created');
-            echo $this->Form->control('user_modified');
-            echo $this->Form->control('machines._ids', ['options' => $machines]);
-        ?> -->
     </fieldset>
-    <?= $this->Form->button(__('Guardar')) ?>
+    
     <?= $this->Form->end() ?>
 </div>

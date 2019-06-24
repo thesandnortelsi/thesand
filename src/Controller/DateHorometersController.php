@@ -3,7 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use App\Model\Entity\DateHorometersMachine;
-
+use Cake\Datasource\ConnectionManager;
 
 /**
  * DateHorometers Controller
@@ -51,86 +51,71 @@ class DateHorometersController extends AppController
     {
         $dateHorometer = $this->DateHorometers->newEntity();
         
-        $this->loadModel('DateHorometersMachines');
-
-        $dateMachine = $this->DateHorometersMachines->newEntity();
+        // $this->loadModel('DateHorometersMachines');
+        // $dateHoroMachine = $this->DateHorometersMachines->newEntity();
         
 
         if ($this->request->is('post')) {
+
+// $connection = ConnectionManager::get('default');
+
+            $dateHorometer = $this->DateHorometers->patchEntity($dateHorometer, $this->request->getData());
+// // $dateHoroMachine = $this->DateHorometersMachines->patchEntity($dateHoroMachine, $this->request->getData());
+
+// $horometers = $this->request->data();
+
+            $dateHorometer->user_created = $this->Auth->user('user_id');
+
+            $existe = $this->DateHorometers->find('all', [
+                'conditions' => ['date' => date('Y-m-d')]
+            ]);
+            $existe = $existe->first();
+
+            if (empty($existe)) 
+            {
+                $this->DateHorometers->save($dateHorometer);
+                $date_id = $dateHorometer->date_horometer_id;           
+
+                $this->Flash->success(__('Gerado Correctamente.'));
+
+                return $this->redirect(['action' => 'edit', $date_id]);
+            }
+            else
+            {
+                return $this->redirect(['action' => 'edit', $existe->date_horometer_id]);
+            }
+
             
-            // $article = new DateHorometersMachine([
-            //             'date_horometer_id' => 17,
-            //             'machine_id' => 1
-            //         ]);
-
-            // $this->article->save();
-
-            
-            $dateMachine->date_horometer_id = '17';
-            $dateMachine->machine_id = '1';
-
-            $this->DateHorometersMachines->save($dateMachine);
 
 
-            $this->DateHorometers->save($dateHorometer);
+            // for ($i=0; $i < count($horometers['date_horometers_machines']['day']); $i++) 
+            // {
+            //     if (!empty($horometers['date_horometers_machines']['day'][$i]) )
+            //     {
+            //         $dia = $horometers['date_horometers_machines']['day'][$i];
+            //     }
+            //     else
+            //     {
+            //         $dia = '0.00';
+            //     }
 
-            // $this->loadModel('DateHorometerMachine');
-            // $this->DateHorometerMachines->create();
-            // $this->DateHorometerMachines->date_horometer_id = 4;
-            // $this->DateHorometerMachines->machine_id = 1;
-            // $this->DateHorometerMachines->save();
+            //     if (!empty($horometers['date_horometers_machines']['night'][$i]) )
+            //     {
+            //         $noche = $horometers['date_horometers_machines']['night'][$i];
+            //     }
+            //     else
+            //     {
+            //         $noche = '0.00';
+            //     }
 
-            
-
-
-            // $horometerMachine = $this->DateHorometers->DateHorometersMachines->newEntity();
-            // $horometerMachine->date_horometer_id = 10;
-            // // $horometerMachine->machine_id = 1;
-
-            // $dateHorometer->date_horometers_machines = [$horometerMachine];
-
-            // $this->DateHorometers->save($dateHorometer);
-
-            // $id = 10;
-
-            // $publicaddimg = $this->DateHorometers->DateHorometersMachines->query();
-
-            // $data = [
-            //     'date_horometer_id' => $id,
-            //     'machine_id' => 1
-            // ];
-
-            // $publicaddimg->insert(['date_horometer_id','machine_id'])
-            //         ->values($data);
-
-
-            // $horometerTable = TableRegistry::get('DateHorometersMachine');
-
-            // $horometerTable = TableRegistry::getTableLocator()->get('DateHorometersMachine');
-            // $author = $horometer->DateHorometerMachines->findByUserName('mark')->first();
-
-            // $horometer->
-
-            // $horometer = $horometerTable->newEntity();
-            // $horometer->date_horometer_id = 9;
-            // $horometer->machine_id = 1;
-
-            // $horometerTable->save($horometer);
-
-
-            // if ($this->DateHorometers->save($dateHorometer)) {
-
-
-
-            //     $this->Flash->success(__('The date horometer has been saved.'));
-
-            //     return $this->redirect(['action' => 'add']);
+            //     $connection->insert('date_horometers_machines', [
+            //         'date_horometer_id' => $date_id,
+            //         'machine_id' => $horometers['date_horometers_machines']['machine_id'][$i],
+            //         'day' => $dia,
+            //         'night' => $noche
+            //     ]);
+                
             // }
-            // $this->Flash->error(__('The date horometer could not be saved. Please, try again.'));
-
-            // debug($this->request->getData());
-
-
 
         }
         $machines = $this->DateHorometers->Machines->find('list', ['limit' => 200]);
@@ -152,17 +137,54 @@ class DateHorometersController extends AppController
         $dateHorometer = $this->DateHorometers->get($id, [
             'contain' => ['Machines']
         ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $dateHorometer = $this->DateHorometers->patchEntity($dateHorometer, $this->request->getData());
-            if ($this->DateHorometers->save($dateHorometer)) {
-                $this->Flash->success(__('The date horometer has been saved.'));
+        if ($this->request->is(['patch', 'post', 'put'])) 
+        {
+            // $dateHorometer = $this->DateHorometers->patchEntity($dateHorometer, $this->request->getData());
+            // if ($this->DateHorometers->save($dateHorometer)) 
+            // {
+                $connection = ConnectionManager::get('default');
+                $horometers = $this->request->data();     
 
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The date horometer could not be saved. Please, try again.'));
+
+                for ($i=0; $i < count($horometers['date_horometers_machines']['day']); $i++) 
+                {
+                    if (!empty($horometers['date_horometers_machines']['day'][$i]) )
+                    {
+                        $dia = $horometers['date_horometers_machines']['day'][$i];
+                    }
+                    else
+                    {
+                        $dia = '0.00';
+                    }
+
+                    if (!empty($horometers['date_horometers_machines']['night'][$i]) )
+                    {
+                        $noche = $horometers['date_horometers_machines']['night'][$i];
+                    }
+                    else
+                    {
+                        $noche = '0.00';
+                    }
+
+                    $connection->insert('date_horometers_machines', [
+                        'date_horometer_id' => $id,
+                        'machine_id' => $horometers['date_horometers_machines']['machine_id'][$i],
+                        'day' => $dia,
+                        'night' => $noche
+                    ]);
+                    
+                }
+                // $this->Flash->success(__('The date horometer has been saved.'));
+
+                // return $this->redirect(['action' => 'index']);
+            // }
+            // $this->Flash->error(__('The date horometer could not be saved. Please, try again.'));
         }
         $machines = $this->DateHorometers->Machines->find('list', ['limit' => 200]);
-        $this->set(compact('dateHorometer', 'machines'));
+
+        $listMachine = $this->DateHorometers->Machines->find('all');
+
+        $this->set(compact('dateHorometer', 'machines', 'listMachine'));
     }
 
     /**
