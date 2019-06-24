@@ -68,7 +68,7 @@ return [
      *   You should treat it as extremely sensitive data.
      */
     'Security' => [
-        'salt' => env('SECURITY_SALT', '__SALT__'),
+        'salt' => env('SECURITY_SALT', 'cambiarsalt'),
     ],
 
     /**
@@ -257,7 +257,7 @@ return [
             //'port' => 'non_standard_port_number',
             'username' => 'root',
             'password' => '',
-            'database' => 'dbthesand',
+            'database' => 'thesanddb',
             /*
              * You do not need to set this flag to use full utf-8 encoding (internal default since CakePHP 3.6).
              */

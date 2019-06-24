@@ -18,7 +18,9 @@ class RolsControllerTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.Rols'
+        'app.Rols',
+        'app.Functionalities',
+        'app.FunctionalitiesRols'
     ];
 
     /**
