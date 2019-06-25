@@ -34,7 +34,7 @@ class AreasTable extends Table
 
         $this->setTable('areas');
         $this->setDisplayField('name');
-        $this->setPrimaryKey('area_id');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
     }
@@ -48,8 +48,8 @@ class AreasTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('area_id')
-            ->allowEmptyString('area_id', 'create');
+            ->integer('id')
+            ->allowEmptyString('id', 'create');
 
         $validator
             ->scalar('name')

@@ -7,8 +7,8 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Opciones') ?></li>
-        <li><?= $this->Html->link(__('Editar Linea'), ['action' => 'edit', $group->group_id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Eliminar Linea'), ['action' => 'delete', $group->group_id], ['confirm' => __('Estas seguro que quiere eliminar: {0}?', $group->name)]) ?> </li>
+        <li><?= $this->Html->link(__('Editar Linea'), ['action' => 'edit', $group->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Eliminar Linea'), ['action' => 'delete', $group->id], ['confirm' => __('Estas seguro que quiere eliminar: {0}?', $group->name)]) ?> </li>
         <li><?= $this->Html->link(__('Lista Lineas'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('Nueva Linea'), ['action' => 'add']) ?> </li>
     </ul>

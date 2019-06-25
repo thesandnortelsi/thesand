@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\DateHorometer[]|\Cake\Collection\CollectionInterface $dateHorometers
+ * @var \App\Model\Entity\Datehorometer[]|\Cake\Collection\CollectionInterface $datehorometers
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
@@ -12,28 +12,27 @@
         <li><?= $this->Html->link(__('Nueva Máquina'), ['controller' => 'Machines', 'action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="dateHorometers index large-9 medium-8 columns content">
+<div class="datehorometers index large-9 medium-8 columns content">
     <h3><?= __('Lista Horómetros') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('date', 'Fecha') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('state', 'Estado') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created', 'Fecha Creó') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified', 'Fecha Modificó') ?></th>
                 <th scope="col" class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($dateHorometers as $dateHorometer): ?>
+            <?php foreach ($datehorometers as $datehorometer): ?>
             <tr>
-                <td><?= h($dateHorometer->date) ?></td>
-                <td><?= h($dateHorometer->state) ?></td>
-                <td><?= h($dateHorometer->created) ?></td>
-                <td><?= h($dateHorometer->modified) ?></td>
+                <td><?= h($datehorometer->date) ?></td>
+                <td><?= h($datehorometer->created) ?></td>
+                <td><?= h($datehorometer->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $dateHorometer->date_horometer_id]) ?>
-                    <!-- <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $dateHorometer->date_horometer_id], ['confirm' => __('Are you sure you want to delete {0}?', $dateHorometer->date)]) ?> -->
+                    <!-- <?= $this->Html->link(__('Ver'), ['action' => 'view', $datehorometer->id]) ?> -->
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $datehorometer->id]) ?>
+                    <!-- <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $datehorometer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $datehorometer->id)]) ?> -->
                 </td>
             </tr>
             <?php endforeach; ?>

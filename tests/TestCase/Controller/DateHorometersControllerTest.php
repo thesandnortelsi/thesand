@@ -1,14 +1,14 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\DateHorometersController;
+use App\Controller\DatehorometersController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\DateHorometersController Test Case
+ * App\Controller\DatehorometersController Test Case
  */
-class DateHorometersControllerTest extends TestCase
+class DatehorometersControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -18,9 +18,9 @@ class DateHorometersControllerTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.DateHorometers',
+        'app.Datehorometers',
         'app.Machines',
-        'app.DateHorometersMachines'
+        'app.DatehorometersMachines'
     ];
 
     /**

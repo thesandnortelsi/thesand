@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
  * Models Model
  *
  * @property \App\Model\Table\ManufacturersTable|\Cake\ORM\Association\BelongsTo $Manufacturers
+ * @property |\Cake\ORM\Association\HasMany $Machines
  *
  * @method \App\Model\Entity\Model get($primaryKey, $options = [])
  * @method \App\Model\Entity\Model newEntity($data = null, array $options = [])
@@ -36,13 +37,16 @@ class ModelsTable extends Table
 
         $this->setTable('models');
         $this->setDisplayField('name');
-        $this->setPrimaryKey('model_id');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Manufacturers', [
             'foreignKey' => 'manufacture_id',
             'joinType' => 'INNER'
+        ]);
+        $this->hasMany('Machines', [
+            'foreignKey' => 'model_id'
         ]);
     }
 
@@ -55,8 +59,8 @@ class ModelsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('model_id')
-            ->allowEmptyString('model_id', 'create');
+            ->integer('id')
+            ->allowEmptyString('id', 'create');
 
         $validator
             ->scalar('name')

@@ -1,58 +1,54 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\DateHorometer $dateHorometer
+ * @var \App\Model\Entity\Datehorometer $datehorometer
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Date Horometer'), ['action' => 'edit', $dateHorometer->date_horometer_id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Date Horometer'), ['action' => 'delete', $dateHorometer->date_horometer_id], ['confirm' => __('Are you sure you want to delete # {0}?', $dateHorometer->date_horometer_id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Date Horometers'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Date Horometer'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('Edit Datehorometer'), ['action' => 'edit', $datehorometer->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Delete Datehorometer'), ['action' => 'delete', $datehorometer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $datehorometer->id)]) ?> </li>
+        <li><?= $this->Html->link(__('List Datehorometers'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Datehorometer'), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Machines'), ['controller' => 'Machines', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Machine'), ['controller' => 'Machines', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
-<div class="dateHorometers view large-9 medium-8 columns content">
-    <h3><?= h($dateHorometer->date_horometer_id) ?></h3>
+<div class="datehorometers view large-9 medium-8 columns content">
+    <h3><?= h($datehorometer->id) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('State') ?></th>
-            <td><?= h($dateHorometer->state) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Date Horometer Id') ?></th>
-            <td><?= $this->Number->format($dateHorometer->date_horometer_id) ?></td>
+            <th scope="row"><?= __('Id') ?></th>
+            <td><?= $this->Number->format($datehorometer->id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('User Created') ?></th>
-            <td><?= $this->Number->format($dateHorometer->user_created) ?></td>
+            <td><?= $this->Number->format($datehorometer->user_created) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('User Modified') ?></th>
-            <td><?= $this->Number->format($dateHorometer->user_modified) ?></td>
+            <td><?= $this->Number->format($datehorometer->user_modified) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Date') ?></th>
-            <td><?= h($dateHorometer->date) ?></td>
+            <td><?= h($datehorometer->date) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($dateHorometer->created) ?></td>
+            <td><?= h($datehorometer->created) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($dateHorometer->modified) ?></td>
+            <td><?= h($datehorometer->modified) ?></td>
         </tr>
     </table>
     <div class="related">
         <h4><?= __('Related Machines') ?></h4>
-        <?php if (!empty($dateHorometer->machines)): ?>
+        <?php if (!empty($datehorometer->machines)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Machine Id') ?></th>
+                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Area Id') ?></th>
                 <th scope="col"><?= __('Model Id') ?></th>
                 <th scope="col"><?= __('Group Id') ?></th>
@@ -72,9 +68,9 @@
                 <th scope="col"><?= __('Modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
-            <?php foreach ($dateHorometer->machines as $machines): ?>
+            <?php foreach ($datehorometer->machines as $machines): ?>
             <tr>
-                <td><?= h($machines->machine_id) ?></td>
+                <td><?= h($machines->id) ?></td>
                 <td><?= h($machines->area_id) ?></td>
                 <td><?= h($machines->model_id) ?></td>
                 <td><?= h($machines->group_id) ?></td>
@@ -93,9 +89,9 @@
                 <td><?= h($machines->user_modified) ?></td>
                 <td><?= h($machines->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Machines', 'action' => 'view', $machines->machine_id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Machines', 'action' => 'edit', $machines->machine_id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Machines', 'action' => 'delete', $machines->machine_id], ['confirm' => __('Are you sure you want to delete # {0}?', $machines->machine_id)]) ?>
+                    <?= $this->Html->link(__('View'), ['controller' => 'Machines', 'action' => 'view', $machines->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Machines', 'action' => 'edit', $machines->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Machines', 'action' => 'delete', $machines->id], ['confirm' => __('Are you sure you want to delete # {0}?', $machines->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

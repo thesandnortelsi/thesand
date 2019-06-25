@@ -7,8 +7,8 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Editar Marca'), ['action' => 'edit', $manufacturer->manufacture_id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Eliminar Marca'), ['action' => 'delete', $manufacturer->manufacture_id], ['confirm' => __('Está seguro que quiere eliminar: {0}?', $manufacturer->name)]) ?> </li>
+        <li><?= $this->Html->link(__('Editar Marca'), ['action' => 'edit', $manufacturer->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Eliminar Marca'), ['action' => 'delete', $manufacturer->id], ['confirm' => __('Está seguro que quiere eliminar: {0}?', $manufacturer->name)]) ?> </li>
         <li><?= $this->Html->link(__('Lista Marcas'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('Nueva Marca'), ['action' => 'add']) ?> </li>
     </ul>

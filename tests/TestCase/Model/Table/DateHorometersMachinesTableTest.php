@@ -1,21 +1,21 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\DateHorometersMachinesTable;
+use App\Model\Table\DatehorometersMachinesTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\DateHorometersMachinesTable Test Case
+ * App\Model\Table\DatehorometersMachinesTable Test Case
  */
-class DateHorometersMachinesTableTest extends TestCase
+class DatehorometersMachinesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\DateHorometersMachinesTable
+     * @var \App\Model\Table\DatehorometersMachinesTable
      */
-    public $DateHorometersMachines;
+    public $DatehorometersMachines;
 
     /**
      * Fixtures
@@ -23,8 +23,8 @@ class DateHorometersMachinesTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.DateHorometersMachines',
-        'app.DateHorometers',
+        'app.DatehorometersMachines',
+        'app.Datehorometers',
         'app.Machines'
     ];
 
@@ -36,8 +36,8 @@ class DateHorometersMachinesTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::getTableLocator()->exists('DateHorometersMachines') ? [] : ['className' => DateHorometersMachinesTable::class];
-        $this->DateHorometersMachines = TableRegistry::getTableLocator()->get('DateHorometersMachines', $config);
+        $config = TableRegistry::getTableLocator()->exists('DatehorometersMachines') ? [] : ['className' => DatehorometersMachinesTable::class];
+        $this->DatehorometersMachines = TableRegistry::getTableLocator()->get('DatehorometersMachines', $config);
     }
 
     /**
@@ -47,7 +47,7 @@ class DateHorometersMachinesTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->DateHorometersMachines);
+        unset($this->DatehorometersMachines);
 
         parent::tearDown();
     }

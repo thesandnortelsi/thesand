@@ -4,18 +4,18 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * DateHorometersMachine Entity
+ * DatehorometersMachine Entity
  *
- * @property int $date_horometer_id
- * @property int $machine_id
+ * @property int $id
+ * @property int $datehorometer_id
+ * @property int $machines_id
  * @property float|null $day
  * @property float|null $night
- * @property float|null $last
  *
- * @property \App\Model\Entity\DateHorometer $date_horometer
+ * @property \App\Model\Entity\Datehorometer $datehorometer
  * @property \App\Model\Entity\Machine $machine
  */
-class DateHorometersMachine extends Entity
+class DatehorometersMachine extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -27,10 +27,11 @@ class DateHorometersMachine extends Entity
      * @var array
      */
     protected $_accessible = [
+        'datehorometer_id' => true,
+        'machines_id' => true,
         'day' => true,
         'night' => true,
-        'last' => true,
-        'date_horometer' => true,
+        'datehorometer' => true,
         'machine' => true
     ];
 }

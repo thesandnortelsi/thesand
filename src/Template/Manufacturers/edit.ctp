@@ -9,7 +9,7 @@
         <li class="heading"><?= __('Opciones') ?></li>
         <li><?= $this->Form->postLink(
                 __('Eliminar'),
-                ['action' => 'delete', $manufacturer->manufacture_id],
+                ['action' => 'delete', $manufacturer->id],
                 ['confirm' => __('Está seguro que quiere eliminar: {0}?', $manufacturer->name)]
             )
         ?></li>

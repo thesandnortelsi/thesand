@@ -7,8 +7,8 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Opciones') ?></li>
-        <li><?= $this->Html->link(__('Editar Modelo'), ['action' => 'edit', $model->model_id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Eliminar Modelo'), ['action' => 'delete', $model->model_id], ['confirm' => __('Estas seguro que quiere eliminar: {0}?', $model->name)]) ?> </li>
+        <li><?= $this->Html->link(__('Editar Modelo'), ['action' => 'edit', $model->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Eliminar Modelo'), ['action' => 'delete', $model->id], ['confirm' => __('Estas seguro que quiere eliminar: {0}?', $model->name)]) ?> </li>
         <li><?= $this->Html->link(__('Lista Modelos'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('Nuevo Modelo'), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('Lista Marcas'), ['controller' => 'Manufacturers', 'action' => 'index']) ?> </li>

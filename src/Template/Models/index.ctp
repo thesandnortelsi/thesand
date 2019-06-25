@@ -38,9 +38,9 @@
                 <td><?= h($model->description) ?></td>
                 <td><?= h($model->state) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $model->model_id]) ?>
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $model->model_id]) ?>
-                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $model->model_id], ['confirm' => __('Esta seguro que quiere eliminar {0}?', $model->name)]) ?>
+                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $model->id]) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $model->id]) ?>
+                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $model->id], ['confirm' => __('Esta seguro que quiere eliminar {0}?', $model->name)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

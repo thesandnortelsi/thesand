@@ -38,9 +38,9 @@
                 <td><?= $this->Number->format($group->user_modified) ?></td>
                 <td><?= h($group->datetime) ?></td> -->
                 <td class="actions">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $group->group_id]) ?>
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $group->group_id]) ?>
-                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $group->group_id], ['confirm' => __('Estas seguro que quiere eliminar: {0}?', $group->name)]) ?>
+                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $group->id]) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $group->id]) ?>
+                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $group->id], ['confirm' => __('Estas seguro que quiere eliminar: {0}?', $group->name)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

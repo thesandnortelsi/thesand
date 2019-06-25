@@ -38,7 +38,7 @@ class MachinesTable extends Table
 
         $this->setTable('machines');
         $this->setDisplayField('name');
-        $this->setPrimaryKey('machine_id');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 
@@ -65,8 +65,8 @@ class MachinesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('machine_id')
-            ->allowEmptyString('machine_id', 'create');
+            ->integer('id')
+            ->allowEmptyString('id', 'create');
 
         $validator
             ->scalar('code')

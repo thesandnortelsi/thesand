@@ -15,7 +15,7 @@ class ModelsFixture extends TestFixture
      */
     // @codingStandardsIgnoreStart
     public $fields = [
-        'model_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
+        'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'manufacture_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'name' => ['type' => 'string', 'length' => 200, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'description' => ['type' => 'string', 'length' => 250, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
@@ -28,8 +28,8 @@ class ModelsFixture extends TestFixture
             'fk_models_brands1_idx' => ['type' => 'index', 'columns' => ['manufacture_id'], 'length' => []],
         ],
         '_constraints' => [
-            'primary' => ['type' => 'primary', 'columns' => ['model_id'], 'length' => []],
-            'fk_models_brands1' => ['type' => 'foreign', 'columns' => ['manufacture_id'], 'references' => ['manufacturers', 'manufacture_id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
+            'fk_models_brands1' => ['type' => 'foreign', 'columns' => ['manufacture_id'], 'references' => ['manufacturers', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -46,15 +46,15 @@ class ModelsFixture extends TestFixture
     {
         $this->records = [
             [
-                'model_id' => 1,
+                'id' => 1,
                 'manufacture_id' => 1,
                 'name' => 'Lorem ipsum dolor sit amet',
                 'description' => 'Lorem ipsum dolor sit amet',
                 'state' => 'Lorem ',
                 'user_created' => 1,
-                'created' => '2019-06-19 15:25:44',
+                'created' => '2019-06-25 16:09:26',
                 'user_modified' => 1,
-                'modified' => '2019-06-19 15:25:44'
+                'modified' => '2019-06-25 16:09:26'
             ],
         ];
         parent::init();

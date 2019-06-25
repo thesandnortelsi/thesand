@@ -38,9 +38,9 @@
                 <td><?= $this->Number->format($manufacturer->user_modified) ?></td>
                 <td><?= h($manufacturer->modified) ?></td> -->
                 <td class="actions">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $manufacturer->manufacture_id]) ?>
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $manufacturer->manufacture_id]) ?>
-                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $manufacturer->manufacture_id], ['confirm' => __('Está seguro que quiere eliminar:  {0}?', $manufacturer->name)]) ?>
+                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $manufacturer->id]) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $manufacturer->id]) ?>
+                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $manufacturer->id], ['confirm' => __('Está seguro que quiere eliminar:  {0}?', $manufacturer->name)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

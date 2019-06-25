@@ -7,22 +7,22 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * DateHorometers Model
+ * Datehorometers Model
  *
  * @property \App\Model\Table\MachinesTable|\Cake\ORM\Association\BelongsToMany $Machines
  *
- * @method \App\Model\Entity\DateHorometer get($primaryKey, $options = [])
- * @method \App\Model\Entity\DateHorometer newEntity($data = null, array $options = [])
- * @method \App\Model\Entity\DateHorometer[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\DateHorometer|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\DateHorometer saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\DateHorometer patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\DateHorometer[] patchEntities($entities, array $data, array $options = [])
- * @method \App\Model\Entity\DateHorometer findOrCreate($search, callable $callback = null, $options = [])
+ * @method \App\Model\Entity\Datehorometer get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Datehorometer newEntity($data = null, array $options = [])
+ * @method \App\Model\Entity\Datehorometer[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Datehorometer|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Datehorometer saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Datehorometer patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Datehorometer[] patchEntities($entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Datehorometer findOrCreate($search, callable $callback = null, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class DateHorometersTable extends Table
+class DatehorometersTable extends Table
 {
     /**
      * Initialize method
@@ -34,16 +34,16 @@ class DateHorometersTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('date_horometers');
-        $this->setDisplayField('date_horometer_id');
-        $this->setPrimaryKey('date_horometer_id');
+        $this->setTable('datehorometers');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 
         $this->belongsToMany('Machines', [
-            'foreignKey' => 'date_horometer_id',
+            'foreignKey' => 'datehorometer_id',
             'targetForeignKey' => 'machine_id',
-            'joinTable' => 'date_horometers_machines'
+            'joinTable' => 'datehorometers_machines'
         ]);
     }
 
@@ -56,17 +56,12 @@ class DateHorometersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('date_horometer_id')
-            ->allowEmptyString('date_horometer_id', 'create');
+            ->integer('id')
+            ->allowEmptyString('id', 'create');
 
         $validator
             ->date('date')
             ->allowEmptyDate('date');
-
-        $validator
-            ->scalar('state')
-            ->maxLength('state', 8)
-            ->allowEmptyString('state');
 
         $validator
             ->integer('user_created')

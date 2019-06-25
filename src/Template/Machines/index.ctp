@@ -53,9 +53,9 @@
                 <td><?= h($machine->state) ?></td>
                 
                 <td class="actions">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $machine->machine_id]) ?>
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $machine->machine_id]) ?>
-                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $machine->machine_id], ['confirm' => __('Está seguro que quiere eliminar: {0}?', $machine->name)]) ?>
+                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $machine->id]) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $machine->id]) ?>
+                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $machine->id], ['confirm' => __('Está seguro que quiere eliminar: {0}?', $machine->name)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

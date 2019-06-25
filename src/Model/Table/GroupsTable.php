@@ -34,7 +34,7 @@ class GroupsTable extends Table
 
         $this->setTable('groups');
         $this->setDisplayField('name');
-        $this->setPrimaryKey('group_id');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
     }
@@ -48,8 +48,8 @@ class GroupsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('group_id')
-            ->allowEmptyString('group_id', 'create');
+            ->integer('id')
+            ->allowEmptyString('id', 'create');
 
         $validator
             ->scalar('name')

@@ -4,12 +4,13 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 /**
- * DateHorometersMachines Controller
+ * DatehorometersMachines Controller
  *
+ * @property \App\Model\Table\DatehorometersMachinesTable $DatehorometersMachines
  *
- * @method \App\Model\Entity\DateHorometersMachine[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\DatehorometersMachine[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class DateHorometersMachinesController extends AppController
+class DatehorometersMachinesController extends AppController
 {
     /**
      * Index method
@@ -18,25 +19,28 @@ class DateHorometersMachinesController extends AppController
      */
     public function index()
     {
-        $dateHorometersMachines = $this->paginate($this->DateHorometersMachines);
+        $this->paginate = [
+            'contain' => ['Datehorometers', 'Machines']
+        ];
+        $datehorometersMachines = $this->paginate($this->DatehorometersMachines);
 
-        $this->set(compact('dateHorometersMachines'));
+        $this->set(compact('datehorometersMachines'));
     }
 
     /**
      * View method
      *
-     * @param string|null $id Date Horometers Machine id.
+     * @param string|null $id Datehorometers Machine id.
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
-        $dateHorometersMachine = $this->DateHorometersMachines->get($id, [
-            'contain' => []
+        $datehorometersMachine = $this->DatehorometersMachines->get($id, [
+            'contain' => ['Datehorometers', 'Machines']
         ]);
 
-        $this->set('dateHorometersMachine', $dateHorometersMachine);
+        $this->set('datehorometersMachine', $datehorometersMachine);
     }
 
     /**
@@ -46,58 +50,62 @@ class DateHorometersMachinesController extends AppController
      */
     public function add()
     {
-        $dateHorometersMachine = $this->DateHorometersMachines->newEntity();
+        $datehorometersMachine = $this->DatehorometersMachines->newEntity();
         if ($this->request->is('post')) {
-            $dateHorometersMachine = $this->DateHorometersMachines->patchEntity($dateHorometersMachine, $this->request->getData());
-            if ($this->DateHorometersMachines->save($dateHorometersMachine)) {
-                $this->Flash->success(__('The date horometers machine has been saved.'));
+            $datehorometersMachine = $this->DatehorometersMachines->patchEntity($datehorometersMachine, $this->request->getData());
+            if ($this->DatehorometersMachines->save($datehorometersMachine)) {
+                $this->Flash->success(__('The datehorometers machine has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The date horometers machine could not be saved. Please, try again.'));
+            $this->Flash->error(__('The datehorometers machine could not be saved. Please, try again.'));
         }
-        $this->set(compact('dateHorometersMachine'));
+        $datehorometers = $this->DatehorometersMachines->Datehorometers->find('list', ['limit' => 200]);
+        $machines = $this->DatehorometersMachines->Machines->find('list', ['limit' => 200]);
+        $this->set(compact('datehorometersMachine', 'datehorometers', 'machines'));
     }
 
     /**
      * Edit method
      *
-     * @param string|null $id Date Horometers Machine id.
+     * @param string|null $id Datehorometers Machine id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function edit($id = null)
     {
-        $dateHorometersMachine = $this->DateHorometersMachines->get($id, [
+        $datehorometersMachine = $this->DatehorometersMachines->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $dateHorometersMachine = $this->DateHorometersMachines->patchEntity($dateHorometersMachine, $this->request->getData());
-            if ($this->DateHorometersMachines->save($dateHorometersMachine)) {
-                $this->Flash->success(__('The date horometers machine has been saved.'));
+            $datehorometersMachine = $this->DatehorometersMachines->patchEntity($datehorometersMachine, $this->request->getData());
+            if ($this->DatehorometersMachines->save($datehorometersMachine)) {
+                $this->Flash->success(__('The datehorometers machine has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The date horometers machine could not be saved. Please, try again.'));
+            $this->Flash->error(__('The datehorometers machine could not be saved. Please, try again.'));
         }
-        $this->set(compact('dateHorometersMachine'));
+        $datehorometers = $this->DatehorometersMachines->Datehorometers->find('list', ['limit' => 200]);
+        $machines = $this->DatehorometersMachines->Machines->find('list', ['limit' => 200]);
+        $this->set(compact('datehorometersMachine', 'datehorometers', 'machines'));
     }
 
     /**
      * Delete method
      *
-     * @param string|null $id Date Horometers Machine id.
+     * @param string|null $id Datehorometers Machine id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $dateHorometersMachine = $this->DateHorometersMachines->get($id);
-        if ($this->DateHorometersMachines->delete($dateHorometersMachine)) {
-            $this->Flash->success(__('The date horometers machine has been deleted.'));
+        $datehorometersMachine = $this->DatehorometersMachines->get($id);
+        if ($this->DatehorometersMachines->delete($datehorometersMachine)) {
+            $this->Flash->success(__('The datehorometers machine has been deleted.'));
         } else {
-            $this->Flash->error(__('The date horometers machine could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The datehorometers machine could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

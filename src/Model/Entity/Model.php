@@ -6,7 +6,7 @@ use Cake\ORM\Entity;
 /**
  * Model Entity
  *
- * @property int $model_id
+ * @property int $id
  * @property int $manufacture_id
  * @property string|null $name
  * @property string|null $description

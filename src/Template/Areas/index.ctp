@@ -15,7 +15,7 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('area_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('description') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('state') ?></th>
@@ -29,7 +29,7 @@
         <tbody>
             <?php foreach ($areas as $area): ?>
             <tr>
-                <td><?= $this->Number->format($area->area_id) ?></td>
+                <td><?= $this->Number->format($area->id) ?></td>
                 <td><?= h($area->name) ?></td>
                 <td><?= h($area->description) ?></td>
                 <td><?= h($area->state) ?></td>
@@ -38,9 +38,9 @@
                 <td><?= $this->Number->format($area->user_modified) ?></td>
                 <td><?= h($area->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $area->area_id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $area->area_id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $area->area_id], ['confirm' => __('Are you sure you want to delete # {0}?', $area->area_id)]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $area->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $area->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $area->id], ['confirm' => __('Are you sure you want to delete # {0}?', $area->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

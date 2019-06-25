@@ -1,21 +1,21 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\DateHorometersTable;
+use App\Model\Table\DatehorometersTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\DateHorometersTable Test Case
+ * App\Model\Table\DatehorometersTable Test Case
  */
-class DateHorometersTableTest extends TestCase
+class DatehorometersTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\DateHorometersTable
+     * @var \App\Model\Table\DatehorometersTable
      */
-    public $DateHorometers;
+    public $Datehorometers;
 
     /**
      * Fixtures
@@ -23,7 +23,7 @@ class DateHorometersTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.DateHorometers',
+        'app.Datehorometers',
         'app.Machines'
     ];
 
@@ -35,8 +35,8 @@ class DateHorometersTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::getTableLocator()->exists('DateHorometers') ? [] : ['className' => DateHorometersTable::class];
-        $this->DateHorometers = TableRegistry::getTableLocator()->get('DateHorometers', $config);
+        $config = TableRegistry::getTableLocator()->exists('Datehorometers') ? [] : ['className' => DatehorometersTable::class];
+        $this->Datehorometers = TableRegistry::getTableLocator()->get('Datehorometers', $config);
     }
 
     /**
@@ -46,7 +46,7 @@ class DateHorometersTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->DateHorometers);
+        unset($this->Datehorometers);
 
         parent::tearDown();
     }

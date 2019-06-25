@@ -7,21 +7,21 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * DateHorometersMachines Model
+ * DatehorometersMachines Model
  *
- * @property \App\Model\Table\DateHorometersTable|\Cake\ORM\Association\BelongsTo $DateHorometers
+ * @property \App\Model\Table\DatehorometersTable|\Cake\ORM\Association\BelongsTo $Datehorometers
  * @property \App\Model\Table\MachinesTable|\Cake\ORM\Association\BelongsTo $Machines
  *
- * @method \App\Model\Entity\DateHorometersMachine get($primaryKey, $options = [])
- * @method \App\Model\Entity\DateHorometersMachine newEntity($data = null, array $options = [])
- * @method \App\Model\Entity\DateHorometersMachine[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\DateHorometersMachine|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\DateHorometersMachine saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\DateHorometersMachine patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\DateHorometersMachine[] patchEntities($entities, array $data, array $options = [])
- * @method \App\Model\Entity\DateHorometersMachine findOrCreate($search, callable $callback = null, $options = [])
+ * @method \App\Model\Entity\DatehorometersMachine get($primaryKey, $options = [])
+ * @method \App\Model\Entity\DatehorometersMachine newEntity($data = null, array $options = [])
+ * @method \App\Model\Entity\DatehorometersMachine[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\DatehorometersMachine|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\DatehorometersMachine saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\DatehorometersMachine patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\DatehorometersMachine[] patchEntities($entities, array $data, array $options = [])
+ * @method \App\Model\Entity\DatehorometersMachine findOrCreate($search, callable $callback = null, $options = [])
  */
-class DateHorometersMachinesTable extends Table
+class DatehorometersMachinesTable extends Table
 {
     /**
      * Initialize method
@@ -33,12 +33,12 @@ class DateHorometersMachinesTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('date_horometers_machines');
-        $this->setDisplayField('date_horometer_id');
-        $this->setPrimaryKey(['date_horometer_id', 'machine_id']);
+        $this->setTable('datehorometers_machines');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
 
-        $this->belongsTo('DateHorometers', [
-            'foreignKey' => 'date_horometer_id',
+        $this->belongsTo('Datehorometers', [
+            'foreignKey' => 'datehorometer_id',
             'joinType' => 'INNER'
         ]);
         $this->belongsTo('Machines', [
@@ -56,16 +56,16 @@ class DateHorometersMachinesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
+            ->integer('id')
+            ->allowEmptyString('id', 'create');
+
+        $validator
             ->decimal('day')
             ->allowEmptyString('day');
 
         $validator
             ->decimal('night')
             ->allowEmptyString('night');
-
-        $validator
-            ->decimal('last')
-            ->allowEmptyString('last');
 
         return $validator;
     }
@@ -79,7 +79,7 @@ class DateHorometersMachinesTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['date_horometer_id'], 'DateHorometers'));
+        $rules->add($rules->existsIn(['datehorometer_id'], 'Datehorometers'));
         $rules->add($rules->existsIn(['machine_id'], 'Machines'));
 
         return $rules;

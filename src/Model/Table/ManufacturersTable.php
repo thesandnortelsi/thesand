@@ -34,7 +34,7 @@ class ManufacturersTable extends Table
 
         $this->setTable('manufacturers');
         $this->setDisplayField('name');
-        $this->setPrimaryKey('manufacture_id');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
     }
@@ -48,8 +48,8 @@ class ManufacturersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('manufacture_id')
-            ->allowEmptyString('manufacture_id', 'create');
+            ->integer('id')
+            ->allowEmptyString('id', 'create');
 
         $validator
             ->scalar('name')
