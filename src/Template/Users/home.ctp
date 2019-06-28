@@ -209,7 +209,15 @@
               </ul>
             </li>
             <li>
-              <a href="widgets.html"> <i class="material-icons">panorama_horizontal</i> <span class="title">Widgets</span> <span class="label label-important bubble-only pull-right "></span></a>
+              <a href="#"> <i class="material-icons">build</i> <span class="title">Mantenimiento</span> <span class="selected"></span><span class="arrow  open "></span></a>
+
+              <ul class="sub-menu">
+                <li><?= $this->Html->link('Marcas', ['controller' => 'Manufacturers', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Modelos', ['controller' => 'Models', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Lineas', ['controller' => 'Groups', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Máquinas', ['controller' => 'Machines', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Horómetros', ['controller' => 'Datehorometers', 'action' => 'index']) ?></li>
+              </ul>
             </li>
             <li>
               <a href="email.html"> <i class="material-icons">email</i> <span class="title">Email</span> <span class=" badge badge-disable pull-right ">203</span>

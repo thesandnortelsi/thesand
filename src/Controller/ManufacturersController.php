@@ -11,13 +11,17 @@ use App\Controller\AppController;
  */
 class ManufacturersController extends AppController
 {
+    
+
     /**
      * Index method
      *
      * @return \Cake\Http\Response|void
      */
     public function index()
-    {
+    {       
+        $this->layout = 'maintenance';
+
         $manufacturers = $this->paginate($this->Manufacturers);
 
         $this->set(compact('manufacturers'));
@@ -32,6 +36,8 @@ class ManufacturersController extends AppController
      */
     public function view($id = null)
     {
+        $this->layout = 'maintenance';
+
         $manufacturer = $this->Manufacturers->get($id, [
             'contain' => []
         ]);
@@ -56,6 +62,8 @@ class ManufacturersController extends AppController
      */
     public function add()
     {
+        $this->layout = 'maintenance';
+
         $manufacturer = $this->Manufacturers->newEntity();
         if ($this->request->is('post')) {
 
@@ -81,6 +89,8 @@ class ManufacturersController extends AppController
      */
     public function edit($id = null)
     {
+        $this->layout = 'maintenance';
+
         $manufacturer = $this->Manufacturers->get($id, [
             'contain' => []
         ]);
@@ -108,6 +118,8 @@ class ManufacturersController extends AppController
      */
     public function delete($id = null)
     {
+        $this->layout = 'maintenance';
+        
         $this->request->allowMethod(['post', 'delete']);
         $manufacturer = $this->Manufacturers->get($id);
         if ($this->Manufacturers->delete($manufacturer)) {

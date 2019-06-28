@@ -228,13 +228,13 @@ $(document).ready(function() {
     nCloneTd.innerHTML = '<i class="fa fa-plus-circle"></i>';
     nCloneTd.className = "center";
      
-    $('#example2 thead tr').each( function () {
-        this.insertBefore( nCloneTh, this.childNodes[0] );
-    } );
-     
-    $('#example2 tbody tr').each( function () {
-        this.insertBefore(  nCloneTd.cloneNode( true ), this.childNodes[0] );
-    } );
+// $('#example2 thead tr').each( function () {
+//     this.insertBefore( nCloneTh, this.childNodes[0] );
+// } );
+ 
+// $('#example2 tbody tr').each( function () {
+//     this.insertBefore(  nCloneTd.cloneNode( true ), this.childNodes[0] );
+// } );
      
     /*
      * Initialse DataTables, with no sorting on the 'details' column
@@ -284,23 +284,23 @@ $(document).ready(function() {
      * Note that the indicator for showing which row is open is not controlled by DataTables,
      * rather it is done here
      */
-     $(document).on('click','#example2 tbody td i',function() {
-        var nTr = $(this).parents('tr')[0];
-        if ( oTable.fnIsOpen(nTr) )
-        {
-            /* This row is already open - close it */
-			this.removeClass = "fa fa-plus-circle";
-            this.addClass = "fa fa-minus-circle";     
-            oTable.fnClose( nTr );
-        }
-        else
-        {
-            /* Open this row */
-            this.removeClass = "fa fa-minus-circle";
-            this.addClass = "fa fa-plus-circle";  
-            oTable.fnOpen( nTr, fnFormatDetails(oTable, nTr), 'details' );
-        }
-    });
+//   $(document).on('click','#example2 tbody td i',function() {
+//      var nTr = $(this).parents('tr')[0];
+//      if ( oTable.fnIsOpen(nTr) )
+//      {
+//          /* This row is already open - close it */
+		// this.removeClass = "fa fa-plus-circle";
+//          this.addClass = "fa fa-minus-circle";     
+//          oTable.fnClose( nTr );
+//      }
+//      else
+//      {
+//          /* Open this row */
+//          this.removeClass = "fa fa-minus-circle";
+//          this.addClass = "fa fa-plus-circle";  
+//          oTable.fnOpen( nTr, fnFormatDetails(oTable, nTr), 'details' );
+//      }
+//  });
 	
 		$(".select2-wrapper").select2({minimumResultsForSearch: -1});
 

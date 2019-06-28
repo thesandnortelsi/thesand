@@ -20,6 +20,8 @@ class DatehorometersController extends AppController
      */
     public function index()
     {
+        $this->layout = 'maintenance';
+
         $datehorometers = $this->paginate($this->Datehorometers);
 
         $this->set(compact('datehorometers'));
@@ -48,6 +50,8 @@ class DatehorometersController extends AppController
      */
     public function add()
     {
+        $this->layout = 'maintenance';
+
         $datehorometer = $this->Datehorometers->newEntity();
         if ($this->request->is('post')) {
             $datehorometer = $this->Datehorometers->patchEntity($datehorometer, $this->request->getData());
@@ -94,6 +98,8 @@ class DatehorometersController extends AppController
      */
     public function edit($id = null)
     {
+        $this->layout = 'maintenance';
+        
         $datehorometer = $this->Datehorometers->get($id, [
             'contain' => ['Machines']
         ]);
