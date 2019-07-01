@@ -11,14 +11,7 @@ use App\Controller\AppController;
  * @method \App\Model\Entity\User[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class UsersController extends AppController
-{
-
-    public function initialize()
-    {
-        parent::initialize();
-        $this->viewBuilder()->setLayout('dashboard');
-    }
-    
+{    
     /**
      * Index method
      *
@@ -26,6 +19,8 @@ class UsersController extends AppController
      */
     public function index()
     {
+        $this->viewBuilder()->setLayout('dashboard');
+
         $this->paginate = [
             'contain' => ['Persons']
         ];
@@ -43,6 +38,8 @@ class UsersController extends AppController
      */
     public function view($id = null)
     {
+        $this->viewBuilder()->setLayout('dashboard');
+
         $user = $this->Users->get($id, [
             'contain' => ['Persons', 'Rols']
         ]);
@@ -69,6 +66,8 @@ class UsersController extends AppController
      */
     public function add()
     {
+        $this->viewBuilder()->setLayout('dashboard');
+
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
@@ -93,6 +92,8 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
+        $this->viewBuilder()->setLayout('dashboard');
+
         $user = $this->Users->get($id, [
             'contain' => ['Rols']
         ]);
