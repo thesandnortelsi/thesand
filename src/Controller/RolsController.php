@@ -12,6 +12,13 @@ use App\Controller\AppController;
  */
 class RolsController extends AppController
 {
+
+    public function initialize()
+    {
+        parent::initialize();
+        $this->viewBuilder()->setLayout('dashboard');
+    }
+
     /**
      * Index method
      *
@@ -45,8 +52,9 @@ class RolsController extends AppController
         {
             $modifico = (new UsersController())->usrById($rol->user_modified);
         }
+        $functionalities = $this->Rols->Functionalities->find('list', ['limit' => 200]);
 
-        $this->set(compact('rol', 'creo', 'modifico'));
+        $this->set(compact('rol', 'creo', 'modifico', 'functionalities'));
     }
 
     /**

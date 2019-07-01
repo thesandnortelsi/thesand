@@ -4,48 +4,90 @@
  * @var \App\Model\Entity\Group $group
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones') ?></li>
-        <li><?= $this->Html->link(__('Editar Linea'), ['action' => 'edit', $group->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Eliminar Linea'), ['action' => 'delete', $group->id], ['confirm' => __('Estas seguro que quiere eliminar: {0}?', $group->name)]) ?> </li>
-        <li><?= $this->Html->link(__('Lista Lineas'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Nueva Linea'), ['action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="groups view large-9 medium-8 columns content">
-    <h3><?= h($group->name) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Nombre') ?></th>
-            <td><?= h($group->name) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Descripción') ?></th>
-            <td><?= h($group->description) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Estado') ?></th>
-            <td><?= h($group->state) ?></td>
-        </tr>
-        
-        <tr>
-            <th scope="row"><?= __('Usuario Creó') ?></th>
-            <td><?php if(!empty($creo)) { echo $creo->username; }  ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Fecha Creó') ?></th>
-            <td><?= h($group->created) ?></td>
-        </tr>
+<ul class="breadcrumb">
+    <li>
+      <p>MANTENIMIENTO</p>
+    </li>
+    <li><?= $this->Html->link('Lineas', ['controller' => 'Groups', 'action' => 'index'], ['class' => 'active']) ?></li>
+  </ul>
+  <div class="page-title"> <i class="icon-custom-left"></i>
+    <h3>Ver - <span class="semi-bold">Linea</span></h3>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="grid simple form-grid">
+        <div class="grid-title no-border">
+          <div class="tools">
+            <a href="javascript:;" class="collapse"></a>
+            <a href="#grid-config" data-toggle="modal" class="config"></a>
+            <a href="javascript:;" class="reload"></a>
+            <a href="javascript:;" class="remove"></a>
+          </div>
+        </div>
+        <div class="grid-body no-border">
 
-        <tr>
-            <th scope="row"><?= __('Usuario Modifico') ?></th>
-            <td><?php if(!empty($modifico)) { echo $modifico->username; }  ?></td>
-        </tr>
-        
-        <tr>
-            <th scope="row"><?= __('Fecha Modificó') ?></th>
-            <td><?= h($group->modified) ?></td>
-        </tr>
-    </table>
-</div>
+        <?= $this->Form->create($group) ?>
+
+            <div class="form-group">
+              <?= $this->Form->control('name', [ 'label' =>'Nombre', ' class' => 'form-control', 'disabled' => 'true']); ?>
+            </div>
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('description', [ 'label' =>'Descripción', 'class' => 'form-control', 'disabled' => 'true']); ?>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('state', [ 'label' => 'Estado', 'class' => 'form-control select2', 'disabled' => 'true', 'data-init-plugin' => 'select2', 'options' => ['ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO']]); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('state', [ 'label' => 'Estado', 'class' => 'form-control select2', 'disabled' => 'true', 'data-init-plugin' => 'select2', 'options' => ['ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO']]); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+               <?php if(!empty($creo->username)) { $creo_user = $creo->username; 
+
+                    echo $this->Form->control($creo_user, [ 'label' => 'Usuario Creó', 'class' => 'form-control select2', 'disabled' => 'true', 'data-init-plugin' => 'select2', 'value' => $creo_user]); 
+                }  ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('created', [ 'label' => 'Fecha Creó', 'disabled' => 'true', 'class' => 'form-control select2']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                 <?php if(!empty($modifico->username)) { $modifico_user = $modifico->username; 
+
+                    echo $this->Form->control($modifico_user, [ 'label' => 'Usuario Modificó', 'class' => 'form-control select2', 'disabled' => 'true', 'value' => $modifico_user]);
+                }  ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('modified', [ 'label' => 'Fecha Modificó', 'disabled' => 'true', 'class' => 'form-control select2']); ?>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <div class="pull-right">
+
+                <?= $this->Html->link('Regresar', ['controller' => 'Groups', 'action' => 'index'], ['class' => 'btn btn-info btn-cons']) ?>
+
+              </div>
+            </div>
+          <?= $this->Form->end() ?>
+        </div>
+      </div>
+    </div>
+    
+  </div>

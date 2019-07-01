@@ -36,8 +36,8 @@ class UsersTable extends Table
         parent::initialize($config);
 
         $this->setTable('users');
-        $this->setDisplayField('user_id');
-        $this->setPrimaryKey('user_id');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 
@@ -60,8 +60,8 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('user_id')
-            ->allowEmptyString('user_id', 'create');
+            ->integer('id')
+            ->allowEmptyString('id', 'create');
 
         $validator
             ->scalar('username')
@@ -109,7 +109,7 @@ class UsersTable extends Table
     {
 
         $query
-            ->select(['user_id', 'username', 'password', 'rol_id'])
+            ->select(['id', 'username', 'password', 'rol_id'])
             ->where(['Users.state' => 'ACTIVO']);
 
             return $query;

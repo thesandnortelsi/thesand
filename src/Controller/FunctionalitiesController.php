@@ -11,6 +11,13 @@ use App\Controller\AppController;
  */
 class FunctionalitiesController extends AppController
 {
+
+    public function initialize()
+    {
+        parent::initialize();
+        $this->viewBuilder()->setLayout('dashboard');
+    }
+
     /**
      * Index method
      *

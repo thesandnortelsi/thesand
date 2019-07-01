@@ -15,14 +15,14 @@
 		        Sign in to The Sand
 		      </h2>
 		          <p>
-		            Use Facebook, Twitter or your email to sign in.
+		            <!-- Use Facebook, Twitter or your email to sign in. -->
 		            <br>
-		            <a href="#">Sign up Now!</a> for a webarch account,It's free and always will be..
+		            <!-- <a href="#">Sign up Now!</a> for a webarch account,It's free and always will be.. -->
 		          </p>
 		          <br>
-		          <button class="btn btn-block btn-info col-md-8" type="button"><span class="pull-left icon-facebook" style="font-style: italic"></span> <span class="bold">Login with Facebook</span></button>
+		          <!-- <button class="btn btn-block btn-info col-md-8" type="button"><span class="pull-left icon-facebook" style="font-style: italic"></span> <span class="bold">Login with Facebook</span></button>
 		          <button class="btn btn-block btn-success col-md-8" type="button"><span class="pull-left icon-twitter" style="font-style: italic"></span>
-		            <span class="bold">Login with Twitter</span></button>
+		            <span class="bold">Login with Twitter</span></button> -->
 		        </div>
 		        <div class="col-md-5">
 		          <br>
@@ -46,7 +46,7 @@
 		            <div class="row">
 		              <div class="control-group col-md-10">
 		                <div class="checkbox checkbox check-success">
-		                  <a href="#">Trouble login in?</a>&nbsp;&nbsp;
+		                  <!-- <a href="#">Trouble login in?</a>&nbsp;&nbsp; -->
 		                  <input id="checkbox1" type="checkbox" value="1">
 		                  <label for="checkbox1">Keep me reminded</label>
 		                </div>

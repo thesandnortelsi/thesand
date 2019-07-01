@@ -4,99 +4,154 @@
  * @var \App\Model\Entity\Machine $machine
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones') ?></li>
-        <li><?= $this->Html->link(__('Editar Máquina'), ['action' => 'edit', $machine->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Eliminar Máquina'), ['action' => 'delete', $machine->id], ['confirm' => __('Está seguro que quiere eliminar: {0}?', $machine->id)]) ?> </li>
-        <li><?= $this->Html->link(__('Lista Máquinas'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Nueva Maquina'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('Lista Áreas'), ['controller' => 'Areas', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Nueva Área'), ['controller' => 'Areas', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('Lista Modelos'), ['controller' => 'Models', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Nuevo Modelo'), ['controller' => 'Models', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('Lista Lineas'), ['controller' => 'Groups', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Nueva Linea'), ['controller' => 'Groups', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="machines view large-9 medium-8 columns content">
-    <h3><?= h($machine->name) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Área') ?></th>
-            <td><?= $machine->has('area') ? $this->Html->link($machine->area->name, ['controller' => 'Areas', 'action' => 'view', $machine->area->area_id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modelo') ?></th>
-            <td><?= $machine->has('model') ? $this->Html->link($machine->model->name, ['controller' => 'Models', 'action' => 'view', $machine->model->model_id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Linea') ?></th>
-            <td><?= $machine->has('group') ? $this->Html->link($machine->group->name, ['controller' => 'Groups', 'action' => 'view', $machine->group->group_id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Código') ?></th>
-            <td><?= h($machine->code) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Nombre') ?></th>
-            <td><?= h($machine->name) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Descripción') ?></th>
-            <td><?= h($machine->description) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Serie') ?></th>
-            <td><?= h($machine->series) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Placa') ?></th>
-            <td><?= h($machine->plate) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Año') ?></th>
-            <td><?= h($machine->year) ?></td>
-        </tr>
-        
+<ul class="breadcrumb">
+    <li>
+      <p>MANTENIMIENTO</p>
+    </li>
+    <li><?= $this->Html->link('Máquinas', ['controller' => 'Machines', 'action' => 'index'], ['class' => 'active']) ?></li>
+  </ul>
+  <div class="page-title"> <i class="icon-custom-left"></i>
+    <h3>Ver - <span class="semi-bold">Máquina</span></h3>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="grid simple form-grid">
+        <div class="grid-title no-border">
+          <div class="tools">
+            <a href="javascript:;" class="collapse"></a>
+            <a href="#grid-config" data-toggle="modal" class="config"></a>
+            <a href="javascript:;" class="reload"></a>
+            <a href="javascript:;" class="remove"></a>
+          </div>
+        </div>
+        <div class="grid-body no-border">
 
-        <tr>
-            <th scope="row"><?= __('Inspección') ?></th>
-            <td><?= h($machine->ispection) ?></td>
-        </tr>
+<?= $this->Form->create($machine) ?>
 
-         <tr>
-            <th scope="row"><?= __('Fecha de Ingreso') ?></th>
-            <td><?= h($machine->entry) ?></td>
-        </tr>
+            <label>Área</label>
+            <div class="form-group">
+              <?= $machine->has('area') ? $this->Html->link($machine->area->name, ['controller' => 'Areas', 'action' => 'view', $machine->area->id]) : '' ?>
+            </div>
 
-        <tr>
-            <th scope="row"><?= __('Horómetro de Ingreso') ?></th>
-            <td><?= h($machine->horometer) ?></td>
-        </tr>
+            <label>Modelo</label>
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $machine->has('model') ? $this->Html->link($machine->model->name, ['controller' => 'Models', 'action' => 'view', $machine->model->id]) : '' ?>
+              </div>
+            </div>
 
-        <tr>
-            <th scope="row"><?= __('Estado') ?></th>
-            <td><?= h($machine->state) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Usuario Creó') ?></th>
-            <td><?php if(!empty($creo)) { echo $creo->username; }  ?></td>
-        </tr>
-        
-        <tr>
-            <th scope="row"><?= __('Fecha Creó') ?></th>
-            <td><?= h($machine->created) ?></td>
-        </tr>
+            <label>Linea</label>
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $machine->has('group') ? $this->Html->link($machine->group->name, ['controller' => 'Groups', 'action' => 'view', $machine->group->id]) : '' ?>
+              </div>
+            </div>
 
-        <tr>
-            <th scope="row"><?= __('Usuario Modificó') ?></th>
-            <td><?php if(!empty($modifico)) { echo $modifico->username; }  ?></td>
-        </tr>      
-        
-        <tr>
-            <th scope="row"><?= __('Fecha Modificó') ?></th>
-            <td><?= h($machine->modified) ?></td>
-        </tr>
-    </table>
-</div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('code', ['label' => 'Código', 'class' => 'form-control', 'disabled' => 'true']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('name', ['label' => 'Nombre', 'class' => 'form-control', 'disabled' => 'true']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('description', ['label' => 'Descripción', 'class' => 'form-control', 'disabled' => 'true']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('series', ['label' => 'Serie', 'class' => 'form-control', 'disabled' => 'true']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('plate', ['label' => 'Placa', 'class' => 'form-control', 'disabled' => 'true']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('year', ['label' => 'Año', 'class' => 'form-control', 'disabled' => 'true']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('ispection', ['label' => 'Fecha de Inspección', 'type' => 'date', 'class' => 'form-control', 'disabled' => 'true']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('entry', ['label' => 'Fecha de Ingreso', 'class' => 'form-control', 'disabled' => 'true']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('horometer', ['label' => 'Horómetro de Ingreso', 'class' => 'form-control', 'disabled' => 'true']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('state', [ 'label' => 'Estado', 'class' => 'form-control select2', 'disabled' => 'true', 'data-init-plugin' => 'select2', 'options' => ['ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO']]); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?php if(!empty($creo->username)) { $creo_user = $creo->username; 
+
+                    echo $this->Form->control($creo_user, [ 'label' => 'Usuario Creó', 'class' => 'form-control select2', 'disabled' => 'true', 'data-init-plugin' => 'select2', 'value' => $creo_user]); 
+                }  ?>
+                
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('created', [ 'label' => 'Fecha Creó', 'disabled' => 'true', 'class' => 'form-control select2']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?php if(!empty($modifico->username)) { $modifico_user = $modifico->username; 
+
+                echo $this->Form->control($modifico_user, [ 'label' => 'Usuario Modificó', 'class' => 'form-control select2', 'disabled' => 'true', 'value' => $modifico_user]);
+            }  ?>
+                
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('modified', [ 'label' => 'Fecha Modificó', 'disabled' => 'true', 'class' => 'form-control select2']); ?>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <div class="pull-right">
+
+                
+<?= $this->Form->end() ?>
+
+<?= $this->Html->link('Regresar', ['controller' => 'Machines', 'action' => 'index'], ['class' => 'btn btn-info btn-cons']) ?>
+
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>

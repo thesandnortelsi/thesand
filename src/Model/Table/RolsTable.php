@@ -36,7 +36,7 @@ class RolsTable extends Table
 
         $this->setTable('rols');
         $this->setDisplayField('name');
-        $this->setPrimaryKey('rol_id');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 
@@ -56,8 +56,8 @@ class RolsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('rol_id')
-            ->allowEmptyString('rol_id', 'create');
+            ->integer('id')
+            ->allowEmptyString('id', 'create');
 
         $validator
             ->scalar('name')

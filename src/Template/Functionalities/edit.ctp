@@ -4,31 +4,60 @@
  * @var \App\Model\Entity\Functionality $functionality
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $functionality->functionality_id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $functionality->functionality_id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Functionalities'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Rols'), ['controller' => 'Rols', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Rol'), ['controller' => 'Rols', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="functionalities form large-9 medium-8 columns content">
-    <?= $this->Form->create($functionality) ?>
-    <fieldset>
-        <legend><?= __('Editar Funcionalidad') ?></legend>
-        <?php
-            echo $this->Form->control('name', ['label' => 'Nombre']);
-            echo $this->Form->control('description', ['label' => 'Descripción']);
-            echo $this->Form->control('state', [ 'options' => ['ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO'], 'label' => 'Estado']);
-            echo $this->Form->control('user_modified', ['type' => 'hidden', 'value' => $current_user['user_id'] ]);
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-</div>
+<ul class="breadcrumb">
+    <li>
+      <p>DASHBOARD</p>
+    </li>
+    <li><?= $this->Html->link('Funcionalidades', ['controller' => 'Functionalities', 'action' => 'index'], ['class' => 'active']) ?></li>
+  </ul>
+  <div class="page-title"> <i class="icon-custom-left"></i>
+    <h3>Editar - <span class="semi-bold">Funcionalidad</span></h3>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="grid simple form-grid">
+        <div class="grid-title no-border">
+          <div class="tools">
+            <a href="javascript:;" class="collapse"></a>
+            <a href="#grid-config" data-toggle="modal" class="config"></a>
+            <a href="javascript:;" class="reload"></a>
+            <a href="javascript:;" class="remove"></a>
+          </div>
+        </div>
+        <div class="grid-body no-border">
+
+        <?= $this->Form->create($functionality) ?>
+
+            
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('name', ['label' => 'Nombre', 'class' => 'form-control']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('description', ['label' => 'Descripción', 'class' => 'form-control']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('state', [ 'label' => 'Estado', 'class' => 'form-control select2', 'data-init-plugin' => 'select2', 'options' => ['ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO']]); ?>
+              </div>
+            </div>
+            <div class="form-actions">
+              <div class="pull-right">
+
+                <?= $this->Form->button('Guardar', ['class' => 'btn btn-success btn-cons']) ?>
+                <?= $this->Html->link('Cancelar', ['controller' => 'Functionalities', 'action' => 'index'], ['class' => 'btn btn-white btn-cons']) ?>
+
+              </div>
+            </div>
+          <?= $this->Form->end() ?>
+        </div>
+      </div>
+    </div>
+    
+  </div>

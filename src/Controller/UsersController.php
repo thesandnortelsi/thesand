@@ -12,6 +12,13 @@ use App\Controller\AppController;
  */
 class UsersController extends AppController
 {
+
+    public function initialize()
+    {
+        parent::initialize();
+        $this->viewBuilder()->setLayout('dashboard');
+    }
+    
     /**
      * Index method
      *
@@ -49,7 +56,10 @@ class UsersController extends AppController
             $modifico = $this->Users->get($user->user_modified);
         }
 
-        $this->set(compact('user', 'creo', 'modifico'));
+        $persons = $this->Users->Persons->find('list', ['limit' => 200]);
+        $rols = $this->Users->Rols->find('list', ['limit' => 200]);
+
+        $this->set(compact('user', 'creo', 'modifico', 'persons', 'rols'));
     }
 
     /**

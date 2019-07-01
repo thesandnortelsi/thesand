@@ -4,29 +4,72 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Persons'), ['controller' => 'Persons', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Person'), ['controller' => 'Persons', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Rols'), ['controller' => 'Rols', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Rol'), ['controller' => 'Rols', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="users form large-9 medium-8 columns content">
-    <?= $this->Form->create($user) ?>
-    <fieldset>
-        <legend><?= __('Add User') ?></legend>
-        <?php
-            echo $this->Form->control('person_id', ['options' => $persons, 'label' => 'Persona']);
-            echo $this->Form->control('rol_id', ['options' => $rols, 'label' => 'Rol']);
-            echo $this->Form->control('username', [ 'label' => 'Usuario']);
-            echo $this->Form->control('password', [ 'label' => 'Contraseña']);
-            echo $this->Form->control('state', [ 'label' => 'Estado', 'options' => ['Activo' => 'Activo', 'Inactivo' => 'Inactivo']]);
-            echo $this->Form->control('user_created', ['type' => 'hidden', 'value' => $current_user['user_id'] ]);
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-</div>
+<ul class="breadcrumb">
+    <li>
+      <p>DASHBOARD</p>
+    </li>
+    <li><?= $this->Html->link('Usuarios', ['controller' => 'Users', 'action' => 'index'], ['class' => 'active']) ?></li>
+  </ul>
+  <div class="page-title"> <i class="icon-custom-left"></i>
+    <h3>Nuevo - <span class="semi-bold">Usuario</span></h3>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="grid simple form-grid">
+        <div class="grid-title no-border">
+          <div class="tools">
+            <a href="javascript:;" class="collapse"></a>
+            <a href="#grid-config" data-toggle="modal" class="config"></a>
+            <a href="javascript:;" class="reload"></a>
+            <a href="javascript:;" class="remove"></a>
+          </div>
+        </div>
+        <div class="grid-body no-border">
+
+        <?= $this->Form->create($user) ?>
+
+            
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('person_id', ['options' => $persons, 'label' => 'Persona', 'class' => 'form-control']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('rol_id', ['options' => $rols, 'label' => 'Rol', 'class' => 'form-control']);?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('username', ['label' => 'Usuario', 'class' => 'form-control']);?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('password', ['label' => 'Contraseña', 'class' => 'form-control']);?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('state', [ 'label' => 'Estado', 'class' => 'form-control select2', 'data-init-plugin' => 'select2', 'options' => ['ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO']]); ?>
+              </div>
+            </div>
+            <div class="form-actions">
+              <div class="pull-right">
+
+                <?= $this->Form->button('Guardar', ['class' => 'btn btn-success btn-cons']) ?>
+                <?= $this->Html->link('Cancelar', ['controller' => 'Users', 'action' => 'index'], ['class' => 'btn btn-white btn-cons']) ?>
+
+              </div>
+            </div>
+          <?= $this->Form->end() ?>
+        </div>
+      </div>
+    </div>
+    
+  </div>

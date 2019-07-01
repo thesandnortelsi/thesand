@@ -4,28 +4,54 @@
  * @var \App\Model\Entity\Group $group
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Eliminar'),
-                ['action' => 'delete', $group->id],
-                ['confirm' => __('Estas seguro que quiere eliminar: {0}?', $group->name)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('Lista Lineas'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
-<div class="groups form large-9 medium-8 columns content">
-    <?= $this->Form->create($group) ?>
-    <fieldset>
-        <legend><?= __('Editar Linea') ?></legend>
-        <?php
-            echo $this->Form->control('name', ['label' => 'Nombre']);
-            echo $this->Form->control('description', ['label' => 'Descripción']);
-            echo $this->Form->control('state', ['label' => 'Estado']);
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-</div>
+<ul class="breadcrumb">
+    <li>
+      <p>MANTENIMIENTO</p>
+    </li>
+    <li><?= $this->Html->link('Lineas', ['controller' => 'Groups', 'action' => 'index'], ['class' => 'active']) ?></li>
+  </ul>
+  <div class="page-title"> <i class="icon-custom-left"></i>
+    <h3>Editar - <span class="semi-bold">Linea</span></h3>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="grid simple form-grid">
+        <div class="grid-title no-border">
+          <div class="tools">
+            <a href="javascript:;" class="collapse"></a>
+            <a href="#grid-config" data-toggle="modal" class="config"></a>
+            <a href="javascript:;" class="reload"></a>
+            <a href="javascript:;" class="remove"></a>
+          </div>
+        </div>
+        <div class="grid-body no-border">
+
+        <?= $this->Form->create($group) ?>
+
+            <div class="form-group">
+              <?= $this->Form->control('name', [ 'label' =>'Nombre', ' class' => 'form-control']); ?>
+            </div>
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('description', [ 'label' =>'Descripción', 'class' => 'form-control']); ?>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('state', [ 'label' => 'Estado', 'class' => 'form-control select2', 'data-init-plugin' => 'select2', 'options' => ['ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO']]); ?>
+              </div>
+            </div>
+            <div class="form-actions">
+              <div class="pull-right">
+
+                <?= $this->Form->button('Guardar', ['class' => 'btn btn-success btn-cons']) ?>
+                <?= $this->Html->link('Cancelar', ['controller' => 'Groups', 'action' => 'index'], ['class' => 'btn btn-white btn-cons']) ?>
+
+              </div>
+            </div>
+          <?= $this->Form->end() ?>
+        </div>
+      </div>
+    </div>
+    
+  </div>

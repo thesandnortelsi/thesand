@@ -12,6 +12,13 @@ use App\Controller\AppController;
  */
 class MachinesController extends AppController
 {
+
+    public function initialize()
+    {
+        parent::initialize();
+        $this->viewBuilder()->setLayout('maintenance');
+    }
+    
     /**
      * Index method
      *
@@ -72,9 +79,9 @@ class MachinesController extends AppController
             }
             $this->Flash->error(__('La Máquina no pudo ser guardada. Por favor, inténtelo nuevamente.'));
         }
-        $areas = $this->Machines->Areas->find('list', ['limit' => 200]);
-        $models = $this->Machines->Models->find('list', ['limit' => 200]);
-        $groups = $this->Machines->Groups->find('list', ['limit' => 200]);
+        $areas = $this->Machines->Areas->find('list', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']]);
+        $models = $this->Machines->Models->find('list', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']]);
+        $groups = $this->Machines->Groups->find('list', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']]);
         $this->set(compact('machine', 'areas', 'models', 'groups'));
     }
 
@@ -102,9 +109,9 @@ class MachinesController extends AppController
             }
             $this->Flash->error(__('La Máquina no pudo ser guardada. Por favor, inténtelo nuevamente.'));
         }
-        $areas = $this->Machines->Areas->find('list', ['limit' => 200]);
-        $models = $this->Machines->Models->find('list', ['limit' => 200]);
-        $groups = $this->Machines->Groups->find('list', ['limit' => 200]);
+        $areas = $this->Machines->Areas->find('list', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']]);
+        $models = $this->Machines->Models->find('list', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']]);
+        $groups = $this->Machines->Groups->find('list', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']]);
         $this->set(compact('machine', 'areas', 'models', 'groups'));
     }
 

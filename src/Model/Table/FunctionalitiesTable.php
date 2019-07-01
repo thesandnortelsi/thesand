@@ -36,7 +36,7 @@ class FunctionalitiesTable extends Table
 
         $this->setTable('functionalities');
         $this->setDisplayField('name');
-        $this->setPrimaryKey('functionality_id');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 
@@ -56,8 +56,8 @@ class FunctionalitiesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('functionality_id')
-            ->allowEmptyString('functionality_id', 'create');
+            ->integer('id')
+            ->allowEmptyString('id', 'create');
 
         $validator
             ->scalar('name')

@@ -17,8 +17,16 @@ class ModelsController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
-    public function index()
+
+    public function initialize()
     {
+        parent::initialize();
+        $this->viewBuilder()->setLayout('maintenance');
+    }
+
+    public function index()
+    {       
+
         $this->paginate = [
             'contain' => ['Manufacturers']
         ];
@@ -72,7 +80,7 @@ class ModelsController extends AppController
             }
             $this->Flash->error(__('El Modelo no pudo ser guardada. Por favor, inténtelo nuevamente.'));
         }
-        $manufacturers = $this->Models->Manufacturers->find('list', ['limit' => 200]);
+        $manufacturers = $this->Models->Manufacturers->find('list', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']]);
         $this->set(compact('model', 'manufacturers'));
     }
 

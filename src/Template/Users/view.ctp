@@ -4,59 +4,69 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones') ?></li>
-        <li><?= $this->Html->link(__('Editar Usuario'), ['action' => 'edit', $user->user_id]) ?> </li>
-        <!-- <li><?= $this->Form->postLink(__('Delete Usuario'), ['action' => 'delete', $user->user_id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->user_id)]) ?> </li> -->
-        <li><?= $this->Html->link(__('Lista Usuario'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Nuevo Usuario'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('Lista Personal'), ['controller' => 'Persons', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Nuevo Personal'), ['controller' => 'Persons', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('Lista Rol'), ['controller' => 'Rols', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Nuevo Rol'), ['controller' => 'Rols', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="users view large-9 medium-8 columns content">
-    <h3><?= h($user->username) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Personal') ?></th>
-            <td><?= $user->has('person') ? $this->Html->link($user->person->name, ['controller' => 'Persons', 'action' => 'view', $user->person->person_id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Rol') ?></th>
-            <td><?= $user->has('rol') ? $this->Html->link($user->rol->name, ['controller' => 'Rols', 'action' => 'view', $user->rol->rol_id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Usuario') ?></th>
-            <td><?= h($user->username) ?></td>
-        </tr>
-        
-        <tr>
-            <th scope="row"><?= __('Estado') ?></th>
-            <td><?= h($user->state) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Usuario Creó') ?></th>
-            <!-- <td><?= $this->Number->format($user->user_created) ?></td> -->
-            <td><?php if(!empty($creo)) { echo $creo->username; }  ?></td>
-        </tr>
+<ul class="breadcrumb">
+    <li>
+      <p>DASHBOARD</p>
+    </li>
+    <li><?= $this->Html->link('Usuarios', ['controller' => 'Users', 'action' => 'index'], ['class' => 'active']) ?></li>
+  </ul>
+  <div class="page-title"> <i class="icon-custom-left"></i>
+    <h3>Ver - <span class="semi-bold">Usuario</span></h3>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="grid simple form-grid">
+        <div class="grid-title no-border">
+          <div class="tools">
+            <a href="javascript:;" class="collapse"></a>
+            <a href="#grid-config" data-toggle="modal" class="config"></a>
+            <a href="javascript:;" class="reload"></a>
+            <a href="javascript:;" class="remove"></a>
+          </div>
+        </div>
+        <div class="grid-body no-border">
 
-        <tr>
-            <th scope="row"><?= __('Fecha Creación') ?></th>
-            <td><?= h($user->created) ?></td>
-        </tr>
+        <?= $this->Form->create($user) ?>            
 
-        <tr>
-            <th scope="row"><?= __('Usuario Modificó') ?></th>
-            <!-- <td><?= $this->Number->format($user->user_modified) ?></td> -->
-            <td><?php if(!empty($modifico)) { echo $modifico->username; }  ?></td>
-        </tr>
-        
-        <tr>
-            <th scope="row"><?= __('Fecha Modificación') ?></th>
-            <td><?= h($user->modified) ?></td>
-        </tr>
-    </table>
-</div>
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('person_id', ['options' => $persons, 'empty' => true, 'class' => 'form-control', 'disabled' => 'true']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('rol_id', ['options' => $rols, 'label' => 'Rol', 'class' => 'form-control', 'disabled' => 'true']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('username', ['label' => 'Usuario', 'class' => 'form-control', 'disabled' => 'true']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('password', ['label' => 'Contraseña', 'class' => 'form-control', 'disabled' => 'true']); ?>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon right">
+                <?= $this->Form->control('state', [ 'label' => 'Estado', 'class' => 'form-control select2', 'data-init-plugin' => 'select2', 'options' => ['ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO'], 'disabled' => 'true']); ?>
+              </div>
+            </div>
+            <div class="form-actions">
+              <div class="pull-right">
+
+                <?= $this->Html->link('Regresar', ['controller' => 'Users', 'action' => 'index'], ['class' => 'btn btn-info btn-cons']) ?>
+
+              </div>
+            </div>
+          <?= $this->Form->end() ?>
+        </div>
+      </div>
+    </div>
+    
+  </div>

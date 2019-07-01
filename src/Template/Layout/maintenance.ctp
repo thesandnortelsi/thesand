@@ -59,8 +59,12 @@ $cakeDescription = 'TheSand';
             </li>
           </ul>
           <!-- BEGIN LOGO -->
-          <a href="index.html">
-            <img src="assets/img/logo.png" class="logo" alt="" data-src="assets/img/logo.png" data-src-retina="assets/img/logo2x.png" width="106" height="21" />
+          <a href="#">
+            <?= $this->Html->image("logo.png", [
+                    "class" => "logo",
+                    'width' => "106",
+                    'height' => "21"
+                ]);  ?>
           </a>
           <!-- END LOGO -->
           <ul class="nav pull-right notifcation-center">
@@ -176,7 +180,12 @@ $cakeDescription = 'TheSand';
           <div class="pull-right">
             <div class="chat-toggler sm">
               <div class="profile-pic">
-                <img src="assets/img/profiles/avatar_small.jpg" alt="" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="35" height="35" />
+                <!-- <img src="assets/img/profiles/avatar_small.jpg" alt="" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="35" height="35" /> -->
+                <?= $this->Html->image("profiles/avatar_small.jpg", [
+                    'width' => "35",
+                    'height' => "35"
+                ]);  ?>
+
                 <div class="availability-bubble online"></div>
               </div>
             </div>
@@ -235,7 +244,13 @@ $cakeDescription = 'TheSand';
         <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
           <div class="user-info-wrapper sm">
             <div class="profile-wrapper sm">
-              <img src="assets/img/profiles/avatar.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" width="69" height="69" />
+              <!-- <img src="assets/img/profiles/avatar.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" width="69" height="69" /> -->
+
+              <?= $this->Html->image("profiles/avatar.jpg", [
+                    'width' => "69",
+                    'height' => "69"
+                ]);  ?>
+
               <div class="availability-bubble online"></div>
             </div>
             <div class="user-info sm">
@@ -249,7 +264,7 @@ $cakeDescription = 'TheSand';
           <ul>
             <li> <a href="index.html"><i class="material-icons">home</i> <span class="title">Dashboard</span> <span class="arrow"></span></a>
               <ul class="sub-menu">
-                <li><?= $this->Html->link('Personas', ['controller' => 'Persons', 'action' => 'index']) ?></li>
+                <!-- <li><?= $this->Html->link('Personas', ['controller' => 'Persons', 'action' => 'index']) ?></li> -->
                 <li><?= $this->Html->link('Funcionalidades', ['controller' => 'Functionalities', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link('Roles', ['controller' => 'Rols', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link('Usuarios', ['controller' => 'Users', 'action' => 'index']) ?></li>
@@ -266,106 +281,8 @@ $cakeDescription = 'TheSand';
                 <li><?= $this->Html->link('Horómetros', ['controller' => 'Datehorometers', 'action' => 'index']) ?></li>
               </ul>
             </li>
-            <li>
-              <a href="email.html"> <i class="material-icons">email</i> <span class="title">Email</span> <span class=" badge badge-disable pull-right ">203</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:;"> <i class="material-icons">invert_colors</i> <span class="title">Themes</span> <span class=" arrow"></span> </a>
-              <ul class="sub-menu">
-                <li> <a href="theme_coporate.html">Coporate </a> </li>
-                <li> <a href="theme_simple.html">Simple</a> </li>
-                <li> <a href="theme_elegant.html">Elegant</a> </li>
-              </ul>
-            </li>
-            <li>
-              <a href="javascript:;"> <i class="material-icons">airplay</i> <span class="title">Layouts</span> <span class=" arrow"></span> </a>
-              <ul class="sub-menu">
-                <li> <a href="layout_options.html"> Layout Options </a> </li>
-                <li> <a href="boxed_layout.html">Boxed Layout </a> </li>
-                <li> <a href="boxed_layout_v2.html">Inner Boxed Layout </a> </li>
-                <li> <a href="extended_layout.html">Extended Layout</a> </li>
-                <li> <a href="RTL.html">RTL Layout</a> </li>
-                <li> <a href="horizontal_menu.html">Horizontal Menu</a> </li>
-                <li> <a href="horizontal_menu_boxed.html">Horizontal Menu & Boxed</a> </li>
-              </ul>
-            </li>
-            <li>
-              <a href="javascript:;"> <i class="material-icons">flip</i><span class="title"> UI Elements</span> <span class=" arrow"></span> </a>
-              <ul class="sub-menu">
-                <li> <a href="typography.html"> Typography </a> </li>
-                <li> <a href="messages_notifications.html"> Messages & Notifications </a> </li>
-                <li> <a href="notifications.html"> Notifications </a> </li>
-                <li> <a href="icons.html">Icons</a> </li>
-                <li class=""> <a href="buttons.html">Buttons</a> </li>
-                <li> <a href="tabs_accordian.html"> Tabs & Accordions </a> </li>
-                <li> <a href="sliders.html">Sliders</a> </li>
-                <li> <a href="group_list.html">Group list </a> </li>
-              </ul>
-            </li>
-            <li>
-              <a href="javascript:;"> <i class="material-icons">view_stream</i> <span class="title">Forms</span> <span class=" arrow"></span> </a>
-              <ul class="sub-menu">
-                <li> <a href="form_elements.html">Form Elements </a> </li>
-                <li> <a href="form_validations.html">Form Validations</a> </li>
-              </ul>
-            </li>
-            <li>
-              <a href="javascript:;"> <i class="material-icons">apps</i> <span class="title">Grids</span> <span class=" arrow"></span> </a>
-              <ul class="sub-menu">
-                <li> <a href="grids_simple.html">Simple Grids</a> </li>
-                <li> <a href="grids_draggable.html">Draggable Grids </a> </li>
-              </ul>
-            </li>
-            <li>
-              <a href="javascript:;"> <i class="material-icons">playlist_add_check</i> <span class="title">Tables</span> <span class=" arrow"></span> </a>
-              <ul class="sub-menu">
-                <li> <a href="tables.html"> Basic Tables </a> </li>
-                <li> <a href="datatables.html"> Data Tables </a> </li>
-              </ul>
-            </li>
-            <li>
-              <a href="javascript:;"> <i class="material-icons">location_on</i> <span class="title">Maps</span> <span class=" arrow"></span> </a>
-              <ul class="sub-menu">
-                <li> <a href="google_map.html"> Google Maps </a> </li>
-                <li> <a href="vector_map.html"> Vector Maps </a> </li>
-              </ul>
-            </li>
-            <li>
-              <a href="charts.html"> <i class="material-icons">timeline</i> <span class="title">Charts</span> </a>
-            </li>
-            <li>
-              <a href="javascript:;"> <i class="material-icons">layers</i> <span class="title">Extra</span> <span class=" arrow"></span> </a>
-              <ul class="sub-menu">
-                <li> <a href="user-profile.html"> User Profile </a> </li>
-                <li> <a href="time_line.html"> Time line </a> </li>
-                <li> <a href="support_ticket.html"> Support Ticket </a> </li>
-                <li> <a href="gallery.html"> Gallery</a> </li>
-                <li class=""><a href="calender.html"> Calendar</a> </li>
-                <li> <a href="search_results.html"> Search Results </a> </li>
-                <li> <a href="invoice.html"> Invoice </a> </li>
-                <li> <a href="404.html"> 404 Page </a> </li>
-                <li> <a href="500.html"> 500 Page </a> </li>
-                <li> <a href="blank_template.html"> Blank Page </a> </li>
-                <li> <a href="login.html"> Login </a> </li>
-                <li> <a href="login_v2.html">Login v2</a> </li>
-                <li> <a href="lockscreen.html"> Lockscreen </a> </li>
-              </ul>
-            </li>
-            <li class="">
-              <a href="javascript:;"> <i class="material-icons">more_horiz</i> <span class="title">Menu Levels</span> <span class=" arrow"></span> </a>
-              <ul class="sub-menu">
-                <li> <a href="javascript:;"> Level 1 </a> </li>
-                <li>
-                  <a href="javascript:;"> <span class="title">Level 2</span> <span class=" arrow"></span> </a>
-                  <ul class="sub-menu">
-                    <li> <a href="javascript:;"> Sub Menu </a> </li>
-                    <li> <a href="ujavascript:;"> Sub Menu </a> </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li class="hidden-lg hidden-md hidden-xs" id="more-widgets">
+            
+            <!-- <li class="hidden-lg hidden-md hidden-xs" id="more-widgets">
               <a href="javascript:;"> <i class="material-icons"></i></a>
               <ul class="sub-menu">
                 <li class="side-bar-widgets">
@@ -405,9 +322,9 @@ $cakeDescription = 'TheSand';
                   </div>
                 </li>
               </ul>
-            </li>
+            </li> -->
           </ul>
-          <div class="side-bar-widgets">
+          <!-- <div class="side-bar-widgets">
             <p class="menu-title sm">FOLDER <span class="pull-right"><a href="#" class="create-folder"> <i class="material-icons">add</i></a></span></p>
             <ul class="folders">
               <li>
@@ -442,7 +359,7 @@ $cakeDescription = 'TheSand';
                 <p>Statistical report</p>
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="clearfix"></div>
           <!-- END SIDEBAR MENU -->
         </div>
@@ -454,7 +371,10 @@ $cakeDescription = 'TheSand';
         </div>
         <div class="pull-right">
           <div class="details-status"> <span class="animate-number" data-value="86" data-animation-duration="560">86</span>% </div>
-          <a href="lockscreen.html"><i class="material-icons">power_settings_new</i></a></div>
+          <!-- <a href="lockscreen.html"> -->
+            <?= $this->Html->link('<i class="material-icons">power_settings_new</i>', ['controller' => 'Users', 'action' => 'logout'], ['escape' => false]) ?>
+            <!-- <i class="material-icons">power_settings_new</i></a> -->
+          </div>
       </div>
       <!-- END SIDEBAR -->
       <!-- BEGIN PAGE CONTAINER-->

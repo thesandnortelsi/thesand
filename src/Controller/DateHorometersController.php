@@ -20,7 +20,7 @@ class DatehorometersController extends AppController
      */
     public function index()
     {
-        $this->layout = 'maintenance';
+        $this->viewBuilder()->setLayout('maintenance');
 
         $datehorometers = $this->paginate($this->Datehorometers);
 
@@ -50,7 +50,7 @@ class DatehorometersController extends AppController
      */
     public function add()
     {
-        $this->layout = 'maintenance';
+        $this->viewBuilder()->setLayout('maintenance');
 
         $datehorometer = $this->Datehorometers->newEntity();
         if ($this->request->is('post')) {
@@ -98,7 +98,7 @@ class DatehorometersController extends AppController
      */
     public function edit($id = null)
     {
-        $this->layout = 'maintenance';
+        $this->viewBuilder()->setLayout('maintenance');
         
         $datehorometer = $this->Datehorometers->get($id, [
             'contain' => ['Machines']
@@ -113,7 +113,7 @@ class DatehorometersController extends AppController
             $this->DatehorometersMachines->deleteAll([
                     'datehorometer_id' => $id
                 ]);
-            $horometers = $this->request->data();
+            $horometers = $this->request->getData();
 
             for ($i=0; $i < count($horometers['datehorometers_machines']['day']); $i++) 
             {
@@ -156,7 +156,7 @@ class DatehorometersController extends AppController
         // $machines = $this->Datehorometers->Machines->find('list', ['limit' => 200]);
 
         
-        $results = $connection->execute("SELECT m.id, m.name name, m.code code, ml.name model FROM Machines m INNER JOIN Models ml ON m.model_id = ml.id");
+        $results = $connection->execute("SELECT m.id, m.name name, m.code code, ml.name model FROM machines m INNER JOIN models ml ON m.model_id = ml.id");
 
         $this->set('machines', $results);
 
@@ -168,7 +168,7 @@ class DatehorometersController extends AppController
         $createdDate = $datehorometer->date->i18nFormat('Y-MM-dd');
         $horometerOld = $this->DatehorometersMachines->find('all', [
                 'conditions' => ['date' => date("Y-m-d", strtotime($createdDate."- 1 days"))]
-            ])->innerJoinWith('DateHorometers');
+            ])->innerJoinWith('Datehorometers');
 
         $this->set(compact('datehorometer', 'horometerByDate', 'machines', 'horometerOld'));
     }

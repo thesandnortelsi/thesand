@@ -24,7 +24,7 @@
                     <a href="javascript:;" class="reload"></a>
                     <a href="javascript:;" class="remove"></a>
                     <a href="javascript:;" class="add"></a>
-                    <?= $this->Html->link('<i class="material-icons">add</i>', ['controller' => 'manufacturers', 'action' => 'add'], ['escape' => false]) ?>
+                    <?= $this->Html->link('<i class="material-icons">add</i>', ['controller' => 'Manufacturers', 'action' => 'add'], ['escape' => false]) ?>
                   </div>
                 </div>
                 <div class="grid-body ">
@@ -46,7 +46,7 @@
                                 <td class="actions">
                                     <?= $this->Html->link('<i class="material-icons">visibility</i>', ['action' => 'view', $manufacturer->id], ['escape' => false]) ?>
                                     <?= $this->Html->link('<i class="material-icons">edit</i>', ['action' => 'edit', $manufacturer->id], ['escape' => false]) ?>
-                                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $manufacturer->id], ['confirm' => __('Está seguro que quiere eliminar:  {0}?', $manufacturer->name)]) ?>
+                                    <?= $this->Form->postLink('<i class="material-icons">delete</i>', ['action' => 'delete', $manufacturer->id], ['confirm' => __('Está seguro que quiere eliminar:  {0}?', $manufacturer->name), 'escape' => false]) ?>
                                 </td>
                             </tr>
                     <?php endforeach; ?>
