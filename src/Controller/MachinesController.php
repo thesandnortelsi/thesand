@@ -82,7 +82,8 @@ class MachinesController extends AppController
         $areas = $this->Machines->Areas->find('list', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']]);
         $models = $this->Machines->Models->find('list', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']]);
         $groups = $this->Machines->Groups->find('list', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']]);
-        $this->set(compact('machine', 'areas', 'models', 'groups'));
+        $frequencys = $this->Machines->Frequencys->find('list', ['limit' => 200, 'conditions' => ['active' => 1]]);
+        $this->set(compact('machine', 'areas', 'models', 'groups', 'frequencys'));
     }
 
     /**

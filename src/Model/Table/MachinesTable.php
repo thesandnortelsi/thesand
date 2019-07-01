@@ -12,6 +12,8 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\AreasTable|\Cake\ORM\Association\BelongsTo $Areas
  * @property \App\Model\Table\ModelsTable|\Cake\ORM\Association\BelongsTo $Models
  * @property \App\Model\Table\GroupsTable|\Cake\ORM\Association\BelongsTo $Groups
+ * @property |\Cake\ORM\Association\BelongsTo $Frequencys
+ * @property |\Cake\ORM\Association\BelongsToMany $Datehorometers
  *
  * @method \App\Model\Entity\Machine get($primaryKey, $options = [])
  * @method \App\Model\Entity\Machine newEntity($data = null, array $options = [])
@@ -54,6 +56,15 @@ class MachinesTable extends Table
             'foreignKey' => 'group_id',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('Frequencys', [
+            'foreignKey' => 'frequency_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsToMany('Datehorometers', [
+            'foreignKey' => 'machine_id',
+            'targetForeignKey' => 'datehorometer_id',
+            'joinTable' => 'datehorometers_machines'
+        ]);
     }
 
     /**
@@ -75,12 +86,12 @@ class MachinesTable extends Table
 
         $validator
             ->scalar('name')
-            ->maxLength('name', 200)
+            ->maxLength('name', 150)
             ->allowEmptyString('name');
 
         $validator
             ->scalar('description')
-            ->maxLength('description', 250)
+            ->maxLength('description', 255)
             ->allowEmptyString('description');
 
         $validator
@@ -106,13 +117,16 @@ class MachinesTable extends Table
             ->allowEmptyDate('entry');
 
         $validator
-            ->scalar('horometer')
-            ->maxLength('horometer', 12)
+            ->decimal('horometer')
             ->allowEmptyString('horometer');
 
         $validator
+            ->decimal('factor')
+            ->allowEmptyString('factor');
+
+        $validator
             ->scalar('state')
-            ->maxLength('state', 8)
+            ->maxLength('state', 25)
             ->allowEmptyString('state');
 
         $validator
@@ -138,6 +152,7 @@ class MachinesTable extends Table
         $rules->add($rules->existsIn(['area_id'], 'Areas'));
         $rules->add($rules->existsIn(['model_id'], 'Models'));
         $rules->add($rules->existsIn(['group_id'], 'Groups'));
+        $rules->add($rules->existsIn(['frequency_id'], 'Frequencys'));
 
         return $rules;
     }

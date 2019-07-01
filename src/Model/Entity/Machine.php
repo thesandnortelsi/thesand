@@ -6,10 +6,11 @@ use Cake\ORM\Entity;
 /**
  * Machine Entity
  *
- * @property int $machine_id
+ * @property int $id
  * @property int $area_id
  * @property int $model_id
  * @property int $group_id
+ * @property int $frequency_id
  * @property string|null $code
  * @property string|null $name
  * @property string|null $description
@@ -19,6 +20,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenDate|null $ispection
  * @property \Cake\I18n\FrozenDate|null $entry
  * @property string|null $horometer
+ * @property float|null $factor
  * @property string|null $state
  * @property int|null $user_created
  * @property \Cake\I18n\FrozenTime|null $created
@@ -44,6 +46,7 @@ class Machine extends Entity
         'area_id' => true,
         'model_id' => true,
         'group_id' => true,
+        'frequency_id' => true,
         'code' => true,
         'name' => true,
         'description' => true,
@@ -53,6 +56,7 @@ class Machine extends Entity
         'ispection' => true,
         'entry' => true,
         'horometer' => true,
+        'factor' => true,
         'state' => true,
         'user_created' => true,
         'created' => true,

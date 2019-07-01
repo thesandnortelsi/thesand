@@ -34,65 +34,86 @@
                       <?= $this->Form->control('area_id', ['options' => $areas, 'label' => 'Área', 'class' => 'form-control']); ?>
                     </div>
 
-                    <div class="form-group">
+                    <div class="row form-row">
+                      <div class="col-md-6">
+                        <!-- <input name="form3City" id="form3City" type="text" class="form-control" placeholder="City"> -->
+                        <?=  $this->Form->control('model_id', ['options' => $models, 'label' => 'Marca', 'class' => 'form-control']); ?>
+                      </div>
+                      <div class="col-md-6">
+                        <!-- <input name="form3State" id="form3State" type="text" class="form-control" placeholder="State"> -->
+                        <?=  $this->Form->control('model_id', ['options' => $models, 'label' => 'Modelo', 'class' => 'form-control']); ?>
+                      </div>
+                    </div>
+
+
+                   <!--  <div class="form-group">
                       <?=  $this->Form->control('model_id', ['options' => $models, 'label' => 'Modelo', 'class' => 'form-control']); ?>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
-                      <?= $this->Form->control('group_id', ['options' => $groups, 'class' => 'form-control']); ?>
+                      <?= $this->Form->control('group_id', ['options' => $groups, 'label' => 'Linea', 'class' => 'form-control']); ?>
                     </div>
 
-                    <div class="form-group">
-                      <?= $this->Form->control('code', ['label' => 'Código', 'class' => 'form-control']); ?>
-                    </div>
+                    
 
-                    <div class="form-group">
-                      <div class="input-with-icon right">
+                    <div class="row form-row">
+                      <div class="col-md-4">
+                        <?= $this->Form->control('code', ['label' => 'Código', 'class' => 'form-control']); ?>
+                      </div>
+                      <div class="col-md-8">
                         <?= $this->Form->control('name', ['label' => 'Nombre', 'class' => 'form-control']); ?>
                       </div>
                     </div>
 
                     <div class="form-group">
                       <div class="input-with-icon right">
-                        <?= $this->Form->control('description', ['label' => 'Descripción', 'class' => 'form-control']); ?>
+                          <?= $this->Form->control('description', ['label' => 'Descripción', 'class' => 'form-control']); ?>
                       </div>
                     </div>
 
-                    <div class="form-group">
-                      <div class="input-with-icon right">
+                    <div class="row form-row">
+                      <div class="col-md-4">
                         <?= $this->Form->control('series', ['label' => 'Serie', 'class' => 'form-control']); ?>
                       </div>
-                    </div>
 
-                    <div class="form-group">
-                      <div class="input-with-icon right">
+                       <div class="col-md-4">
                         <?= $this->Form->control('plate', ['label' => 'Placa', 'class' => 'form-control']); ?>
                       </div>
-                    </div>
 
-                    <div class="form-group">
-                      <div class="input-with-icon right">
+                      <div class="col-md-4">
                         <?= $this->Form->control('year', ['label' => 'Año', 'class' => 'form-control']); ?>
                       </div>
                     </div>
 
-                    <div class="form-group">
-                      <div class="input-with-icon right">
-                        <?= $this->Form->control('ispection', ['type' => 'date', 'minYear' => date('Y') - 80, 'maxYear' => date('Y'), 'label' => 'Inspección', 'class' => 'form-control', 'value' => date('Y-m-d')]); ?>
-                      </div>
-                    </div>
 
-                    <div class="form-group">
-                      <div class="input-with-icon right">
+                    <div class="row form-row">
+                      <div class="col-md-4">
+                        <?= $this->Form->control('ispection', ['type' => 'date', 'minYear' => date('Y') - 80, 'maxYear' => date('Y'), 'label' => 'Fechas de Inspección', 'class' => 'form-control', 'value' => date('Y-m-d')]); ?>
+                      </div>
+
+                       <div class="col-md-4">
                         <?= $this->Form->control('entry', ['type' => 'date', 'minYear' => date('Y') - 80, 'maxYear' => date('Y'), 'label' => 'Fecha de Ingreso', 'class' => 'form-control', 'value' => date('Y-m-d')]); ?>
                       </div>
-                    </div>
 
-                    <div class="form-group">
-                      <div class="input-with-icon right">
+                      <div class="col-md-4">
                         <?= $this->Form->control('horometer', ['label' => 'Horómetro de Ingreso', 'class' => 'form-control']); ?>
                       </div>
                     </div>
+
+                    
+                    <div class="row form-row">
+                      <div class="col-md-4">
+                        <?= $this->Form->control('frequency_id', ['options' => $frequencys, 'label' => 'Frecuencia Mantenimiento', 'class' => 'form-control']); ?>
+                      </div>
+
+                       <div class="col-md-4">
+                        <?= $this->Form->control('factor', ['label' => 'Factor de Uso', 'class' => 'form-control']); ?>
+                      </div>
+                    </div>
+
+              
+
+               
 
                     <div class="form-group">
                       <div class="input-with-icon right">

@@ -224,7 +224,7 @@
           <ul>
             <li class="start  open active "> <a href="index.html"><i class="material-icons">home</i> <span class="title">Dashboard</span> <span class="selected"></span> <span class="arrow  open "></span> </a>
               <ul class="sub-menu">
-                <li><?= $this->Html->link('Personas', ['controller' => 'Persons', 'action' => 'index']) ?></li>
+                <!-- <li><?= $this->Html->link('Personas', ['controller' => 'Persons', 'action' => 'index']) ?></li> -->
                 <li><?= $this->Html->link('Funcionalidades', ['controller' => 'Functionalities', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link('Roles', ['controller' => 'Rols', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link('Usuarios', ['controller' => 'Users', 'action' => 'index']) ?></li>
