@@ -145,11 +145,11 @@ class MachinesController extends AppController
 
     public function ajaxModelByManufacture($id)
     {
-        $this->autoRender = false;
+        // $this->autoRender = false;
         if ($this->request->is(['ajax', 'get'])) 
         {
             // $id = $this->request->query('id');
-            $data = ['data' => ['models' => $this->getModel($id)]];
+            $data = ['data' => ['modelos' => $this->getModel($id)]];
             $json = json_encode($data);
 
             // debug($json);

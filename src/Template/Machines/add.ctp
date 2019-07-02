@@ -26,8 +26,8 @@ $(function()
             {
                 if (response.data) 
                 {
-                      alert(response.data);
-                      $('#modelo-id').html(response.data.models);
+                      console.log(response.data.models);
+                      // $('#modelo-id').html(response.data.models);
                 }
             },
             error: function(e) 
@@ -81,14 +81,10 @@ $(function()
                       </div>
                       <div class="col-md-6">
                         <!-- <input name="form3State" id="form3State" type="text" class="form-control" placeholder="State"> -->
-                        <?=  $this->Form->control('model_id', ['options' => '', 'id' => 'modelo-id', 'label' => 'Modelo', 'class' => 'form-control']); ?>
+                        <?=  $this->Form->control('model_id', ['options' =>'', 'id' => 'modelo-id', 'label' => 'Modelo', 'class' => 'form-control']); ?>
                       </div>
                     </div>
 
-
-                   <!--  <div class="form-group">
-                      <?=  $this->Form->control('model_id', ['options' => $models, 'label' => 'Modelo', 'class' => 'form-control']); ?>
-                    </div> -->
 
                     <div class="form-group">
                       <?= $this->Form->control('group_id', ['options' => $groups, 'label' => 'Linea', 'class' => 'form-control']); ?>
