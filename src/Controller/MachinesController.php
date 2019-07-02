@@ -67,6 +67,9 @@ class MachinesController extends AppController
     public function add()
     {
         $machine = $this->Machines->newEntity();
+        
+        $this->loadModel('Models');
+
         if ($this->request->is('post')) {
             $machine = $this->Machines->patchEntity($machine, $this->request->getData());
 
@@ -79,11 +82,14 @@ class MachinesController extends AppController
             }
             $this->Flash->error(__('La Máquina no pudo ser guardada. Por favor, inténtelo nuevamente.'));
         }
+        
         $areas = $this->Machines->Areas->find('list', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']]);
+        $manufacturers = $this->Models->Manufacturers->find('list', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']]);
         $models = $this->Machines->Models->find('list', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']]);
         $groups = $this->Machines->Groups->find('list', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']]);
         $frequencys = $this->Machines->Frequencys->find('list', ['limit' => 200, 'conditions' => ['active' => 1]]);
-        $this->set(compact('machine', 'areas', 'models', 'groups', 'frequencys'));
+
+        $this->set(compact('machine', 'areas', 'models', 'groups', 'frequencys', 'manufacturers'));
     }
 
     /**
@@ -135,4 +141,34 @@ class MachinesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+
+    public function ajaxModelByManufacture($id)
+    {
+        $this->autoRender = false;
+        if ($this->request->is(['ajax', 'get'])) 
+        {
+            // $id = $this->request->query('id');
+            $data = ['data' => ['models' => $this->getModel($id)]];
+            $json = json_encode($data);
+
+            // debug($json);
+
+            $this->response = $this->response
+            ->withType('application/json')
+            ->withStringBody($json);
+
+            return $this->response;
+
+            // return $this->json($data);
+        }
+    }
+
+    private function getModel($id)
+    {
+        $models = $this->Machines->Models->find('list', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO', 'manufacture_id' => $id]]);
+
+        return $models;
+    }
+
 }

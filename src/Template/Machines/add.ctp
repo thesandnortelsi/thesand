@@ -4,6 +4,44 @@
  * @var \App\Model\Entity\Machine $machine
  */
 ?>
+<?= $this->Html->script('jquery.js') ?>
+
+<script>
+//dropdown dependientes
+$(function() 
+{
+    $('#marca-id').change(function() 
+    {
+        var targeturl = $(this).attr('rel');
+        var marca = $(this).val();
+
+        $.ajax({
+            type: 'get',
+            url: 'ajaxModelByManufacture/' + marca,
+            beforeSend: function(xhr) 
+            {
+                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            },
+            success: function(response) 
+            {
+                if (response.data) 
+                {
+                      alert(response.data);
+                      $('#modelo-id').html(response.data.models);
+                }
+            },
+            error: function(e) 
+            {
+                alert("An error occurred: " + e.responseText.message);
+                console.log(e);
+            }
+        });
+    });
+});
+</script>
+
+
+
 <ul class="breadcrumb">
             <li>
               <p>MANTENIMIENTO</p>
@@ -30,18 +68,20 @@
 
                 <?= $this->Form->create($machine) ?>
 
+                <?php $request = $this->Url->build(['action' => 'ajaxModelByManufacture', 'ext' => 'json']); ?>
+
                     <div class="form-group">
-                      <?= $this->Form->control('area_id', ['options' => $areas, 'label' => 'Área', 'class' => 'form-control']); ?>
+                      <?= $this->Form->control('area_id', ['options' => $areas, 'label' => 'Área', 'class' => 'form-control', 'rel' => $request]); ?>
                     </div>
 
                     <div class="row form-row">
                       <div class="col-md-6">
                         <!-- <input name="form3City" id="form3City" type="text" class="form-control" placeholder="City"> -->
-                        <?=  $this->Form->control('model_id', ['options' => $models, 'label' => 'Marca', 'class' => 'form-control']); ?>
+                        <?=  $this->Form->control('manufacture_id', ['options' => $manufacturers, 'id' => 'marca-id', 'label' => 'Marca', 'class' => 'form-control']); ?>
                       </div>
                       <div class="col-md-6">
                         <!-- <input name="form3State" id="form3State" type="text" class="form-control" placeholder="State"> -->
-                        <?=  $this->Form->control('model_id', ['options' => $models, 'label' => 'Modelo', 'class' => 'form-control']); ?>
+                        <?=  $this->Form->control('model_id', ['options' => '', 'id' => 'modelo-id', 'label' => 'Modelo', 'class' => 'form-control']); ?>
                       </div>
                     </div>
 
