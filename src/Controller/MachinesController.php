@@ -166,7 +166,7 @@ class MachinesController extends AppController
 
     private function getModel($id)
     {
-        $models = $this->Machines->Models->find('list', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO', 'manufacture_id' => $id]]);
+        $models = $this->Machines->Models->find('all', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO', 'manufacture_id' => $id]]);
 
         return $models;
     }

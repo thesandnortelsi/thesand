@@ -53,13 +53,75 @@ class ProgrammingsController extends AppController
     public function add()
     {
         $programming = $this->Programmings->newEntity();
-        if ($this->request->is('post')) {
-            $programming = $this->Programmings->patchEntity($programming, $this->request->getData());
-            if ($this->Programmings->save($programming)) {
-                $this->Flash->success(__('The programming has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+        
+
+        if ($this->request->is('post')) 
+        {
+            $programming = $this->Programmings->patchEntity($programming, $this->request->getData());
+
+            $year = $this->request->getData(['year']);
+            $year = date("Y-m-d", strtotime($year.'-12-31'."+ 1 days"));
+            $today = date('2019-06-07');
+
+            $machines = $this->Programmings->Machines->find('all', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO', 'id' => 2 ]]);
+
+            $matto = 0;
+            foreach ($machines as $machine) 
+            {
+                $frecuencia = $this->getFrequencyById($machine->frequency_id);
+                $horometro = $this->getLastHorometer($machine->id);
+                $row = $horometro->first();
+
+                if (!empty($row->night))
+                {
+                    $ultimo_horometro = $row->night;
+                }
+                else{
+                    $ultimo_horometro = $row->day;
+                }
+
+                $matto = (($machine->horometer_mantenaice + $frecuencia->value) - $ultimo_horometro) / $machine->factor;
+
+                
+                $fecha = date("Y-m-d", strtotime($machine->date_mantenaice."+ ".ceil($matto)." days"));
+                $domingos = $this->countSundays($machine->date_mantenaice, $fecha);
+                $fecha = date("Y-m-d", strtotime($fecha."+ ".$domingos." days"));
+
+
+                // for ($i=0; $i < ; $i++)
+                // {
+                //     if (condition) 
+                //     {
+                        
+                //     }
+                // }
+                
+                $programming->date = $fecha;
+                $programming->machine_id = $machine->id;
+                // $programming->year = date('');
+                // $programming->month = date();
+                // $programming->day = date();
+                // $programming->position = date();
+                // $programming->horometer_estimated = date();
+                // $programming->user_created = $this->Auth->user('user_id');
+                
             }
+            
+
+            // debug($fecha);
+
+            $this->Programmings->save($programming);
+
+            
+            // return $this->redirect(['action' => 'add']);
+
+
+            // if ($this->Programmings->save($programming)) {
+            //     $this->Flash->success(__('The programming has been saved.'));
+
+            //     return $this->redirect(['action' => 'index']);
+            // }
             $this->Flash->error(__('The programming could not be saved. Please, try again.'));
         }
         $this->set(compact('programming'));
@@ -107,5 +169,52 @@ class ProgrammingsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    private function getFrequencyById($id)
+    {
+        $this->loadModel('Frequencys');
+
+        $frequency = $this->Frequencys->get($id);
+
+        return $frequency;
+    }
+
+    private function getLastHorometer($id)
+    {
+        $this->loadModel('DatehorometersMachines');
+
+        $horometer = $this->DatehorometersMachines->find('all', [
+                'conditions' => ['date' => '2019-06-07', 'machine_id' => $id]
+            ])->innerJoinWith('Datehorometers');
+
+        return $horometer;
+    }
+
+    private function countSundays($fechaInicio,$fechaFin)
+    {
+     // $dias=array();
+     $dias = 0;
+     $fecha1=date($fechaInicio);
+     $fecha2=date($fechaFin);
+     $fechaTime=strtotime("-1 day",strtotime($fecha1));
+     $fecha=date("Y-m-d",$fechaTime);
+     while($fecha <= $fecha2)
+     {
+      $proximo_domingo=strtotime("next Sunday",$fechaTime);
+      $fechaDomingo=date("Y-m-d",$proximo_domingo);
+      if($fechaDomingo <= $fechaFin)
+      { 
+       // $dias[$fechaDomingo]=$fechaDomingo;
+       $dias++;
+      }
+      else
+      {
+       break;
+      }
+      $fechaTime=$proximo_domingo;
+      $fecha=date("Y-m-d",$proximo_domingo);
+     }
+     return $dias;
     }
 }

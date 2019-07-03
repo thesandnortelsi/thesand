@@ -12,8 +12,9 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\AreasTable|\Cake\ORM\Association\BelongsTo $Areas
  * @property \App\Model\Table\ModelsTable|\Cake\ORM\Association\BelongsTo $Models
  * @property \App\Model\Table\GroupsTable|\Cake\ORM\Association\BelongsTo $Groups
- * @property |\Cake\ORM\Association\BelongsTo $Frequencys
- * @property |\Cake\ORM\Association\BelongsToMany $Datehorometers
+ * @property \App\Model\Table\FrequencysTable|\Cake\ORM\Association\BelongsTo $Frequencys
+ * @property |\Cake\ORM\Association\HasMany $Programmings
+ * @property \App\Model\Table\DatehorometersTable|\Cake\ORM\Association\BelongsToMany $Datehorometers
  *
  * @method \App\Model\Entity\Machine get($primaryKey, $options = [])
  * @method \App\Model\Entity\Machine newEntity($data = null, array $options = [])
@@ -59,6 +60,9 @@ class MachinesTable extends Table
         $this->belongsTo('Frequencys', [
             'foreignKey' => 'frequency_id',
             'joinType' => 'INNER'
+        ]);
+        $this->hasMany('Programmings', [
+            'foreignKey' => 'machine_id'
         ]);
         $this->belongsToMany('Datehorometers', [
             'foreignKey' => 'machine_id',
@@ -119,6 +123,18 @@ class MachinesTable extends Table
         $validator
             ->decimal('horometer')
             ->allowEmptyString('horometer');
+
+        $validator
+            ->decimal('horometer_mantenaice')
+            ->allowEmptyString('horometer_mantenaice');
+
+        $validator
+            ->integer('position')
+            ->allowEmptyString('position');
+
+        $validator
+            ->date('date_mantenaice')
+            ->allowEmptyDate('date_mantenaice');
 
         $validator
             ->decimal('factor')

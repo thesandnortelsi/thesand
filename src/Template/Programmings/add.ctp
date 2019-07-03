@@ -29,12 +29,10 @@
 
         <?= $this->Form->create($programming) ?>
 
-               
-
             <div class="row form-row">
               <div class="input-with-icon right">
                 <div class="col-md-4">
-                    <?= $this->Form->control('state', [ 'label' => 'Año', 'class' => 'form-control select2', 'data-init-plugin' => 'select2', 'options' => ['2019' => '2019']]); ?>
+                    <?= $this->Form->control('year', [ 'label' => 'Año', 'class' => 'form-control select2', 'data-init-plugin' => 'select2', 'options' => ['2019' => '2019']]); ?>
                 </div>
               </div>
             </div>

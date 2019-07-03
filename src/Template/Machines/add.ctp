@@ -26,8 +26,20 @@ $(function()
             {
                 if (response.data) 
                 {
-                      console.log(response.data.models);
+                  let modelos = '';
+
+                  for (i=0; i<response.data.modelos.length; i++)
+                  {
+                      console.log(response.data.modelos);
+                      modelos += '<option value="'+ response.data.modelos[i]['id'] +'">' + response.data.modelos[i]['name'] + '</option>';
+                  }
+
+                  $('#modelo-id').html(modelos);
+                      // console.log(response.data[0]);
                       // $('#modelo-id').html(response.data.models);
+                      // $('#modelo-id').val(response.data.models);
+                      // $('#modelo-id').html("'options' => response.data.models");
+                      // $('#modelo-id').html("'options' => response.data.models");
                 }
             },
             error: function(e) 
@@ -108,7 +120,7 @@ $(function()
                     </div>
 
                     <div class="row form-row">
-                      <div class="col-md-4">
+                      <div class="col-md-5">
                         <?= $this->Form->control('series', ['label' => 'Serie', 'class' => 'form-control']); ?>
                       </div>
 
@@ -116,39 +128,53 @@ $(function()
                         <?= $this->Form->control('plate', ['label' => 'Placa', 'class' => 'form-control']); ?>
                       </div>
 
-                      <div class="col-md-4">
+                      <div class="col-md-3">
                         <?= $this->Form->control('year', ['label' => 'Año', 'class' => 'form-control']); ?>
                       </div>
+
+                      
                     </div>
 
 
                     <div class="row form-row">
-                      <div class="col-md-4">
+
+                      <div class="col-md-3">
                         <?= $this->Form->control('ispection', ['type' => 'date', 'minYear' => date('Y') - 80, 'maxYear' => date('Y'), 'label' => 'Fechas de Inspección', 'class' => 'form-control', 'value' => date('Y-m-d')]); ?>
                       </div>
+                      
 
-                       <div class="col-md-4">
+                       <div class="col-md-3">
                         <?= $this->Form->control('entry', ['type' => 'date', 'minYear' => date('Y') - 80, 'maxYear' => date('Y'), 'label' => 'Fecha de Ingreso', 'class' => 'form-control', 'value' => date('Y-m-d')]); ?>
                       </div>
 
-                      <div class="col-md-4">
+                      <div class="col-md-3">
                         <?= $this->Form->control('horometer', ['label' => 'Horómetro de Ingreso', 'class' => 'form-control']); ?>
                       </div>
                     </div>
 
                     
                     <div class="row form-row">
-                      <div class="col-md-4">
+                      <div class="col-md-3">
+                        <?= $this->Form->control('date_mantenaice', ['label' => 'Último Mantenimiento', 'class' => 'form-control', 'value' => date('Y-m-d')]); ?>
+                      </div>
+
+                      <div class="col-md-3">
+                        <?= $this->Form->control('horometer_mantenaice', ['label' => 'Horómetro de Mantenimiento', 'class' => 'form-control']); ?>
+                      </div>
+
+                      <div class="col-md-1">
+                        <?= $this->Form->control('position', ['label' => 'Posición', 'class' => 'form-control', 'min' => 1, 'max' => 8, 'value' => 1]); ?>
+                      </div>
+
+                      <div class="col-md-3">
                         <?= $this->Form->control('frequency_id', ['options' => $frequencys, 'label' => 'Frecuencia Mantenimiento', 'class' => 'form-control']); ?>
                       </div>
 
-                       <div class="col-md-4">
+                       <div class="col-md-2">
                         <?= $this->Form->control('factor', ['label' => 'Factor de Uso', 'class' => 'form-control']); ?>
-                      </div>
+                      </div>                      
+
                     </div>
-
-              
-
                
 
                     <div class="form-group">
