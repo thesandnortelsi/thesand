@@ -143,6 +143,15 @@ class DatehorometersController extends AppController
                 ]);                
             }
 
+            // Actualizar con cada guardado si es el ultimo ingresado.
+            $ultimo_registro = $this->getLastDate();
+            $resultado = $ultimo_registro->first();
+
+            if ($id == $resultado->id)
+            {
+                (new ProgrammingsController())->editProgramming($resultado->date);
+            }
+
             $this->Flash->success(__('Guardado Correctamente.'));
 
             return $this->redirect(['action' => 'edit', $id]);
@@ -169,17 +178,6 @@ class DatehorometersController extends AppController
         $horometerOld = $this->DatehorometersMachines->find('all', [
                 'conditions' => ['date' => date("Y-m-d", strtotime($createdDate."- 1 days"))]
             ])->innerJoinWith('Datehorometers');
-
-
-        // (new UsersController())->usrById($model->user_created);
-        $ultimo_registro = $this->getLastDate();
-        $resultado = $ultimo_registro->first();
-
-        if ($id == $resultado->id)
-        {
-            
-        }
-
 
 
         $this->set(compact('datehorometer', 'horometerByDate', 'machines', 'horometerOld'));

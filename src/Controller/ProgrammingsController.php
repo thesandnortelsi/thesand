@@ -52,7 +52,7 @@ class ProgrammingsController extends AppController
      */
     public function add()
     {
-        $programming = $this->Programmings->newEntity();        
+        $programming = $this->Programmings->newEntity();
 
         if ($this->request->is('post')) 
         {
@@ -62,7 +62,7 @@ class ProgrammingsController extends AppController
             $year = date("Y-m-d", strtotime($year.'-12-31'."+ 1 days"));
             $today = date('2019-06-07');
 
-            $machines = $this->Programmings->Machines->find('all', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO', 'id' => 2 ]]);
+            $machines = $this->Programmings->Machines->find('all', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']]);
 
             $matto = 0;
             foreach ($machines as $machine) 
@@ -88,6 +88,7 @@ class ProgrammingsController extends AppController
                 while($fecha < $year)
                 {
                     $posicion ++;
+                    $posicion = ($posicion == 9) ? 1 : $posicion;
 
                     $items[] = array(
                                     'machine_id' => $machine->id,
@@ -180,36 +181,102 @@ class ProgrammingsController extends AppController
         $this->loadModel('DatehorometersMachines');
 
         $horometer = $this->DatehorometersMachines->find('all', [
-                'conditions' => ['date' => '2019-06-07', 'machine_id' => $id]
+                'conditions' => ['machine_id' => $id],
+                'order' => ['date' => 'desc']
             ])->innerJoinWith('Datehorometers');
 
         return $horometer;
     }
 
-    // private function countSundays($fechaInicio,$fechaFin)
-    // {
-    //  // $dias=array();
-    //  $dias = 0;
-    //  $fecha1=date($fechaInicio);
-    //  $fecha2=date($fechaFin);
-    //  $fechaTime=strtotime("-1 day",strtotime($fecha1));
-    //  $fecha=date("Y-m-d",$fechaTime);
-    //  while($fecha <= $fecha2)
-    //  {
-    //   $proximo_domingo=strtotime("next Sunday",$fechaTime);
-    //   $fechaDomingo=date("Y-m-d",$proximo_domingo);
-    //   if($fechaDomingo <= $fechaFin)
-    //   { 
-    //    // $dias[$fechaDomingo]=$fechaDomingo;
-    //    $dias++;
-    //   }
-    //   else
-    //   {
-    //    break;
-    //   }
-    //   $fechaTime=$proximo_domingo;
-    //   $fecha=date("Y-m-d",$proximo_domingo);
-    //  }
-    //  return $dias;
-    // }
+    public function editProgramming($date)
+    {
+        $this->loadModel('Machines');
+
+        $programming = $this->Programmings->newEntity();        
+        $programming = $this->Programmings->patchEntity($programming, $this->request->getData());
+
+        $year = date("Y", strtotime($date));
+        $year = date("Y-m-d", strtotime($year.'-12-31'."+ 1 days"));
+        $today = $date;
+
+        $machines = $this->Programmings->Machines->find('all', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']]);
+
+        $matto = 0;
+        foreach ($machines as $machine) 
+        {
+            $this->Programmings->deleteAll([
+                    'date >' => $machine->date_mantenaice,
+                    'machine_id' => $machine->id
+                ]);
+
+            $frecuencia = $this->getFrequencyById($machine->frequency_id);
+            $horometro = $this->getLastHorometer($machine->id);
+            $row = $horometro->first();
+
+            if (!empty($row->night))
+            {
+                $ultimo_horometro = $row->night;
+            }
+            else{
+                $ultimo_horometro = $row->day;
+            }
+
+            $posicion = $machine->position;
+
+            $dias = (($machine->horometer_mantenaice + $frecuencia->value) - $ultimo_horometro) / $machine->factor;
+            $fecha = date("Y-m-d", strtotime($today."+ ".floor($dias)." days"));
+            $siguiente = $machine->horometer_mantenaice + $frecuencia->value;
+
+            $maquina_editar = $this->Machines->get($machine->id, [
+                'contain' => []
+            ]);
+            // $maquina_editar->hour_left = 101;
+            $horas = $siguiente - $ultimo_horometro;
+            $maquinas[] = array(
+                            'hour_left' => $horas,
+                            'day_left' => $horas / $machine->factor
+                        );
+            // $maquina_editar->hour_left = $horas;
+            // $this->Machines->save($maquina_editar);
+
+            while($fecha < $year)
+            {
+                $posicion ++;
+                $posicion = ($posicion == 9) ? 1 : $posicion;
+
+                $items[] = array(
+                            'machine_id' => $machine->id,
+                            'date' => $fecha,
+                            'year' => date("Y", strtotime($fecha)),
+                            'month' => date("m", strtotime($fecha)),
+                            'day' => date("d", strtotime($fecha)),
+                            'position' => $posicion,
+                            'horometer_estimated' => $siguiente,
+                            'user_created' => $this->Auth->user('id')
+                        );
+
+                $siguiente = $siguiente + $frecuencia->value;
+                $dias = (($siguiente) - $ultimo_horometro) / $machine->factor;
+                $fecha = date("Y-m-d", strtotime($today."+ ".floor($dias)." days"));
+            }                                                
+        }
+        
+        $entities_maquinas = $this->Machines->newEntities($maquinas);        
+        $this->Machines->saveMany($entities_maquinas);
+
+        // $maquina_editar = $this->Machines->get(1, [
+        //         'contain' => []
+        //     ]);
+        // $horas = $siguiente - $ultimo_horometro;
+        // $maquinas[] = array(
+        //                 'hour_left' => $horas,
+        //                 'day_left' => $horas / $machine->factor
+        //             );
+        
+        // $this->Machines->save($maquina_editar);
+
+        $entities = $this->Programmings->newEntities($items);        
+        $this->Programmings->saveMany($entities);
+        
+    }
 }
