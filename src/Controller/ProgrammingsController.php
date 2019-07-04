@@ -52,9 +52,7 @@ class ProgrammingsController extends AppController
      */
     public function add()
     {
-        $programming = $this->Programmings->newEntity();
-
-        
+        $programming = $this->Programmings->newEntity();        
 
         if ($this->request->is('post')) 
         {
