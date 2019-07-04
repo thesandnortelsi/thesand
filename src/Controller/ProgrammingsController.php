@@ -79,48 +79,45 @@ class ProgrammingsController extends AppController
                     $ultimo_horometro = $row->day;
                 }
 
-                $matto = (($machine->horometer_mantenaice + $frecuencia->value) - $ultimo_horometro) / $machine->factor;
+                $posicion = $machine->position;
 
-                
-                $fecha = date("Y-m-d", strtotime($machine->date_mantenaice."+ ".ceil($matto)." days"));
-                $domingos = $this->countSundays($machine->date_mantenaice, $fecha);
-                $fecha = date("Y-m-d", strtotime($fecha."+ ".$domingos." days"));
+                $dias = (($machine->horometer_mantenaice + $frecuencia->value) - $ultimo_horometro) / $machine->factor;
+                $fecha = date("Y-m-d", strtotime($today."+ ".floor($dias)." days"));
+                $siguiente = $machine->horometer_mantenaice + $frecuencia->value;
 
+                while($fecha < $year)
+                {
+                    $posicion ++;
 
-                // for ($i=0; $i < ; $i++)
-                // {
-                //     if (condition) 
-                //     {
-                        
-                //     }
-                // }
-                
-                $programming->date = $fecha;
-                $programming->machine_id = $machine->id;
-                // $programming->year = date('');
-                // $programming->month = date();
-                // $programming->day = date();
-                // $programming->position = date();
-                // $programming->horometer_estimated = date();
-                // $programming->user_created = $this->Auth->user('user_id');
-                
+                    $items[] = array(
+                                    'machine_id' => $machine->id,
+                                    'date' => $fecha,
+                                    'year' => date("Y", strtotime($fecha)),
+                                    'month' => date("m", strtotime($fecha)),
+                                    'day' => date("d", strtotime($fecha)),
+                                    'position' => $posicion,
+                                    'horometer_estimated' => $siguiente,
+                                    'user_created' => $this->Auth->user('id')
+                                );                    
+
+                    $siguiente = $siguiente + $frecuencia->value;
+                    $dias = (($siguiente) - $ultimo_horometro) / $machine->factor;
+                    $fecha = date("Y-m-d", strtotime($today."+ ".floor($dias)." days"));                        
+                    
+                }                                                
             }
             
-
-            // debug($fecha);
-
-            $this->Programmings->save($programming);
-
+            $entities = $this->Programmings->newEntities($items);
             
-            // return $this->redirect(['action' => 'add']);
-
-
-            // if ($this->Programmings->save($programming)) {
-            //     $this->Flash->success(__('The programming has been saved.'));
-
-            //     return $this->redirect(['action' => 'index']);
-            // }
-            $this->Flash->error(__('The programming could not be saved. Please, try again.'));
+            if ($this->Programmings->saveMany($entities)) 
+            {
+                $this->Flash->success(__('The programming has been saved.'));
+            }
+            else
+            {
+                $this->Flash->error(__('The programming could not be saved. Please, try again.'));
+            }
+                    
         }
         $this->set(compact('programming'));
     }
@@ -189,30 +186,30 @@ class ProgrammingsController extends AppController
         return $horometer;
     }
 
-    private function countSundays($fechaInicio,$fechaFin)
-    {
-     // $dias=array();
-     $dias = 0;
-     $fecha1=date($fechaInicio);
-     $fecha2=date($fechaFin);
-     $fechaTime=strtotime("-1 day",strtotime($fecha1));
-     $fecha=date("Y-m-d",$fechaTime);
-     while($fecha <= $fecha2)
-     {
-      $proximo_domingo=strtotime("next Sunday",$fechaTime);
-      $fechaDomingo=date("Y-m-d",$proximo_domingo);
-      if($fechaDomingo <= $fechaFin)
-      { 
-       // $dias[$fechaDomingo]=$fechaDomingo;
-       $dias++;
-      }
-      else
-      {
-       break;
-      }
-      $fechaTime=$proximo_domingo;
-      $fecha=date("Y-m-d",$proximo_domingo);
-     }
-     return $dias;
-    }
+    // private function countSundays($fechaInicio,$fechaFin)
+    // {
+    //  // $dias=array();
+    //  $dias = 0;
+    //  $fecha1=date($fechaInicio);
+    //  $fecha2=date($fechaFin);
+    //  $fechaTime=strtotime("-1 day",strtotime($fecha1));
+    //  $fecha=date("Y-m-d",$fechaTime);
+    //  while($fecha <= $fecha2)
+    //  {
+    //   $proximo_domingo=strtotime("next Sunday",$fechaTime);
+    //   $fechaDomingo=date("Y-m-d",$proximo_domingo);
+    //   if($fechaDomingo <= $fechaFin)
+    //   { 
+    //    // $dias[$fechaDomingo]=$fechaDomingo;
+    //    $dias++;
+    //   }
+    //   else
+    //   {
+    //    break;
+    //   }
+    //   $fechaTime=$proximo_domingo;
+    //   $fecha=date("Y-m-d",$proximo_domingo);
+    //  }
+    //  return $dias;
+    // }
 }

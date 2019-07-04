@@ -13,7 +13,7 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\ModelsTable|\Cake\ORM\Association\BelongsTo $Models
  * @property \App\Model\Table\GroupsTable|\Cake\ORM\Association\BelongsTo $Groups
  * @property \App\Model\Table\FrequencysTable|\Cake\ORM\Association\BelongsTo $Frequencys
- * @property |\Cake\ORM\Association\HasMany $Programmings
+ * @property \App\Model\Table\ProgrammingsTable|\Cake\ORM\Association\HasMany $Programmings
  * @property \App\Model\Table\DatehorometersTable|\Cake\ORM\Association\BelongsToMany $Datehorometers
  *
  * @method \App\Model\Entity\Machine get($primaryKey, $options = [])
@@ -139,6 +139,14 @@ class MachinesTable extends Table
         $validator
             ->decimal('factor')
             ->allowEmptyString('factor');
+
+        $validator
+            ->decimal('hour_left')
+            ->allowEmptyString('hour_left');
+
+        $validator
+            ->decimal('day_left')
+            ->allowEmptyString('day_left');
 
         $validator
             ->scalar('state')

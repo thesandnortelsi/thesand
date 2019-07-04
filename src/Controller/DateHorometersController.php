@@ -170,6 +170,18 @@ class DatehorometersController extends AppController
                 'conditions' => ['date' => date("Y-m-d", strtotime($createdDate."- 1 days"))]
             ])->innerJoinWith('Datehorometers');
 
+
+        // (new UsersController())->usrById($model->user_created);
+        $ultimo_registro = $this->getLastDate();
+        $resultado = $ultimo_registro->first();
+
+        if ($id == $resultado->id)
+        {
+            
+        }
+
+
+
         $this->set(compact('datehorometer', 'horometerByDate', 'machines', 'horometerOld'));
     }
 
@@ -191,5 +203,14 @@ class DatehorometersController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    private function getLastDate()
+    {
+        $horometer = $this->Datehorometers->find('all', [
+                'order' => ['date' => 'desc']
+            ]);
+
+        return $horometer;
     }
 }

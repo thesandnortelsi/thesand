@@ -62,20 +62,20 @@ class ProgrammingsTable extends Table
             ->date('date')
             ->allowEmptyDate('date');
 
-        $validator
-            ->scalar('year')
-            ->maxLength('year', 4)
-            ->allowEmptyString('year');
+        // $validator
+        //     ->scalar('year')
+        //     ->maxLength('year', 4)
+        //     ->allowEmptyString('year');
 
-        $validator
-            ->scalar('month')
-            ->maxLength('month', 2)
-            ->allowEmptyString('month');
+        // $validator
+        //     ->scalar('month')
+        //     ->maxLength('month', 2)
+        //     ->allowEmptyString('month');
 
-        $validator
-            ->scalar('day')
-            ->maxLength('day', 2)
-            ->allowEmptyString('day');
+        // $validator
+        //     ->scalar('day')
+        //     ->maxLength('day', 2)
+        //     ->allowEmptyString('day');
 
         $validator
             ->integer('position')

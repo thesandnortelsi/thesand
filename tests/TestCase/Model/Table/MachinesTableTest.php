@@ -28,6 +28,7 @@ class MachinesTableTest extends TestCase
         'app.Models',
         'app.Groups',
         'app.Frequencys',
+        'app.Programmings',
         'app.Datehorometers'
     ];
 
