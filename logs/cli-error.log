@@ -43,6 +43,400 @@ Stack Trace:
 #17 {main}
 
 
+<<<<<<< HEAD
+2019-06-05 16:16:36 Error: [InvalidArgumentException] There was a problem connecting to the database: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+ in D:\xampp\htdocs\thesand\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\MysqlAdapter.php on line 127
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\PdoAdapter.php(136): Phinx\Db\Adapter\MysqlAdapter->connect()
+#1 D:\xampp\htdocs\thesand\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\AdapterWrapper.php(469): Phinx\Db\Adapter\PdoAdapter->getConnection()
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\CakeAdapter.php(56): Phinx\Db\Adapter\AdapterWrapper->getConnection()
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\CommandTrait.php(78): Migrations\CakeAdapter->__construct(Object(Phinx\Db\Adapter\TimedOutputAdapter), Object(Cake\Database\Connection))
+#4 D:\xampp\htdocs\thesand\vendor\robmorgan\phinx\src\Phinx\Console\Command\Create.php(153): Migrations\Command\Create->bootstrap(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\CommandTrait.php(35): Phinx\Console\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\Create.php(72): Migrations\Command\Create->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 D:\xampp\htdocs\thesand\vendor\symfony\console\Command\Command.php(255): Migrations\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(921): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(273): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Create), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'create', 'create_Personas')
+#13 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#14 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#15 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#16 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#17 {main}
+
+
+2019-06-05 16:17:37 Error: [InvalidArgumentException] The migration class name "create_Personas" is invalid. Please use CamelCase format. in D:\xampp\htdocs\thesand\vendor\robmorgan\phinx\src\Phinx\Console\Command\Create.php on line 176
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\CommandTrait.php(35): Phinx\Console\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\Create.php(72): Migrations\Command\Create->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 D:\xampp\htdocs\thesand\vendor\symfony\console\Command\Command.php(255): Migrations\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(921): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(273): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Create), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'create', 'create_Personas')
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#11 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#12 {main}
+
+
+2019-06-05 16:17:45 Error: [InvalidArgumentException] The migration class name "create_Personas" is invalid. Please use CamelCase format. in D:\xampp\htdocs\thesand\vendor\robmorgan\phinx\src\Phinx\Console\Command\Create.php on line 176
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\CommandTrait.php(35): Phinx\Console\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\Create.php(72): Migrations\Command\Create->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 D:\xampp\htdocs\thesand\vendor\symfony\console\Command\Command.php(255): Migrations\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(921): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(273): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Create), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'create', 'create_Personas')
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#11 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#12 {main}
+
+
+2019-06-05 16:18:28 Error: [InvalidArgumentException] The migration class name "createPersonas" is invalid. Please use CamelCase format. in D:\xampp\htdocs\thesand\vendor\robmorgan\phinx\src\Phinx\Console\Command\Create.php on line 176
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\CommandTrait.php(35): Phinx\Console\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\Create.php(72): Migrations\Command\Create->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 D:\xampp\htdocs\thesand\vendor\symfony\console\Command\Command.php(255): Migrations\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(921): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(273): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Create), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'create', 'createPersonas')
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#11 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#12 {main}
+
+
+2019-06-05 16:18:35 Error: [InvalidArgumentException] The migration class name "createPersonas" is invalid. Please use CamelCase format. in D:\xampp\htdocs\thesand\vendor\robmorgan\phinx\src\Phinx\Console\Command\Create.php on line 176
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\CommandTrait.php(35): Phinx\Console\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Command\Create.php(72): Migrations\Command\Create->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 D:\xampp\htdocs\thesand\vendor\symfony\console\Command\Command.php(255): Migrations\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(921): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(273): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Create), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'create', 'createPersonas')
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#11 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#12 {main}
+
+
+2019-06-05 16:40:01 Error: [Symfony\Component\Console\Exception\CommandNotFoundException] Command "DropPersonas" is not defined. in D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php on line 652
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(237): Symfony\Component\Console\Application->find('DropPersonas')
+#1 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'DropPersonas')
+#4 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#7 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#8 {main}
+
+
+2019-06-05 16:40:33 Error: [Symfony\Component\Console\Exception\CommandNotFoundException] Command "drop" is not defined. in D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php on line 652
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(237): Symfony\Component\Console\Application->find('drop')
+#1 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'drop', 'DropPersonas')
+#4 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#7 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#8 {main}
+
+
+2019-06-05 16:40:57 Error: [Symfony\Component\Console\Exception\CommandNotFoundException] Command "Drop" is not defined. in D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php on line 652
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(237): Symfony\Component\Console\Application->find('Drop')
+#1 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'Drop', 'DropPersonas')
+#4 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#7 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#8 {main}
+
+
+2019-06-05 17:22:03 Error: [Symfony\Component\Console\Exception\RuntimeException] Too many arguments, expected arguments "command" "name". in D:\xampp\htdocs\thesand\vendor\symfony\console\Input\ArgvInput.php on line 183
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\symfony\console\Input\ArgvInput.php(86): Symfony\Component\Console\Input\ArgvInput->parseArgument('function')
+#1 D:\xampp\htdocs\thesand\vendor\symfony\console\Input\Input.php(55): Symfony\Component\Console\Input\ArgvInput->parse()
+#2 D:\xampp\htdocs\thesand\vendor\symfony\console\Command\Command.php(214): Symfony\Component\Console\Input\Input->bind(Object(Symfony\Component\Console\Input\InputDefinition))
+#3 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(921): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(273): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Create), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 D:\xampp\htdocs\thesand\vendor\symfony\console\Application.php(149): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(108): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Migrations\Shell\MigrationsShell->main('migrations', 'create', 'public', 'function', 'change()')
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(164): Cake\Console\Shell->runCommand(Array, true, Array)
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Migrations\Shell\MigrationsShell->runCommand(Array, true)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Migrations\Shell\MigrationsShell), Array)
+#11 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#12 {main}
+
+
+2019-06-05 21:05:19 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.personas' doesn't exist in D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 133
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'personas', Array, Object(Cake\Database\Schema\TableSchema))
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('personas', Array)
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('personas')
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(685): Cake\ORM\Table->getSchema()
+#4 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(221): Cake\ORM\Table->getPrimaryKey()
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'personas', 'Personas')
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Personas')
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(279): Bake\Shell\Task\ModelTask->main('Personas')
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('Personas', 0)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(280): Cake\Collection\Collection->each(Object(Closure))
+#11 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(518): Bake\Shell\BakeShell->all('personas')
+#12 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#13 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#14 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#15 {main}
+
+
+Caused by: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.personas' doesn't exist in D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php on line 39
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(350): Cake\Database\Statement\MysqlStatement->execute()
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(353): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#4 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(302): Cake\Database\Connection->query('SHOW FULL COLUM...')
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(306): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(131): Cake\Database\Connection->execute('SHOW FULL COLUM...', Array)
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'personas', Array, Object(Cake\Database\Schema\TableSchema))
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('personas', Array)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('personas')
+#11 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(685): Cake\ORM\Table->getSchema()
+#12 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(221): Cake\ORM\Table->getPrimaryKey()
+#13 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#14 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'personas', 'Personas')
+#15 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Personas')
+#16 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(279): Bake\Shell\Task\ModelTask->main('Personas')
+#17 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('Personas', 0)
+#18 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(280): Cake\Collection\Collection->each(Object(Closure))
+#19 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(518): Bake\Shell\BakeShell->all('personas')
+#20 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#21 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#22 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#23 {main}
+
+
+2019-06-05 21:05:26 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.personascls' doesn't exist in D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 133
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'personascls', Array, Object(Cake\Database\Schema\TableSchema))
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('personascls', Array)
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('personascls')
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(685): Cake\ORM\Table->getSchema()
+#4 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(221): Cake\ORM\Table->getPrimaryKey()
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'personascls', 'Personascls')
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Personascls')
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(279): Bake\Shell\Task\ModelTask->main('Personascls')
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('Personascls', 0)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(280): Cake\Collection\Collection->each(Object(Closure))
+#11 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(518): Bake\Shell\BakeShell->all('personascls')
+#12 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#13 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#14 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#15 {main}
+
+
+Caused by: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.personascls' doesn't exist in D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php on line 39
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(350): Cake\Database\Statement\MysqlStatement->execute()
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(353): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#4 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(302): Cake\Database\Connection->query('SHOW FULL COLUM...')
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(306): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(131): Cake\Database\Connection->execute('SHOW FULL COLUM...', Array)
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'personascls', Array, Object(Cake\Database\Schema\TableSchema))
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('personascls', Array)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('personascls')
+#11 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(685): Cake\ORM\Table->getSchema()
+#12 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(221): Cake\ORM\Table->getPrimaryKey()
+#13 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#14 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'personascls', 'Personascls')
+#15 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Personascls')
+#16 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(279): Bake\Shell\Task\ModelTask->main('Personascls')
+#17 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('Personascls', 0)
+#18 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(280): Cake\Collection\Collection->each(Object(Closure))
+#19 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(518): Bake\Shell\BakeShell->all('personascls')
+#20 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#21 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#22 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#23 {main}
+
+
+2019-06-05 21:05:37 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.personas' doesn't exist in D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 133
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'personas', Array, Object(Cake\Database\Schema\TableSchema))
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('personas', Array)
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('personas')
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(685): Cake\ORM\Table->getSchema()
+#4 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(221): Cake\ORM\Table->getPrimaryKey()
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'personas', 'Personas')
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Personas')
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(279): Bake\Shell\Task\ModelTask->main('Personas')
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('Personas', 0)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(280): Cake\Collection\Collection->each(Object(Closure))
+#11 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(518): Bake\Shell\BakeShell->all('personas')
+#12 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#13 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#14 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#15 {main}
+
+
+Caused by: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.personas' doesn't exist in D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php on line 39
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(350): Cake\Database\Statement\MysqlStatement->execute()
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(353): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#4 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(302): Cake\Database\Connection->query('SHOW FULL COLUM...')
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(306): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(131): Cake\Database\Connection->execute('SHOW FULL COLUM...', Array)
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'personas', Array, Object(Cake\Database\Schema\TableSchema))
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('personas', Array)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('personas')
+#11 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(685): Cake\ORM\Table->getSchema()
+#12 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(221): Cake\ORM\Table->getPrimaryKey()
+#13 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#14 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'personas', 'Personas')
+#15 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Personas')
+#16 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(279): Bake\Shell\Task\ModelTask->main('Personas')
+#17 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('Personas', 0)
+#18 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(280): Cake\Collection\Collection->each(Object(Closure))
+#19 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(518): Bake\Shell\BakeShell->all('personas')
+#20 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#21 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#22 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#23 {main}
+
+
+2019-06-05 21:07:48 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.persona' doesn't exist in D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 133
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'persona', Array, Object(Cake\Database\Schema\TableSchema))
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('persona', Array)
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('persona')
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(685): Cake\ORM\Table->getSchema()
+#4 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(221): Cake\ORM\Table->getPrimaryKey()
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'persona', 'Persona')
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Persona')
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(279): Bake\Shell\Task\ModelTask->main('Persona')
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('Persona', 0)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(280): Cake\Collection\Collection->each(Object(Closure))
+#11 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(518): Bake\Shell\BakeShell->all('persona')
+#12 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#13 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#14 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#15 {main}
+
+
+Caused by: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.persona' doesn't exist in D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php on line 39
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(350): Cake\Database\Statement\MysqlStatement->execute()
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(353): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#4 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(302): Cake\Database\Connection->query('SHOW FULL COLUM...')
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(306): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(131): Cake\Database\Connection->execute('SHOW FULL COLUM...', Array)
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'persona', Array, Object(Cake\Database\Schema\TableSchema))
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('persona', Array)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('persona')
+#11 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(685): Cake\ORM\Table->getSchema()
+#12 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(221): Cake\ORM\Table->getPrimaryKey()
+#13 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#14 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'persona', 'Persona')
+#15 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Persona')
+#16 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(279): Bake\Shell\Task\ModelTask->main('Persona')
+#17 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('Persona', 0)
+#18 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(280): Cake\Collection\Collection->each(Object(Closure))
+#19 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(518): Bake\Shell\BakeShell->all('persona')
+#20 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#21 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#22 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#23 {main}
+
+
+2019-06-05 21:07:57 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.persona' doesn't exist in D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 133
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'persona', Array, Object(Cake\Database\Schema\TableSchema))
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('persona', Array)
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('persona')
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(685): Cake\ORM\Table->getSchema()
+#4 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(221): Cake\ORM\Table->getPrimaryKey()
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'persona', 'Persona')
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Persona')
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(279): Bake\Shell\Task\ModelTask->main('Persona')
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('Persona', 0)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(280): Cake\Collection\Collection->each(Object(Closure))
+#11 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(518): Bake\Shell\BakeShell->all('persona')
+#12 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#13 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#14 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#15 {main}
+
+
+Caused by: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.persona' doesn't exist in D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php on line 39
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(350): Cake\Database\Statement\MysqlStatement->execute()
+#2 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#3 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(353): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#4 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(302): Cake\Database\Connection->query('SHOW FULL COLUM...')
+#5 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#6 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(306): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#7 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(131): Cake\Database\Connection->execute('SHOW FULL COLUM...', Array)
+#8 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'persona', Array, Object(Cake\Database\Schema\TableSchema))
+#9 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('persona', Array)
+#10 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('persona')
+#11 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(685): Cake\ORM\Table->getSchema()
+#12 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(221): Cake\ORM\Table->getPrimaryKey()
+#13 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#14 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'persona', 'Persona')
+#15 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Persona')
+#16 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(279): Bake\Shell\Task\ModelTask->main('Persona')
+#17 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('Persona', 0)
+#18 D:\xampp\htdocs\thesand\vendor\cakephp\bake\src\Shell\BakeShell.php(280): Cake\Collection\Collection->each(Object(Closure))
+#19 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(518): Bake\Shell\BakeShell->all('persona')
+#20 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#21 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#22 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#23 {main}
+
+
+2019-06-05 22:44:14 Error: [RuntimeException] Unknown command `cake schema`. Run `cake --help` to get the list of valid commands. in D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 346
+Stack Trace:
+#0 D:\xampp\htdocs\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(157): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'schema')
+#1 D:\xampp\htdocs\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+=======
 2019-06-05 20:22:09 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'dbthesand.rols' doesn't exist in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 133
 Stack Trace:
 #0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'rols', Array, Object(Cake\Database\Schema\TableSchema))
@@ -80,6 +474,395 @@ Stack Trace:
 #14 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'rols', 'Rols')
 #15 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Rols')
 #16 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Bake\Shell\Task\ModelTask->main('Rols')
+#17 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(525): Cake\Console\Shell->runCommand(Array, false, Array)
+#18 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#19 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#20 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#21 {main}
+>>>>>>> a88b22be7a6da612001f1769efadf9e414f90b86
+
+
+2019-06-06 17:37:00 Error: [PDOException] SQLSTATE[HY000] [1049] Unknown database 'dbthesand' in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Driver.php on line 92
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Driver.php(92): PDO->__construct('mysql:host=loca...', 'root', '', Array)
+#1 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(106): Cake\Database\Driver->_connect('mysql:host=loca...', Array)
+#2 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Dialect\MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(42): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(391): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(1094): Cake\Database\Connection->getSchemaCollection()
+#8 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(1048): Bake\Shell\Task\ModelTask->_getAllTables()
+#9 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(213): Bake\Shell\Task\ModelTask->listAll()
+#10 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#11 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'users', 'Users')
+#12 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Users')
+#13 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Bake\Shell\Task\ModelTask->main('Users')
+#14 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(525): Cake\Console\Shell->runCommand(Array, false, Array)
+#15 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#16 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#17 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#18 {main}
+
+
+2019-06-07 20:31:30 Error: [RuntimeException] Unknown command `cake clear_all`. Run `cake --help` to get the list of valid commands. in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 346
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(157): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'clear_all')
+#1 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+
+2019-06-07 20:32:21 Error: [RuntimeException] Unknown command `cake clear_all`. Run `cake --help` to get the list of valid commands. in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 346
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(157): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'clear_all')
+#1 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+
+2019-06-07 20:32:47 Error: [RuntimeException] Unknown command `cake clear_all`. Run `cake --help` to get the list of valid commands. in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 346
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(157): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'clear_all')
+#1 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+
+2019-06-07 20:33:56 Error: [RuntimeException] Unknown command `cake clear_all`. Run `cake --help` to get the list of valid commands. in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 346
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(157): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'clear_all')
+#1 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+
+2019-06-07 20:42:01 Error: [RuntimeException] Unknown command `cake bike`. Run `cake --help` to get the list of valid commands. in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 346
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(157): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'bike')
+#1 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+
+2019-06-07 22:55:46 Error: [RuntimeException] Unknown command `cake clear_all`. Run `cake --help` to get the list of valid commands. in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 346
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(157): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'clear_all')
+#1 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+
+2019-06-07 22:55:59 Error: [RuntimeException] Unknown command `cake clear_all`. Run `cake --help` to get the list of valid commands. in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 346
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(157): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'clear_all')
+#1 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+
+2019-06-07 23:03:16 Error: [RuntimeException] Unknown command `cake clear_all`. Run `cake --help` to get the list of valid commands. in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 346
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(157): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'clear_all')
+#1 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+
+2019-06-07 23:04:05 Error: [RuntimeException] Unknown command `cake clear_all`. Run `cake --help` to get the list of valid commands. in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 346
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(157): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'clear_all')
+#1 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+
+2019-06-25 16:31:06 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.date_horometers' doesn't exist in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 133
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'date_horometers', Array, Object(Cake\Database\Schema\TableSchema))
+#1 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('date_horometers', Array)
+#2 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('date_horometers')
+#3 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(325): Cake\ORM\Table->getSchema()
+#4 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(222): Bake\Shell\Task\ModelTask->findBelongsTo(Object(App\Model\Table\DateHorometersTable), Array)
+#5 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(App\Model\Table\DateHorometersTable))
+#6 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(App\Model\Table\DateHorometersTable), 'datehorometers', 'Datehorometers')
+#7 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Datehorometers')
+#8 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Bake\Shell\Task\ModelTask->main('Datehorometers')
+#9 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(525): Cake\Console\Shell->runCommand(Array, false, Array)
+#10 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#11 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#12 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#13 {main}
+
+
+Caused by: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.date_horometers' doesn't exist in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php on line 39
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(350): Cake\Database\Statement\MysqlStatement->execute()
+#2 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#3 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(353): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#4 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(302): Cake\Database\Connection->query('SHOW FULL COLUM...')
+#5 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#6 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(306): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#7 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(131): Cake\Database\Connection->execute('SHOW FULL COLUM...', Array)
+#8 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'date_horometers', Array, Object(Cake\Database\Schema\TableSchema))
+#9 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('date_horometers', Array)
+#10 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('date_horometers')
+#11 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(325): Cake\ORM\Table->getSchema()
+#12 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(222): Bake\Shell\Task\ModelTask->findBelongsTo(Object(App\Model\Table\DateHorometersTable), Array)
+#13 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(App\Model\Table\DateHorometersTable))
+#14 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(App\Model\Table\DateHorometersTable), 'datehorometers', 'Datehorometers')
+#15 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Datehorometers')
+#16 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Bake\Shell\Task\ModelTask->main('Datehorometers')
+#17 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(525): Cake\Console\Shell->runCommand(Array, false, Array)
+#18 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#19 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#20 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#21 {main}
+
+
+2019-06-25 16:32:23 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.date_horometers' doesn't exist in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 133
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'date_horometers', Array, Object(Cake\Database\Schema\TableSchema))
+#1 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('date_horometers', Array)
+#2 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('date_horometers')
+#3 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(325): Cake\ORM\Table->getSchema()
+#4 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(222): Bake\Shell\Task\ModelTask->findBelongsTo(Object(App\Model\Table\DateHorometersTable), Array)
+#5 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(App\Model\Table\DateHorometersTable))
+#6 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(App\Model\Table\DateHorometersTable), 'datehorometers', 'Datehorometers')
+#7 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Datehorometers')
+#8 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Bake\Shell\Task\ModelTask->main('Datehorometers')
+#9 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(525): Cake\Console\Shell->runCommand(Array, false, Array)
+#10 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#11 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#12 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#13 {main}
+
+
+Caused by: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.date_horometers' doesn't exist in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php on line 39
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(350): Cake\Database\Statement\MysqlStatement->execute()
+#2 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#3 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(353): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#4 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(302): Cake\Database\Connection->query('SHOW FULL COLUM...')
+#5 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#6 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(306): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#7 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(131): Cake\Database\Connection->execute('SHOW FULL COLUM...', Array)
+#8 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'date_horometers', Array, Object(Cake\Database\Schema\TableSchema))
+#9 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('date_horometers', Array)
+#10 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('date_horometers')
+#11 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(325): Cake\ORM\Table->getSchema()
+#12 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(222): Bake\Shell\Task\ModelTask->findBelongsTo(Object(App\Model\Table\DateHorometersTable), Array)
+#13 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(App\Model\Table\DateHorometersTable))
+#14 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(App\Model\Table\DateHorometersTable), 'datehorometers', 'Datehorometers')
+#15 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Datehorometers')
+#16 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Bake\Shell\Task\ModelTask->main('Datehorometers')
+#17 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(525): Cake\Console\Shell->runCommand(Array, false, Array)
+#18 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#19 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#20 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#21 {main}
+
+
+2019-06-25 16:33:10 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.date_horometers' doesn't exist in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 133
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'date_horometers', Array, Object(Cake\Database\Schema\TableSchema))
+#1 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('date_horometers', Array)
+#2 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('date_horometers')
+#3 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(325): Cake\ORM\Table->getSchema()
+#4 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(222): Bake\Shell\Task\ModelTask->findBelongsTo(Object(App\Model\Table\DateHorometersTable), Array)
+#5 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(App\Model\Table\DateHorometersTable))
+#6 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(App\Model\Table\DateHorometersTable), 'datehorometers', 'Datehorometers')
+#7 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Datehorometers')
+#8 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Bake\Shell\Task\ModelTask->main('Datehorometers')
+#9 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(525): Cake\Console\Shell->runCommand(Array, false, Array)
+#10 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#11 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#12 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#13 {main}
+
+
+Caused by: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.date_horometers' doesn't exist in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php on line 39
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(350): Cake\Database\Statement\MysqlStatement->execute()
+#2 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#3 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(353): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#4 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(302): Cake\Database\Connection->query('SHOW FULL COLUM...')
+#5 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#6 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(306): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#7 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(131): Cake\Database\Connection->execute('SHOW FULL COLUM...', Array)
+#8 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'date_horometers', Array, Object(Cake\Database\Schema\TableSchema))
+#9 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('date_horometers', Array)
+#10 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('date_horometers')
+#11 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(325): Cake\ORM\Table->getSchema()
+#12 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(222): Bake\Shell\Task\ModelTask->findBelongsTo(Object(App\Model\Table\DateHorometersTable), Array)
+#13 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(App\Model\Table\DateHorometersTable))
+#14 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(App\Model\Table\DateHorometersTable), 'datehorometers', 'Datehorometers')
+#15 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Datehorometers')
+#16 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Bake\Shell\Task\ModelTask->main('Datehorometers')
+#17 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(525): Cake\Console\Shell->runCommand(Array, false, Array)
+#18 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#19 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#20 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#21 {main}
+
+
+2019-06-25 16:33:59 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.date_horometers' doesn't exist in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 133
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'date_horometers', Array, Object(Cake\Database\Schema\TableSchema))
+#1 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('date_horometers', Array)
+#2 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('date_horometers')
+#3 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php(292): Cake\ORM\Table->getSchema()
+#4 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php(142): Bake\Shell\Task\TemplateTask->_loadController()
+#5 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Bake\Shell\Task\TemplateTask->main('Datehorometers')
+#6 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(525): Cake\Console\Shell->runCommand(Array, false, Array)
+#7 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#8 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#9 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#10 {main}
+
+
+Caused by: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.date_horometers' doesn't exist in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php on line 39
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(350): Cake\Database\Statement\MysqlStatement->execute()
+#2 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#3 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(353): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#4 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(302): Cake\Database\Connection->query('SHOW FULL COLUM...')
+#5 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#6 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(306): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#7 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(131): Cake\Database\Connection->execute('SHOW FULL COLUM...', Array)
+#8 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'date_horometers', Array, Object(Cake\Database\Schema\TableSchema))
+#9 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('date_horometers', Array)
+#10 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('date_horometers')
+#11 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php(292): Cake\ORM\Table->getSchema()
+#12 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php(142): Bake\Shell\Task\TemplateTask->_loadController()
+#13 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Bake\Shell\Task\TemplateTask->main('Datehorometers')
+#14 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(525): Cake\Console\Shell->runCommand(Array, false, Array)
+#15 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#16 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#17 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#18 {main}
+
+
+2019-06-25 16:35:09 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.date_horometers_machines' doesn't exist in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 133
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'date_horometers...', Array, Object(Cake\Database\Schema\TableSchema))
+#1 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('date_horometers...', Array)
+#2 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('date_horometers...')
+#3 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(416): Cake\ORM\Table->getSchema()
+#4 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(232): Bake\Shell\Task\ModelTask->findHasMany(Object(Cake\ORM\Table), Array)
+#5 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'datehorometers', 'Datehorometers')
+#7 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Datehorometers')
+#8 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Bake\Shell\Task\ModelTask->main('Datehorometers')
+#9 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(525): Cake\Console\Shell->runCommand(Array, false, Array)
+#10 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#11 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#12 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#13 {main}
+
+
+Caused by: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.date_horometers_machines' doesn't exist in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php on line 39
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(350): Cake\Database\Statement\MysqlStatement->execute()
+#2 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#3 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(353): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#4 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(302): Cake\Database\Connection->query('SHOW FULL COLUM...')
+#5 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#6 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(306): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#7 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(131): Cake\Database\Connection->execute('SHOW FULL COLUM...', Array)
+#8 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'date_horometers...', Array, Object(Cake\Database\Schema\TableSchema))
+#9 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('date_horometers...', Array)
+#10 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('date_horometers...')
+#11 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(416): Cake\ORM\Table->getSchema()
+#12 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(232): Bake\Shell\Task\ModelTask->findHasMany(Object(Cake\ORM\Table), Array)
+#13 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#14 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'datehorometers', 'Datehorometers')
+#15 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Datehorometers')
+#16 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Bake\Shell\Task\ModelTask->main('Datehorometers')
+#17 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(525): Cake\Console\Shell->runCommand(Array, false, Array)
+#18 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#19 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#20 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#21 {main}
+
+
+2019-06-25 16:35:53 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.date_horometers_machines' doesn't exist in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 133
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'date_horometers...', Array, Object(Cake\Database\Schema\TableSchema))
+#1 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('date_horometers...', Array)
+#2 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('date_horometers...')
+#3 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(416): Cake\ORM\Table->getSchema()
+#4 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(232): Bake\Shell\Task\ModelTask->findHasMany(Object(Cake\ORM\Table), Array)
+#5 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'datehorometers', 'Datehorometers')
+#7 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Datehorometers')
+#8 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Bake\Shell\Task\ModelTask->main('Datehorometers')
+#9 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(525): Cake\Console\Shell->runCommand(Array, false, Array)
+#10 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#11 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#12 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#13 {main}
+
+
+Caused by: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.date_horometers_machines' doesn't exist in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php on line 39
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(350): Cake\Database\Statement\MysqlStatement->execute()
+#2 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#3 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(353): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#4 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(302): Cake\Database\Connection->query('SHOW FULL COLUM...')
+#5 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#6 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(306): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#7 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(131): Cake\Database\Connection->execute('SHOW FULL COLUM...', Array)
+#8 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'date_horometers...', Array, Object(Cake\Database\Schema\TableSchema))
+#9 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('date_horometers...', Array)
+#10 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('date_horometers...')
+#11 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(416): Cake\ORM\Table->getSchema()
+#12 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(232): Bake\Shell\Task\ModelTask->findHasMany(Object(Cake\ORM\Table), Array)
+#13 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#14 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'datehorometers', 'Datehorometers')
+#15 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Datehorometers')
+#16 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Bake\Shell\Task\ModelTask->main('Datehorometers')
+#17 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(525): Cake\Console\Shell->runCommand(Array, false, Array)
+#18 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#19 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#20 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#21 {main}
+
+
+2019-07-01 16:22:44 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.frecuencys' doesn't exist in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 133
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'frecuencys', Array, Object(Cake\Database\Schema\TableSchema))
+#1 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('frecuencys', Array)
+#2 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('frecuencys')
+#3 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(685): Cake\ORM\Table->getSchema()
+#4 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(221): Cake\ORM\Table->getPrimaryKey()
+#5 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'frecuencys', 'Frecuencys')
+#7 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Frecuencys')
+#8 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Bake\Shell\Task\ModelTask->main('Frecuencys')
+#9 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(525): Cake\Console\Shell->runCommand(Array, false, Array)
+#10 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
+#11 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#12 C:\wamp64\www\thesand\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#13 {main}
+
+
+Caused by: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'thesanddb.frecuencys' doesn't exist in C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php on line 39
+Stack Trace:
+#0 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(350): Cake\Database\Statement\MysqlStatement->execute()
+#2 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#3 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(353): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#4 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(302): Cake\Database\Connection->query('SHOW FULL COLUM...')
+#5 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php(68): Cake\Database\Connection->Cake\Database\{closure}()
+#6 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Connection.php(306): Cake\Core\Retry\CommandRetry->run(Object(Closure))
+#7 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(131): Cake\Database\Connection->execute('SHOW FULL COLUM...', Array)
+#8 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(99): Cake\Database\Schema\Collection->_reflect('Column', 'frecuencys', Array, Object(Cake\Database\Schema\TableSchema))
+#9 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('frecuencys', Array)
+#10 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(560): Cake\Database\Schema\CachedCollection->describe('frecuencys')
+#11 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\ORM\Table.php(685): Cake\ORM\Table->getSchema()
+#12 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(221): Cake\ORM\Table->getPrimaryKey()
+#13 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#14 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'frecuencys', 'Frecuencys')
+#15 C:\wamp64\www\thesand\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Frecuencys')
+#16 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(532): Bake\Shell\Task\ModelTask->main('Frecuencys')
 #17 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\Shell.php(525): Cake\Console\Shell->runCommand(Array, false, Array)
 #18 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(384): Cake\Console\Shell->runCommand(Array, true)
 #19 C:\wamp64\www\thesand\vendor\cakephp\cakephp\src\Console\CommandRunner.php(162): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
