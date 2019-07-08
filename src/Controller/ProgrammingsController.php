@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Datasource\ConnectionManager;
 
 /**
  * Programmings Controller
@@ -36,13 +37,68 @@ class ProgrammingsController extends AppController
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    public function view($anio = null)
     {
-        $programming = $this->Programmings->get($id, [
-            'contain' => []
+        $connection = ConnectionManager::get('default');
+
+        if ($anio == date('Y')) 
+        {
+
+            //Datos Semana:
+            $year = $anio;
+            $month = date("m");
+            $day = date("d");           
+            
+            $semana=date("W",mktime(0,0,0,$month,$day,$year));
+            $diaSemana=date("w",mktime(0,0,0,$month,$day,$year));                             
+            
+            if($diaSemana==0){
+                $diaSemana=7;
+            }                             
+            
+            $inicio_semana = date("Y-m-d",mktime(0,0,0,$month,$day-$diaSemana+1,$year));
+            $fin_semana = date("Y-m-d",mktime(0,0,0,$month,$day+(7-$diaSemana),$year));
+
+
+
+
+            //DATOS MES
+            $mes = date("m");
+            $inicio = $anio."-".$mes."-01";
+            $fin = $anio."-".$mes."-31";
+
+            $data_meses = $this->Programmings->find('all', [
+                'conditions' => ['year' => $anio, 'month' => $mes],
+                'order' => ['date' => 'asc']
+            ]);
+
+            $dias_mes = array();
+            foreach ($data_meses as $row)
+            {
+                array_push($dias_mes, date("Y-m-d", strtotime($row->date)));
+            }
+            $dias_mes = array_values(array_unique($dias_mes));            
+        }
+
+        //DATOS AÑO
+        $data_anio = $this->Programmings->find('all', [
+            'conditions' => ['year' => $anio],
+            'order' => ['date' => 'asc']
         ]);
 
-        $this->set('programming', $programming);
+        $dias_anio = array();
+        foreach ($data_anio as $row)
+        {
+            array_push($dias_anio, date("Y-m-d", strtotime($row->date)));
+        }
+        $dias_anio = array_values(array_unique($dias_anio));
+
+        // $machines = $this->Programmings->Machines->find('all', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']])->innerJoinWith('Frequencys');
+        $resultados = $connection->execute("SELECT m.id, m.name name, m.code code, m.hour_left, m.day_left, fr.value FROM machines m INNER JOIN frequencys fr ON m.frequency_id = fr.id");
+
+        $this->set('machines', $resultados);
+
+        $this->set(compact('anio', 'machines', 'dias_mes', 'data_meses', 'dias_anio', 'data_anio', 'inicio_semana', 'fin_semana'));
     }
 
     /**
@@ -225,13 +281,13 @@ class ProgrammingsController extends AppController
 
             $posicion = $machine->position;
 
-            $dias = (($machine->horometer_mantenaice + $frecuencia->value) - $ultimo_horometro) / $machine->factor;
-            $fecha = date("Y-m-d", strtotime($hoy."+ ".floor($dias)." days"));
+            $dias = (($machine->horometer_mantenaice + $frecuencia->value) - $ultimo_horometro) / $machine->factor;            
+            $fecha = date("Y-m-d", strtotime($hoy."+ ".ceil($dias)." days"));
             $siguiente = $machine->horometer_mantenaice + $frecuencia->value;
             
             $horas = $siguiente - $ultimo_horometro;
             $dias = $horas / $machine->factor;
-            $this->updHourMantenaice($machine->id, $horas, $dias);
+            $this->updHourMantenaice($machine->id, ceil($horas), ceil($dias));
 
             while($fecha < $anio)
             {
@@ -251,7 +307,7 @@ class ProgrammingsController extends AppController
 
                 $siguiente = $siguiente + $frecuencia->value;
                 $dias = (($siguiente) - $ultimo_horometro) / $machine->factor;
-                $fecha = date("Y-m-d", strtotime($hoy."+ ".floor($dias)." days"));
+                $fecha = date("Y-m-d", strtotime($hoy."+ ".ceil($dias)." days"));
             }                                                            
         }
 

@@ -36,7 +36,11 @@
                       </tr>
                     </thead>
                     <tbody>
-                      
+                      <tr>
+                          <td>2019</td>
+                          <td>En curso</td>
+                          <td><?= $this->Html->link('<i class="material-icons">visibility</i>', ['action' => 'view', '2019'], ['escape' => false]) ?></td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
