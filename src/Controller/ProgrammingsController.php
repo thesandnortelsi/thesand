@@ -94,7 +94,7 @@ class ProgrammingsController extends AppController
         $dias_anio = array_values(array_unique($dias_anio));
 
         // $machines = $this->Programmings->Machines->find('all', ['limit' => 200, 'conditions' => ['state' => 'ACTIVO']])->innerJoinWith('Frequencys');
-        $resultados = $connection->execute("SELECT m.id, m.name name, m.code code, m.hour_left, m.day_left, fr.value FROM machines m INNER JOIN frequencys fr ON m.frequency_id = fr.id");
+        $resultados = $connection->execute("SELECT m.id, m.name name, m.code code, m.hour_left, m.day_left, fr.value FROM machines m INNER JOIN frequencys fr ON m.frequency_id = fr.id ORDER BY m.code asc");
 
         $this->set('machines', $resultados);
 
@@ -282,7 +282,7 @@ class ProgrammingsController extends AppController
             $posicion = $machine->position;
 
             $dias = (($machine->horometer_mantenaice + $frecuencia->value) - $ultimo_horometro) / $machine->factor;            
-            $fecha = date("Y-m-d", strtotime($hoy."+ ".ceil($dias)." days"));
+            $fecha = date("Y-m-d", strtotime($hoy."+ ".floor($dias)." days"));
             $siguiente = $machine->horometer_mantenaice + $frecuencia->value;
             
             $horas = $siguiente - $ultimo_horometro;
@@ -307,7 +307,7 @@ class ProgrammingsController extends AppController
 
                 $siguiente = $siguiente + $frecuencia->value;
                 $dias = (($siguiente) - $ultimo_horometro) / $machine->factor;
-                $fecha = date("Y-m-d", strtotime($hoy."+ ".ceil($dias)." days"));
+                $fecha = date("Y-m-d", strtotime($hoy."+ ".floor($dias)." days"));
             }                                                            
         }
 
