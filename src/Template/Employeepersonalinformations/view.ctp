@@ -27,10 +27,10 @@
                 <li class="">
                     <?= $this->Html->link('Datos laborales', ['controller' => 'Employeeworkinformations', 'action' => 'add', $employeepersonalinformation->id], ['class' => 'active']) ?>
                 </li>
-                <li class="">
+                <!-- <li class="">
                   <a href="#tab1Inspire" role="tab" data-toggle="tab" aria-expanded="false">Datos familiares</a>
                 </li>
-
+ -->
               </ul>
               <div class="tools">
                 <a href="javascript:;" class="collapse"></a>

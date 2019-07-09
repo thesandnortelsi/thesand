@@ -270,7 +270,7 @@ $cakeDescription = 'TheSand';
                 <li><?= $this->Html->link('Usuarios', ['controller' => 'Users', 'action' => 'index']) ?></li>
               </ul>
             </li>
-            <!-- <li  class="start  open active ">
+            <li  class="start">
               <a href="#"> <i class="material-icons">build</i> <span class="title">Mantenimiento</span> <span class="selected"></span><span class="arrow  open "></span></a>
 
               <ul class="sub-menu">
@@ -282,14 +282,14 @@ $cakeDescription = 'TheSand';
                 <li><?= $this->Html->link('Mantenimientos Preventivos', ['controller' => 'Programmings', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link('Mantenimientos Correctivos', ['controller' => 'Correctives', 'action' => 'index']) ?></li>
               </ul>
-            </li> -->
+            </li>
 
             <li  class="start  open active ">
               <a href="#"> <i class="material-icons">build</i> <span class="title">Planillas</span> <span class="selected"></span><span class="arrow  open "></span></a>
 
               <ul class="sub-menu">
-                <li><?= $this->Html->link('Trabajadores - Info personal', ['controller' => 'Employeepersonalinformations', 'action' => 'index']) ?></li>
-                <li><?= $this->Html->link('Trabajadores - Info laboral', ['controller' => 'Employeeworkinformations', 'action' => 'index']) ?></li>
+                <!-- <li><?= $this->Html->link('Trabajadores - Info personal', ['controller' => 'Employeepersonalinformations', 'action' => 'index']) ?></li> -->
+                <li><?= $this->Html->link('Trabajadores', ['controller' => 'Employeeworkinformations', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link('Pais emisor', ['controller' => 'Sendingcountries', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link('Tipos de zona', ['controller' => 'Zonetypes', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link('Tipos de documento', ['controller' => 'Documenttypes', 'action' => 'index']) ?></li>

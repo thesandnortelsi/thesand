@@ -7,7 +7,7 @@
 
 
 <div class="page-title">
-    <h3>Trabajadores - Informacion personal</h3>
+    <h3>Informacion personal</h3>
 </div>
 <div id="container">
 
@@ -16,7 +16,7 @@
     <div class="span12">
       <div class="grid simple ">
         <div class="grid-title">
-          <h4>Lista de <span class="semi-bold">Trabajadores - Informacion personal</span></h4>
+          <h4><span class="semi-bold">Informacion personal</span></h4>
 
 
           <div class="tools">
@@ -71,6 +71,13 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+
+
+        <form action="" class="row">
+            <div class="form-group pull-right">
+                <?= $this->Html->link('Regresar', ['controller' => 'Employeeworkinformations', 'action' => 'index'], ['class' => 'btn btn-info btn-cons']) ?>
+            </div>
+        </form>
 
         </div>
       </div>

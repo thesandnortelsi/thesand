@@ -69,23 +69,23 @@ class EmployeeworkinformationsController extends AppController
             }
             $this->Flash->error(__('The employeeworkinformation could not be saved. Please, try again.'));
         }
-        $laborregimes = $this->Employeeworkinformations->Laborregimes->find('list', ['limit' => 200]);
-        $educationalsituations = $this->Employeeworkinformations->Educationalsituations->find('list', ['limit' => 200]);
-        $activities = $this->Employeeworkinformations->Activities->find('list', ['limit' => 200]);
-        $contracttypes = $this->Employeeworkinformations->Contracttypes->find('list', ['limit' => 200]);
-        $periodicityremunerations = $this->Employeeworkinformations->Periodicityremunerations->find('list', ['limit' => 200]);
-        $situations = $this->Employeeworkinformations->Situations->find('list', ['limit' => 200]);
-        $specialsituations = $this->Employeeworkinformations->Specialsituations->find('list', ['limit' => 200]);
-        $paymenttypes = $this->Employeeworkinformations->Paymenttypes->find('list', ['limit' => 200]);
-        $occupationalcategories = $this->Employeeworkinformations->Occupationalcategories->find('list', ['limit' => 200]);
-        $doublepayagreements = $this->Employeeworkinformations->Doublepayagreements->find('list', ['limit' => 200]);
-        $payrolltypes = $this->Employeeworkinformations->Payrolltypes->find('list', ['limit' => 200]);
-        $proyects = $this->Employeeworkinformations->Proyects->find('list', ['limit' => 200]);
-        $employeetypes = $this->Employeeworkinformations->Employeetypes->find('list', ['limit' => 200]);
-        $positions = $this->Employeeworkinformations->Positions->find('list', ['limit' => 200]);
-        $tasks = $this->Employeeworkinformations->Tasks->find('list', ['limit' => 200]);
-        $areas = $this->Employeeworkinformations->Areas->find('list', ['limit' => 200]);
-        $specialities = $this->Employeeworkinformations->Specialities->find('list', ['limit' => 200]);
+        $laborregimes = $this->Employeeworkinformations->Laborregimes->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $educationalsituations = $this->Employeeworkinformations->Educationalsituations->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $activities = $this->Employeeworkinformations->Activities->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $contracttypes = $this->Employeeworkinformations->Contracttypes->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $periodicityremunerations = $this->Employeeworkinformations->Periodicityremunerations->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $situations = $this->Employeeworkinformations->Situations->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $specialsituations = $this->Employeeworkinformations->Specialsituations->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $paymenttypes = $this->Employeeworkinformations->Paymenttypes->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $occupationalcategories = $this->Employeeworkinformations->Occupationalcategories->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $doublepayagreements = $this->Employeeworkinformations->Doublepayagreements->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $payrolltypes = $this->Employeeworkinformations->Payrolltypes->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $proyects = $this->Employeeworkinformations->Proyects->find('list', ['keyField' => 'id', 'valueField' => 'name']);
+        $employeetypes = $this->Employeeworkinformations->Employeetypes->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $positions = $this->Employeeworkinformations->Positions->find('list');
+        $tasks = $this->Employeeworkinformations->Tasks->find('list');
+        $areas = $this->Employeeworkinformations->Areas->find('list');
+        $specialities = $this->Employeeworkinformations->Specialities->find('list');
 
         // $employeepersonalinformations = $this->Employeeworkinformations->employeepersonalinformations->find('list', ['limit' => 200]);
         $employeepersonalinformations = $this->Employeeworkinformations->employeepersonalinformations->find(

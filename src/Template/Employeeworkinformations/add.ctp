@@ -4,97 +4,319 @@
  * @var \App\Model\Entity\Employeeworkinformation $employeeworkinformation
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Employeeworkinformations'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Laborregimes'), ['controller' => 'Laborregimes', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Laborregime'), ['controller' => 'Laborregimes', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Educationalsituations'), ['controller' => 'Educationalsituations', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Educationalsituation'), ['controller' => 'Educationalsituations', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Activities'), ['controller' => 'Activities', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Activity'), ['controller' => 'Activities', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Contracttypes'), ['controller' => 'Contracttypes', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Contracttype'), ['controller' => 'Contracttypes', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Periodicityremunerations'), ['controller' => 'Periodicityremunerations', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Periodicityremuneration'), ['controller' => 'Periodicityremunerations', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Situations'), ['controller' => 'Situations', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Situation'), ['controller' => 'Situations', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Specialsituations'), ['controller' => 'Specialsituations', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Specialsituation'), ['controller' => 'Specialsituations', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Paymenttypes'), ['controller' => 'Paymenttypes', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Paymenttype'), ['controller' => 'Paymenttypes', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Occupationalcategories'), ['controller' => 'Occupationalcategories', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Occupationalcategory'), ['controller' => 'Occupationalcategories', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Doublepayagreements'), ['controller' => 'Doublepayagreements', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Doublepayagreement'), ['controller' => 'Doublepayagreements', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Payrolltypes'), ['controller' => 'Payrolltypes', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Payrolltype'), ['controller' => 'Payrolltypes', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Proyects'), ['controller' => 'Proyects', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Proyect'), ['controller' => 'Proyects', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Employeetypes'), ['controller' => 'Employeetypes', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Employeetype'), ['controller' => 'Employeetypes', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Positions'), ['controller' => 'Positions', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Position'), ['controller' => 'Positions', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Tasks'), ['controller' => 'Tasks', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Task'), ['controller' => 'Tasks', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Areas'), ['controller' => 'Areas', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Area'), ['controller' => 'Areas', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Specialities'), ['controller' => 'Specialities', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Speciality'), ['controller' => 'Specialities', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Employeepersonalinformations'), ['controller' => 'Employeepersonalinformations', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Employeepersonalinformation'), ['controller' => 'Employeepersonalinformations', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Dataafps'), ['controller' => 'Dataafps', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Dataafp'), ['controller' => 'Dataafps', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Databanks'), ['controller' => 'Databanks', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Databank'), ['controller' => 'Databanks', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Payrolldetails'), ['controller' => 'Payrolldetails', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Payrolldetail'), ['controller' => 'Payrolldetails', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Residencecontrols'), ['controller' => 'Residencecontrols', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Residencecontrol'), ['controller' => 'Residencecontrols', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="employeeworkinformations form large-9 medium-8 columns content">
-    <?= $this->Form->create($employeeworkinformation) ?>
-    <fieldset>
-        <legend><?= __('Add Employeeworkinformation') ?></legend>
-        <?php
-            echo $this->Form->control('laborregime_id', ['options' => $laborregimes]);
-            echo $this->Form->control('educationalsituation_id', ['options' => $educationalsituations]);
-            echo $this->Form->control('activity_id', ['options' => $activities]);
-            echo $this->Form->control('disability');
-            echo $this->Form->control('cuspp');
-            echo $this->Form->control('sctr_pension');
-            echo $this->Form->control('contracttype_id', ['options' => $contracttypes]);
-            echo $this->Form->control('alternative_regime');
-            echo $this->Form->control('maximum_day');
-            echo $this->Form->control('night_time');
-            echo $this->Form->control('is_unionized');
-            echo $this->Form->control('periodicityremuneration_id', ['options' => $periodicityremunerations]);
-            echo $this->Form->control('basic_remuneration_728');
-            echo $this->Form->control('situation_id', ['options' => $situations]);
-            echo $this->Form->control('income_exonerated_5ta');
-            echo $this->Form->control('specialsituation_id', ['options' => $specialsituations]);
-            echo $this->Form->control('paymenttype_id', ['options' => $paymenttypes]);
-            echo $this->Form->control('occupationalcategory_id', ['options' => $occupationalcategories]);
-            echo $this->Form->control('doublepayagreement_id', ['options' => $doublepayagreements]);
-            echo $this->Form->control('payrolltype_id', ['options' => $payrolltypes]);
-            echo $this->Form->control('admission_date', ['empty' => true]);
-            echo $this->Form->control('state');
-            echo $this->Form->control('liquidation_date', ['empty' => true]);
-            echo $this->Form->control('liquidation_reason');
-            echo $this->Form->control('user_created');
-            echo $this->Form->control('user_modified');
-            echo $this->Form->control('proyect_id', ['options' => $proyects]);
-            echo $this->Form->control('employeetype_id', ['options' => $employeetypes]);
-            echo $this->Form->control('position_id', ['options' => $positions]);
-            echo $this->Form->control('task_id', ['options' => $tasks]);
-            echo $this->Form->control('area_id', ['options' => $areas]);
-            echo $this->Form->control('speciality_id', ['options' => $specialities]);
-            echo $this->Form->control('employeepersonalinformation_id', ['options' => $employeepersonalinformations]);
-            echo $this->Form->control('ruc');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+
+
+<ul class="breadcrumb">
+    <li>
+        <p>Planillas</p>
+    </li>
+    <li><?= $this->Html->link('Trabajadores - Informacion personal', ['controller' => 'Employeepersonalinformations', 'action' => 'index'], ['class' => 'active']) ?></li>
+</ul>
+<div class="page-title"> <i class="icon-custom-left"></i>
+    <h3>Ver - <span class="semi-bold">Trabajador - Informacion personal</span></h3>
 </div>
+
+
+<!-- Star header tabs -->
+
+<div class="col-md-12">
+              <ul class="nav nav-tabs" role="tablist">
+                <li class="">
+                  <!-- <a href="#tab1hellowWorld" role="tab" data-toggle="tab" aria-expanded="true">Datos personales</a> -->
+                  <?= $this->Html->link('Datos personales', ['controller' => 'Employeepersonalinformations', 'action' => 'view', $idemployeepersonalinformation  ], ['class' => '']) ?>
+
+                  <!-- 
+                    $employeepersonalinformation->id
+                   -->
+
+                </li>
+                <li class="active">
+                    <?= $this->Html->link('Datos laborales', ['controller' => 'Employeeworkinformations', 'action' => 'add', $idemployeepersonalinformation], ['class' => 'active']) ?>
+                </li>
+                <!-- <li class="">
+                  <a href="#tab1Inspire" role="tab" data-toggle="tab" aria-expanded="false">Datos familiares</a>
+                </li> -->
+                
+              </ul>
+              <div class="tools">
+                <a href="javascript:;" class="collapse"></a>
+                <a href="#grid-config" data-toggle="modal" class="config"></a>
+                <a href="javascript:;" class="reload"></a>
+                <a href="javascript:;" class="remove"></a>
+              </div>
+              <div class="tab-content">
+                <div class="tab-pane active" id="tab1hellowWorld">
+                  <div class="row column-seperation">
+                    
+                
+                    <!-- Inicio Datos Personales/ -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                          <div class="grid simple form-grid">
+                            <div class="grid-title no-border">
+                                <div class="tools">
+                                    <a href="javascript:;" class="collapse"></a>
+                                    <a href="#grid-config" data-toggle="modal" class="config"></a>
+                                    <a href="javascript:;" class="reload"></a>
+                                    <a href="javascript:;" class="remove"></a>
+                                </div>
+                            </div>
+
+
+                            <div class="grid-body no-border">
+
+                            <?= $this->Form->create($employeeworkinformation) ?>
+
+                                
+                                <div class="row form-row">
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('employeepersonalinformation_id', ['options' => $employeepersonalinformations, 'label' => 'Trabajador', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row form-row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <?= $this->Form->control('proyect_id', ['options' => $proyects, 'label' => 'Proyecto', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                
+                                <div class="row form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">  
+                                            <?=  $this->Form->control('laborregime_id', ['options' => $laborregimes, 'label' => 'Regimen Laboral', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('educationalsituation_id', ['options' => $educationalsituations, 'label' => 'Situación Educativa', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('activity_id', ['options' => $activities, 'label' => 'Ocupación', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="row form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('disability', ['options'=>['0'=>'No', '1'=>'Si'], 'label' => 'Discapacidad', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('cuspp', ['label' => 'CUSPP', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('sctr_pension', ['options'=>['0'=>'Ninguno', '1'=>'ONP', '2'=>'Cía privada'],  'label' => 'SCTR Pensión', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+
+                                <div class="row form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('contracttype_id', ['options' => $contracttypes, 'label' => 'Tipo de contrato', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('alternative_regime', ['options'=>['0'=>'No', '1'=>'Si'],  'label' => 'Sujeto a régimen alternativo, acumulativo', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('maximum_day', ['options'=>['0'=>'No', '1'=>'Si'],  'label' => 'Sujeto a jornada de trabajo máxima', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+
+                                <div class="row form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('night_time', ['options'=>['0'=>'No', '1'=>'Si'], 'label' => 'Sujeto a horario nocturno', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('is_unionized', ['options'=>['0'=>'No', '1'=>'Si'],  'label' => 'Es sindicalizado', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('periodicityremuneration_id', ['options' => $periodicityremunerations,  'label' => 'Periodicidad de la remuneración', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+
+                                <div class="row form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('basic_remuneration_728', ['label' => 'Monto  remuneración básica D.Leg. 728', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('income_exonerated_5ta', ['options'=>['0'=>'No', '1'=>'Si'],'label' => 'Rentas de 5ta categoría exoneradas', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('situation_id', ['options' => $situations,  'label' => 'Situación', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+
+                                <div class="row form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('specialsituation_id', ['options' => $specialsituations, 'label' => 'Situación especial', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('paymenttype_id', ['options' => $paymenttypes,  'label' => 'Tipo de pago', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('occupationalcategory_id', ['options' => $occupationalcategories,'label' => 'Categoría ocupacional', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+
+                                <div class="row form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('doublepayagreement_id', ['options' => $doublepayagreements, 'label' => 'Convenio para evitar la doble tributación', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('payrolltype_id', ['options' => $payrolltypes,  'label' => 'Tipo de planilla', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('admission_date', ['label' => 'Fecha de ingreso', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="row form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('employeetype_id', ['options' => $employeetypes, 'label' => 'Tipo de empleado', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('position_id', ['options' => $positions,  'label' => 'Categoría/Cargo', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('task_id', ['options' => $tasks, 'label' => 'Ocupacion', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+
+
+                                <div class="row form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('area_id', ['options' => $areas, 'label' => 'Area', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('speciality_id', ['options' => $specialities,  'label' => 'Especialidad', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+
+
+
+                                <div class="row form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">      
+                                            <?=  $this->Form->control('ruc', ['label' => 'RUC', 'class' => 'form-control']); ?>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <?= $this->Form->button('Guardar', ['class' => 'btn btn-success btn-cons']) ?>
+                                    <!-- <?= $this->Html->link('Cancelar', ['controller' => 'Employeeworkinformations', 'action' => 'index'], ['class' => 'btn btn-white btn-cons']) ?> -->
+                                </div>
+
+                            <?= $this->Form->end() ?>
+                            </div>
+                          </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- /Fin Datos Personales -->
+
+
+
+
+                  </div>
+                </div>
+                <div class="tab-pane" id="tab1FollowUs">
+                  <div class="row">
+                    <div class="col-md-12">
+                      
+
+
+
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="tab1Inspire">
+                  <div class="row">
+                    <div class="col-md-12">
+                      
+
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<!-- End header tabs -->
