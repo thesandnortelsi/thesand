@@ -8,8 +8,8 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Corrective'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Machines'), ['controller' => 'Machines', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Machine'), ['controller' => 'Machines', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Events'), ['controller' => 'Events', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Event'), ['controller' => 'Events', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="correctives index large-9 medium-8 columns content">
@@ -18,7 +18,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('int') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('machine_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('event_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('description') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('date') ?></th>
@@ -36,7 +36,7 @@
             <?php foreach ($correctives as $corrective): ?>
             <tr>
                 <td><?= $this->Number->format($corrective->int) ?></td>
-                <td><?= $corrective->has('machine') ? $this->Html->link($corrective->machine->name, ['controller' => 'Machines', 'action' => 'view', $corrective->machine->id]) : '' ?></td>
+                <td><?= $corrective->has('event') ? $this->Html->link($corrective->event->name, ['controller' => 'Events', 'action' => 'view', $corrective->event->id]) : '' ?></td>
                 <td><?= h($corrective->name) ?></td>
                 <td><?= h($corrective->description) ?></td>
                 <td><?= h($corrective->date) ?></td>

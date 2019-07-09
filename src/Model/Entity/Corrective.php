@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * Corrective Entity
  *
  * @property int $int
- * @property int $machine_id
+ * @property int $event_id
  * @property string|null $name
  * @property string|null $description
  * @property \Cake\I18n\FrozenDate|null $date
@@ -19,7 +19,7 @@ use Cake\ORM\Entity;
  * @property int|null $user_modified
  * @property \Cake\I18n\FrozenTime|null $modified
  *
- * @property \App\Model\Entity\Machine $machine
+ * @property \App\Model\Entity\Event $event
  */
 class Corrective extends Entity
 {
@@ -33,7 +33,7 @@ class Corrective extends Entity
      * @var array
      */
     protected $_accessible = [
-        'machine_id' => true,
+        'event_id' => true,
         'name' => true,
         'description' => true,
         'date' => true,
@@ -44,6 +44,6 @@ class Corrective extends Entity
         'created' => true,
         'user_modified' => true,
         'modified' => true,
-        'machine' => true
+        'event' => true
     ];
 }

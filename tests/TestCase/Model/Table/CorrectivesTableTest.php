@@ -24,7 +24,7 @@ class CorrectivesTableTest extends TestCase
      */
     public $fixtures = [
         'app.Correctives',
-        'app.Machines'
+        'app.Events'
     ];
 
     /**

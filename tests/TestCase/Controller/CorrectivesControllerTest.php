@@ -19,7 +19,7 @@ class CorrectivesControllerTest extends TestCase
      */
     public $fixtures = [
         'app.Correctives',
-        'app.Machines'
+        'app.Events'
     ];
 
     /**

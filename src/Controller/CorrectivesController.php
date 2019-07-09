@@ -26,7 +26,7 @@ class CorrectivesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Machines']
+            'contain' => ['Events']
         ];
         $correctives = $this->paginate($this->Correctives);
 
@@ -43,7 +43,7 @@ class CorrectivesController extends AppController
     public function view($id = null)
     {
         $corrective = $this->Correctives->get($id, [
-            'contain' => ['Machines']
+            'contain' => ['Events']
         ]);
 
         $this->set('corrective', $corrective);
@@ -66,8 +66,8 @@ class CorrectivesController extends AppController
             }
             $this->Flash->error(__('The corrective could not be saved. Please, try again.'));
         }
-        $machines = $this->Correctives->Machines->find('list', ['limit' => 200]);
-        $this->set(compact('corrective', 'machines'));
+        $events = $this->Correctives->Events->find('list', ['limit' => 200]);
+        $this->set(compact('corrective', 'events'));
     }
 
     /**
@@ -91,8 +91,8 @@ class CorrectivesController extends AppController
             }
             $this->Flash->error(__('The corrective could not be saved. Please, try again.'));
         }
-        $machines = $this->Correctives->Machines->find('list', ['limit' => 200]);
-        $this->set(compact('corrective', 'machines'));
+        $events = $this->Correctives->Events->find('list', ['limit' => 200]);
+        $this->set(compact('corrective', 'events'));
     }
 
     /**

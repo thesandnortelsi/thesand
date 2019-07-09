@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Correctives Model
  *
- * @property \App\Model\Table\MachinesTable|\Cake\ORM\Association\BelongsTo $Machines
+ * @property \App\Model\Table\EventsTable|\Cake\ORM\Association\BelongsTo $Events
  *
  * @method \App\Model\Entity\Corrective get($primaryKey, $options = [])
  * @method \App\Model\Entity\Corrective newEntity($data = null, array $options = [])
@@ -40,8 +40,8 @@ class CorrectivesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Machines', [
-            'foreignKey' => 'machine_id',
+        $this->belongsTo('Events', [
+            'foreignKey' => 'event_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -106,7 +106,7 @@ class CorrectivesTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['machine_id'], 'Machines'));
+        $rules->add($rules->existsIn(['event_id'], 'Events'));
 
         return $rules;
     }

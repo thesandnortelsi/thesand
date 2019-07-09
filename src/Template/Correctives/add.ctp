@@ -8,8 +8,8 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('List Correctives'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Machines'), ['controller' => 'Machines', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Machine'), ['controller' => 'Machines', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Events'), ['controller' => 'Events', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Event'), ['controller' => 'Events', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="correctives form large-9 medium-8 columns content">
@@ -17,7 +17,7 @@
     <fieldset>
         <legend><?= __('Add Corrective') ?></legend>
         <?php
-            echo $this->Form->control('machine_id', ['options' => $machines]);
+            echo $this->Form->control('event_id', ['options' => $events]);
             echo $this->Form->control('name');
             echo $this->Form->control('description');
             echo $this->Form->control('date', ['empty' => true]);
