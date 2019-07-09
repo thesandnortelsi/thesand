@@ -1,0 +1,67 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ * @var \App\Model\Entity\Specialsituation[]|\Cake\Collection\CollectionInterface $specialsituations
+ */
+?>
+
+
+
+<div class="page-title">
+    <h3>Situaciones especiales del trabajador</h3>
+</div>
+<div id="container">
+
+
+<div class="row-fluid">
+    <div class="span12">
+      <div class="grid simple ">
+        <div class="grid-title">
+          <h4>Lista de <span class="semi-bold">Situaciones especiales del trabajador</span></h4>
+
+
+          <div class="tools">
+            <a href="javascript:;" class="collapse"></a>
+            <a href="#grid-config" data-toggle="modal" class="config"></a>
+            <a href="javascript:;" class="reload"></a>
+            <a href="javascript:;" class="remove"></a>
+            <a href="javascript:;" class="add"></a>
+            <?= $this->Html->link('<i class="material-icons">add</i>', ['controller' => 'Specialsituations', 'action' => 'add'], ['escape' => false]) ?>
+          </div>
+        </div>
+        <div class="grid-body ">
+
+
+        <table class="table table-hover table-condensed" id="example2">
+            <thead>
+                <tr>
+                    <th>Codigo SUNAT</th>
+                    <th>Descripcion</th>
+                    <th>Descripcion Abreviada</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($specialsituations as $situation): ?>
+                <tr>
+                    <td><?= h($situation->code_sunat) ?></td>
+                    <td><?= h($situation->description) ?></td>
+                    <td><?= h($situation->abbreviated_description) ?></td>
+                    <td class="actions">
+                        <?= $this->Html->link('<i class="material-icons">visibility</i>', ['action' => 'view', $situation->id], ['escape' => false]) ?>
+                        <?= $this->Html->link('<i class="material-icons">edit</i>', ['action' => 'edit', $situation->id], ['escape' => false]) ?>
+                        <?= $this->Form->postLink('<i class="material-icons">delete</i>', ['action' => 'delete', $situation->id], ['confirm' => __('Está seguro que quiere eliminar:  {0}?', $situation->code_sunat.' - '.$situation->description), 'escape' => false]) ?>
+
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

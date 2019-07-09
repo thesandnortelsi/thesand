@@ -37,7 +37,7 @@ class PersonsTable extends Table
 
         $this->setTable('persons');
         $this->setDisplayField('name');
-        $this->setPrimaryKey('person_id');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 
@@ -58,8 +58,8 @@ class PersonsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('person_id')
-            ->allowEmptyString('person_id', 'create');
+            ->integer('id')
+            ->allowEmptyString('id', 'create');
 
         $validator
             ->scalar('surname_father')

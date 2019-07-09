@@ -270,7 +270,7 @@ $cakeDescription = 'TheSand';
                 <li><?= $this->Html->link('Usuarios', ['controller' => 'Users', 'action' => 'index']) ?></li>
               </ul>
             </li>
-            <li  class="start  open active ">
+            <!-- <li  class="start  open active ">
               <a href="#"> <i class="material-icons">build</i> <span class="title">Mantenimiento</span> <span class="selected"></span><span class="arrow  open "></span></a>
 
               <ul class="sub-menu">
@@ -279,6 +279,36 @@ $cakeDescription = 'TheSand';
                 <li><?= $this->Html->link('Lineas', ['controller' => 'Groups', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link('Máquinas', ['controller' => 'Machines', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link('Horómetros', ['controller' => 'Datehorometers', 'action' => 'index']) ?></li>
+              </ul>
+            </li> -->
+
+            <li  class="start  open active ">
+              <a href="#"> <i class="material-icons">build</i> <span class="title">Planillas</span> <span class="selected"></span><span class="arrow  open "></span></a>
+
+              <ul class="sub-menu">
+                <li><?= $this->Html->link('Trabajadores - Info personal', ['controller' => 'Employeepersonalinformations', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Trabajadores - Info laboral', ['controller' => 'Employeeworkinformations', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Pais emisor', ['controller' => 'Sendingcountries', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Tipos de zona', ['controller' => 'Zonetypes', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Tipos de documento', ['controller' => 'Documenttypes', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Tipos de via', ['controller' => 'Streettypes', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Nacionalidades', ['controller' => 'Nationalities', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Convenio doble pago', ['controller' => 'Doublepayagreements', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Tipos de pago', ['controller' => 'Paymenttypes', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Situacion educativa', ['controller' => 'Educationalsituations', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Situaciones especiales', ['controller' => 'Specialsituations', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Situaciones', ['controller' => 'Situations', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Periodicidad de remuneracion', ['controller' => 'Periodicityremunerations', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Afps', ['controller' => 'Afps', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Bancos', ['controller' => 'Banks', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Cargos/Categorias', ['controller' => 'Positions', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Ocupaciones', ['controller' => 'Tasks', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Especialidades', ['controller' => 'Specialities', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Tipo de empleados', ['controller' => 'Employeetypes', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Categorias ocupacionales', ['controller' => 'Occupationalcategories', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Actividades', ['controller' => 'Activities', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Regimen pensionario', ['controller' => 'Laborregimes', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Tipos  de contrato', ['controller' => 'Contracttypes', 'action' => 'index']) ?></li>
               </ul>
             </li>
             
