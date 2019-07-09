@@ -19,8 +19,13 @@ use Cake\ORM\Entity;
  * @property string|null $year
  * @property \Cake\I18n\FrozenDate|null $ispection
  * @property \Cake\I18n\FrozenDate|null $entry
- * @property string|null $horometer
+ * @property float|null $horometer
+ * @property float|null $horometer_mantenaice
+ * @property int|null $position
+ * @property \Cake\I18n\FrozenDate|null $date_mantenaice
  * @property float|null $factor
+ * @property float|null $hour_left
+ * @property float|null $day_left
  * @property string|null $state
  * @property int|null $user_created
  * @property \Cake\I18n\FrozenTime|null $created
@@ -30,6 +35,9 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Area $area
  * @property \App\Model\Entity\Model $model
  * @property \App\Model\Entity\Group $group
+ * @property \App\Model\Entity\Frequency $frequency
+ * @property \App\Model\Entity\Programming[] $programmings
+ * @property \App\Model\Entity\Datehorometer[] $datehorometers
  */
 class Machine extends Entity
 {
@@ -56,7 +64,12 @@ class Machine extends Entity
         'ispection' => true,
         'entry' => true,
         'horometer' => true,
+        'horometer_mantenaice' => true,
+        'position' => true,
+        'date_mantenaice' => true,
         'factor' => true,
+        'hour_left' => true,
+        'day_left' => true,
         'state' => true,
         'user_created' => true,
         'created' => true,
@@ -64,6 +77,9 @@ class Machine extends Entity
         'modified' => true,
         'area' => true,
         'model' => true,
-        'group' => true
+        'group' => true,
+        'frequency' => true,
+        'programmings' => true,
+        'datehorometers' => true
     ];
 }

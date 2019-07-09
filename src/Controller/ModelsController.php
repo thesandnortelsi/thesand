@@ -57,7 +57,6 @@ class ModelsController extends AppController
             $modifico = (new UsersController())->usrById($model->user_modified);
         }
 
-
         $this->set(compact('model', 'creo', 'modifico'));
     }
 
@@ -96,8 +95,8 @@ class ModelsController extends AppController
         $model = $this->Models->get($id, [
             'contain' => []
         ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-
+        if ($this->request->is(['patch', 'post', 'put'])) 
+        {
             $model->user_modified = $this->Auth->user('user_id');
 
             $model = $this->Models->patchEntity($model, $this->request->getData());

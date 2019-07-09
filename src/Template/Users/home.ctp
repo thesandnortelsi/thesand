@@ -236,9 +236,10 @@
               <ul class="sub-menu">
                 <li><?= $this->Html->link('Marcas', ['controller' => 'Manufacturers', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link('Modelos', ['controller' => 'Models', 'action' => 'index']) ?></li>
-                <li><?= $this->Html->link('Lineas', ['controller' => 'Groups', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Líneas', ['controller' => 'Groups', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link('Máquinas', ['controller' => 'Machines', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link('Horómetros', ['controller' => 'Datehorometers', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link('Mantenimientos Preventivos', ['controller' => 'Programmings', 'action' => 'index']) ?></li>
               </ul>
             </li>
             

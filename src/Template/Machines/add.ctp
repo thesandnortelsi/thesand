@@ -4,6 +4,56 @@
  * @var \App\Model\Entity\Machine $machine
  */
 ?>
+<?= $this->Html->script('jquery.js') ?>
+
+<script>
+//dropdown dependientes
+$(function() 
+{
+    $('#marca-id').change(function() 
+    {
+        var targeturl = $(this).attr('rel');
+        var marca = $(this).val();
+
+        $.ajax({
+            type: 'get',
+            url: 'ajaxModelByManufacture/' + marca,
+            beforeSend: function(xhr) 
+            {
+                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            },
+            success: function(response) 
+            {
+                if (response.data) 
+                {
+                  let modelos = '';
+
+                  for (i=0; i<response.data.modelos.length; i++)
+                  {
+                      console.log(response.data.modelos);
+                      modelos += '<option value="'+ response.data.modelos[i]['id'] +'">' + response.data.modelos[i]['name'] + '</option>';
+                  }
+
+                  $('#modelo-id').html(modelos);
+                      // console.log(response.data[0]);
+                      // $('#modelo-id').html(response.data.models);
+                      // $('#modelo-id').val(response.data.models);
+                      // $('#modelo-id').html("'options' => response.data.models");
+                      // $('#modelo-id').html("'options' => response.data.models");
+                }
+            },
+            error: function(e) 
+            {
+                alert("An error occurred: " + e.responseText.message);
+                console.log(e);
+            }
+        });
+    });
+});
+</script>
+
+
+
 <ul class="breadcrumb">
             <li>
               <p>MANTENIMIENTO</p>
@@ -30,25 +80,23 @@
 
                 <?= $this->Form->create($machine) ?>
 
+                <?php $request = $this->Url->build(['action' => 'ajaxModelByManufacture', 'ext' => 'json']); ?>
+
                     <div class="form-group">
-                      <?= $this->Form->control('area_id', ['options' => $areas, 'label' => 'Área', 'class' => 'form-control']); ?>
+                      <?= $this->Form->control('area_id', ['options' => $areas, 'label' => 'Área', 'class' => 'form-control', 'rel' => $request]); ?>
                     </div>
 
                     <div class="row form-row">
                       <div class="col-md-6">
                         <!-- <input name="form3City" id="form3City" type="text" class="form-control" placeholder="City"> -->
-                        <?=  $this->Form->control('model_id', ['options' => $models, 'label' => 'Marca', 'class' => 'form-control']); ?>
+                        <?=  $this->Form->control('manufacture_id', ['options' => $manufacturers, 'id' => 'marca-id', 'label' => 'Marca', 'class' => 'form-control']); ?>
                       </div>
                       <div class="col-md-6">
                         <!-- <input name="form3State" id="form3State" type="text" class="form-control" placeholder="State"> -->
-                        <?=  $this->Form->control('model_id', ['options' => $models, 'label' => 'Modelo', 'class' => 'form-control']); ?>
+                        <?=  $this->Form->control('model_id', ['options' =>'', 'id' => 'modelo-id', 'label' => 'Modelo', 'class' => 'form-control']); ?>
                       </div>
                     </div>
 
-
-                   <!--  <div class="form-group">
-                      <?=  $this->Form->control('model_id', ['options' => $models, 'label' => 'Modelo', 'class' => 'form-control']); ?>
-                    </div> -->
 
                     <div class="form-group">
                       <?= $this->Form->control('group_id', ['options' => $groups, 'label' => 'Linea', 'class' => 'form-control']); ?>
@@ -72,7 +120,7 @@
                     </div>
 
                     <div class="row form-row">
-                      <div class="col-md-4">
+                      <div class="col-md-5">
                         <?= $this->Form->control('series', ['label' => 'Serie', 'class' => 'form-control']); ?>
                       </div>
 
@@ -80,39 +128,53 @@
                         <?= $this->Form->control('plate', ['label' => 'Placa', 'class' => 'form-control']); ?>
                       </div>
 
-                      <div class="col-md-4">
+                      <div class="col-md-3">
                         <?= $this->Form->control('year', ['label' => 'Año', 'class' => 'form-control']); ?>
                       </div>
+
+                      
                     </div>
 
 
                     <div class="row form-row">
-                      <div class="col-md-4">
+
+                      <div class="col-md-3">
                         <?= $this->Form->control('ispection', ['type' => 'date', 'minYear' => date('Y') - 80, 'maxYear' => date('Y'), 'label' => 'Fechas de Inspección', 'class' => 'form-control', 'value' => date('Y-m-d')]); ?>
                       </div>
+                      
 
-                       <div class="col-md-4">
+                       <div class="col-md-3">
                         <?= $this->Form->control('entry', ['type' => 'date', 'minYear' => date('Y') - 80, 'maxYear' => date('Y'), 'label' => 'Fecha de Ingreso', 'class' => 'form-control', 'value' => date('Y-m-d')]); ?>
                       </div>
 
-                      <div class="col-md-4">
+                      <div class="col-md-3">
                         <?= $this->Form->control('horometer', ['label' => 'Horómetro de Ingreso', 'class' => 'form-control']); ?>
                       </div>
                     </div>
 
                     
                     <div class="row form-row">
-                      <div class="col-md-4">
+                      <div class="col-md-3">
+                        <?= $this->Form->control('date_mantenaice', ['label' => 'Último Mantenimiento', 'class' => 'form-control', 'value' => date('Y-m-d')]); ?>
+                      </div>
+
+                      <div class="col-md-3">
+                        <?= $this->Form->control('horometer_mantenaice', ['label' => 'Horómetro de Mantenimiento', 'class' => 'form-control']); ?>
+                      </div>
+
+                      <div class="col-md-1">
+                        <?= $this->Form->control('position', ['label' => 'Posición', 'class' => 'form-control', 'min' => 1, 'max' => 8, 'value' => 1]); ?>
+                      </div>
+
+                      <div class="col-md-3">
                         <?= $this->Form->control('frequency_id', ['options' => $frequencys, 'label' => 'Frecuencia Mantenimiento', 'class' => 'form-control']); ?>
                       </div>
 
-                       <div class="col-md-4">
+                       <div class="col-md-2">
                         <?= $this->Form->control('factor', ['label' => 'Factor de Uso', 'class' => 'form-control']); ?>
-                      </div>
+                      </div>                      
+
                     </div>
-
-              
-
                
 
                     <div class="form-group">

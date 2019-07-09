@@ -26,7 +26,10 @@ class MachinesTableTest extends TestCase
         'app.Machines',
         'app.Areas',
         'app.Models',
-        'app.Groups'
+        'app.Groups',
+        'app.Frequencys',
+        'app.Programmings',
+        'app.Datehorometers'
     ];
 
     /**
