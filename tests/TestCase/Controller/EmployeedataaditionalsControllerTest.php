@@ -1,14 +1,14 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\EmployeepersonalinformationsController;
+use App\Controller\EmployeedataaditionalsController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\EmployeepersonalinformationsController Test Case
+ * App\Controller\EmployeedataaditionalsController Test Case
  */
-class EmployeepersonalinformationsControllerTest extends TestCase
+class EmployeedataaditionalsControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -18,13 +18,7 @@ class EmployeepersonalinformationsControllerTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.Employeepersonalinformations',
-        'app.Documenttypes',
-        'app.Nationalities',
-        'app.Sendingcountries',
-        'app.Streettypes',
-        'app.Zonetypes',
-        'app.Ubigeos',
+        'app.Employeedataaditionals',
         'app.Employeeworkinformations'
     ];
 

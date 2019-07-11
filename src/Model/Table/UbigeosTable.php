@@ -31,8 +31,8 @@ class UbigeosTable extends Table
         parent::initialize($config);
 
         $this->setTable('ubigeos');
-        $this->setDisplayField('ubigeo_id');
-        $this->setPrimaryKey('ubigeo_id');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
     }
 
     /**
@@ -49,10 +49,10 @@ class UbigeosTable extends Table
             ->allowEmptyString('ubigeo_id', 'create');
 
         $validator
-            ->scalar('disId')
-            ->maxLength('disId', 6)
-            ->requirePresence('disId', 'create')
-            ->allowEmptyString('disId', false);
+            ->scalar('distric_id')
+            ->maxLength('distric_id', 6)
+            ->requirePresence('distric_id', 'create')
+            ->allowEmptyString('distric_id', false);
 
         $validator
             ->scalar('populated_center')

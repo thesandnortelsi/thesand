@@ -1,6 +1,12 @@
 <?php
 namespace App\Controller;
 
+// use Cake\Http\Session\CacheSession;
+
+// use Cake\Auth\Storage\StorageInterface;
+
+use  Cake\View\Helper\SessionHelpe;
+
 use App\Controller\AppController;
 
 /**
@@ -139,7 +145,21 @@ class UsersController extends AppController
             if ($user) 
             {
                 $this->Auth->setUser($user);
+                
+                //Session::write($key, $value)
+                //Session::write('proyect_id', 2);
+
+                $session = $this->getRequest()->getSession();
+                $session->write('proyect_name', 'EXPLORACION DE TIERRAS Y MOVIMIENTOS');
+                $session->write('proyect_id', 1);
+
+
                 return $this->redirect($this->Auth->redirectUrl());
+                
+                
+                // $session->write('Config.proyect_name', 'Mi primer proyecto');
+                // $session->write('Config.language', 'en');
+
             }
             else
             {

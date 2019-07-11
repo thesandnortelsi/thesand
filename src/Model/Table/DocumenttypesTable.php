@@ -43,6 +43,10 @@ class DocumenttypesTable extends Table
         $this->hasMany('Employeepersonalinformations', [
             'foreignKey' => 'documenttype_id'
         ]);
+
+        $this->hasMany('Employeedataaditional', [
+            'foreignKey' => 'employeedataaditional_id'
+        ]);
     }
 
     /**

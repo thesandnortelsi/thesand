@@ -197,8 +197,7 @@ class EmployeeworkinformationsTable extends Table
             ->allowEmptyString('income_exonerated_5ta');
 
         $validator
-            ->date('admission_date')
-            ->allowEmptyDate('admission_date');
+            ->date('admission_date');
 
         $validator
             ->integer('state')
@@ -225,7 +224,7 @@ class EmployeeworkinformationsTable extends Table
             ->scalar('ruc')
             ->maxLength('ruc', 11)
             ->requirePresence('ruc', 'create')
-            ->allowEmptyString('ruc', false);
+            ->allowEmptyString('ruc');
 
         return $validator;
     }

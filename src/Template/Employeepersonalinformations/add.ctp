@@ -9,10 +9,10 @@
     <li>
         <p>Planillas</p>
     </li>
-    <li><?= $this->Html->link('Trabajadores - Informacion personal', ['controller' => 'Employeepersonalinformations', 'action' => 'index'], ['class' => 'active']) ?></li>
+    <li><?= $this->Html->link('Informacion personal', ['controller' => 'Employeepersonalinformations', 'action' => 'index'], ['class' => 'active']) ?></li>
 </ul>
 <div class="page-title"> <i class="icon-custom-left"></i>
-    <h3>Nuevo - <span class="semi-bold">Trabajador - Informacion personal</span></h3>
+    <h3>Nuevo - <span class="semi-bold">Informacion personal</span></h3>
 </div>
 
 <div class="row">
@@ -165,7 +165,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <?= $this->Form->control('geographicallocation_id', ['options' => $geographicallocations, 'label' => 'Localidad', 'class' => 'form-control']); ?>
+                        <?= $this->Form->control('ubigeo_id', ['options' => $ubigeos, 'label' => 'Localidad', 'class' => 'form-control']); ?>
                     </div>
                 </div>
             </div>

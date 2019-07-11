@@ -9,42 +9,11 @@
     <li>
         <p>Planillas</p>
     </li>
-    <li><?= $this->Html->link('Trabajadores - Informacion personal', ['controller' => 'Employeepersonalinformations', 'action' => 'index'], ['class' => 'active']) ?></li>
+    <li><?= $this->Html->link('Informacion personal', ['controller' => 'Employeepersonalinformations', 'action' => 'index'], ['class' => 'active']) ?></li>
 </ul>
 <div class="page-title"> <i class="icon-custom-left"></i>
-    <h3>Ver - <span class="semi-bold">Trabajador - Informacion personal</span></h3>
+    <h3>Editar - <span class="semi-bold">Informacion personal</span></h3>
 </div>
-
-
-<!-- Star header tabs -->
-
-<div class="col-md-12">
-              <ul class="nav nav-tabs" role="tablist">
-                <li class="active">
-                  <!-- <a href="#tab1hellowWorld" role="tab" data-toggle="tab" aria-expanded="true">Datos personales</a> -->
-                  <?= $this->Html->link('Datos personales', ['controller' => 'Employeepersonalinformations', 'action' => 'edit', $employeepersonalinformation->id ], ['class' => 'active']) ?>
-                </li>
-                <li class="">
-                    <?= $this->Html->link('Datos laborales', ['controller' => 'Employeeworkinformations', 'action' => 'add', $employeepersonalinformation->id], ['class' => 'active']) ?>
-                </li>
-                <!-- <li class="">
-                  <a href="#tab1Inspire" role="tab" data-toggle="tab" aria-expanded="false">Datos familiares</a>
-                </li>
- -->
-              </ul>
-              <div class="tools">
-                <a href="javascript:;" class="collapse"></a>
-                <a href="#grid-config" data-toggle="modal" class="config"></a>
-                <a href="javascript:;" class="reload"></a>
-                <a href="javascript:;" class="remove"></a>
-              </div>
-              <div class="tab-content">
-                <div class="tab-pane active" id="tab1hellowWorld">
-                  <div class="row column-seperation">
-
-
-<!-- Inicio editar datos personales -->
-
 <div class="row">
     <div class="col-md-12">
       <div class="grid simple form-grid">
@@ -195,7 +164,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <?= $this->Form->control('ubigeo_id', ['options' => $ubigeos, 'label' => 'Localidad', 'class' => 'form-control']); ?>
+                        <?= $this->Form->control('geographicallocation_id', ['options' => $geographicallocations, 'label' => 'Localidad', 'class' => 'form-control']); ?>
                     </div>
                 </div>
             </div>
@@ -293,39 +262,3 @@
     </div>
 
 </div>
-
-
-<!-- Fin datos personales -->
-
-
-
-
-                  </div>
-                </div>
-                <div class="tab-pane" id="tab1FollowUs">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <h3>“ Nothing is<span class="semi-bold"> impossible</span>, the word itself says 'I'm <span class="semi-bold">possible</span>'! ”</h3>
-                      <p>A style represents visual customizations on top of a layout. By editing a style, you can use Squarespace's visual interface to customize your...</p>
-                      <br>
-                      <p class="pull-right">
-                        <button type="button" class="btn btn-white btn-cons">White</button>
-                        <button type="button" class="btn btn-success btn-cons">Success</button>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane" id="tab1Inspire">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <h3>Follow us &amp; get updated!</h3>
-                      <p>Instantly connect to what's most important to you. Follow your friends, experts, favorite celebrities, and breaking news.</p>
-                      <br>
-                      <p><a href="#" class="btn-social"><i class="icon-facebook"></i></a> <a href="#" class="btn-social"><i class="icon-twitter"></i> </a> <a href="#" class="btn-social"><i class="icon-dribbble"></i></a> <a href="#" class="btn-social"><i class="icon-pinterest-sign"></i></a> <a href="#" class="btn-social"><i class="icon-tumblr"></i> </a> <a href="#" class="btn-social"><i class="icon-linkedin-sign"></i> </a> </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-<!-- End header tabs -->

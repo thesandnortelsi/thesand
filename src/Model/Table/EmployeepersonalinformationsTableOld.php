@@ -10,12 +10,11 @@ use Cake\Validation\Validator;
  * Employeepersonalinformations Model
  *
  * @property \App\Model\Table\DocumenttypesTable|\Cake\ORM\Association\BelongsTo $Documenttypes
+ * @property \App\Model\Table\UbigeosTable|\Cake\ORM\Association\BelongsTo $Ubigeos
  * @property \App\Model\Table\NationalitiesTable|\Cake\ORM\Association\BelongsTo $Nationalities
  * @property \App\Model\Table\SendingcountriesTable|\Cake\ORM\Association\BelongsTo $Sendingcountries
  * @property \App\Model\Table\StreettypesTable|\Cake\ORM\Association\BelongsTo $Streettypes
  * @property \App\Model\Table\ZonetypesTable|\Cake\ORM\Association\BelongsTo $Zonetypes
- * @property \App\Model\Table\UbigeosTable|\Cake\ORM\Association\BelongsTo $Ubigeos
- * @property \App\Model\Table\EmployeeworkinformationsTable|\Cake\ORM\Association\HasMany $Employeeworkinformations
  *
  * @method \App\Model\Entity\Employeepersonalinformation get($primaryKey, $options = [])
  * @method \App\Model\Entity\Employeepersonalinformation newEntity($data = null, array $options = [])
@@ -50,6 +49,10 @@ class EmployeepersonalinformationsTable extends Table
             'foreignKey' => 'documenttype_id',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('Geographicallocations', [
+            'foreignKey' => 'geographicallocation_id',
+            'joinType' => 'INNER'
+        ]);
         $this->belongsTo('Nationalities', [
             'foreignKey' => 'nationality_id',
             'joinType' => 'INNER'
@@ -66,10 +69,6 @@ class EmployeepersonalinformationsTable extends Table
             'foreignKey' => 'zonetype_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('Ubigeos', [
-            'foreignKey' => 'ubigeo_id',
-            'joinType' => 'INNER'
-        ]);
         $this->hasMany('Employeeworkinformations', [
             'foreignKey' => 'employeepersonalinformation_id'
         ]);
@@ -84,8 +83,7 @@ class EmployeepersonalinformationsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmptyString('id', 'create');
+            ->integer('id');
 
         $validator
             ->scalar('surname_father')
@@ -93,8 +91,7 @@ class EmployeepersonalinformationsTable extends Table
 
         $validator
             ->scalar('surname_mother')
-            ->maxLength('surname_mother', 100)
-            ->allowEmptyString('surname_mother');
+            ->maxLength('surname_mother', 100);
 
         $validator
             ->scalar('name')
@@ -105,44 +102,37 @@ class EmployeepersonalinformationsTable extends Table
             ->maxLength('document', 15);
 
         $validator
-            ->email('email')
-            ->allowEmptyString('email');
+            ->email('email');
 
         $validator
-            ->date('birthdate');
+            ->date('birthdate')
+            ->allowEmptyDate('birthdate');
 
         $validator
             ->scalar('gender')
-            ->maxLength('gender', 6)
-            ->allowEmptyString('gender');
+            ->maxLength('gender', 6);
 
         $validator
             ->scalar('state')
-            ->maxLength('state', 8)
-            ->allowEmptyString('state');
+            ->maxLength('state', 8);
 
         $validator
-            ->integer('user_created')
-            ->allowEmptyString('user_created');
+            ->integer('user_created');
 
         $validator
-            ->integer('user_modified')
-            ->allowEmptyString('user_modified');
+            ->integer('user_modified');
 
         $validator
             ->scalar('phone')
-            ->maxLength('phone', 9)
-            ->allowEmptyString('phone');
+            ->maxLength('phone', 9);
 
         $validator
             ->scalar('street_name')
-            ->maxLength('street_name', 20)
-            ->allowEmptyString('street_name');
+            ->maxLength('street_name', 20);
 
         $validator
             ->scalar('street_number')
-            ->maxLength('street_number', 4)
-            ->allowEmptyString('street_number');
+            ->maxLength('street_number', 4);
 
         $validator
             ->scalar('department')
@@ -208,11 +198,11 @@ class EmployeepersonalinformationsTable extends Table
     {
         $rules->add($rules->isUnique(['email']));
         $rules->add($rules->existsIn(['documenttype_id'], 'Documenttypes'));
+        $rules->add($rules->existsIn(['geographicallocation_id'], 'Geographicallocations'));
         $rules->add($rules->existsIn(['nationality_id'], 'Nationalities'));
         $rules->add($rules->existsIn(['sendingcountry_id'], 'Sendingcountries'));
         $rules->add($rules->existsIn(['streettype_id'], 'Streettypes'));
         $rules->add($rules->existsIn(['zonetype_id'], 'Zonetypes'));
-        $rules->add($rules->existsIn(['ubigeo_id'], 'Ubigeos'));
 
         return $rules;
     }

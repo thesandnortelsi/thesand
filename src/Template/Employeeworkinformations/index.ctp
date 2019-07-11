@@ -15,7 +15,17 @@
     <div class="span12">
       <div class="grid simple ">
         <div class="grid-title">
-          <h4>Lista de <span class="semi-bold">Trabajadores</span></h4>
+          <h4>Lista de <span class="semi-bold">Trabajadores  
+            <?=
+            $this->getRequest()->getSession()->read('proyect_name') ? $this->getRequest()->getSession()->read('proyect_name') : '';
+            ?>
+
+            <?=
+            $this->getRequest()->getSession()->read('proyect_id') ? $this->getRequest()->getSession()->read('proyect_id') : 'None';
+
+            ?>
+                
+            </span></h4>
 
 
           <div class="tools">
@@ -33,9 +43,10 @@
         <table class="table table-hover table-condensed" id="example2">
             <thead>
                 <tr>
-                    <th>PROYECTO</th>
+                    <!-- <th>PROYECTO</th> -->
                     <th>DATOS PERSONALES</th>
                     <th>PLANILLA</th>
+                    <th>INICIO</th>
                     <th>CARGO/CATEGORIA</th>
                     <th>OCUPACION</th>
                     <th>ESPECIALIDAD</th>
@@ -71,7 +82,7 @@
             <tbody>
                 <?php foreach ($employeeworkinformations as $employeeworkinformation): ?>
                 <tr>
-                    <td><?= $employeeworkinformation->has('proyect') ? h($employeeworkinformation->proyect->name) : '' ?></td>
+                    <!-- <td><?= $employeeworkinformation->has('proyect') ? h($employeeworkinformation->proyect->name) : '' ?></td> -->
                     
                     <td>
                         <?= 
@@ -83,16 +94,35 @@
                         ?>
                     </td>
                     <td><?= $employeeworkinformation->has('payrolltype') ? h($employeeworkinformation->payrolltype->description) : '' ?></td> 
+                    <td><?= h($employeeworkinformation->admission_date) ?></td>
                     <td><?= $employeeworkinformation->has('position') ? h($employeeworkinformation->position->name) : '' ?></td>
+
                     <td><?= $employeeworkinformation->has('task') ? h($employeeworkinformation->task->name) : '' ?></td>
                     <td><?= $employeeworkinformation->has('speciality') ? h($employeeworkinformation->speciality->name) : '' ?></td>
                     <td><?= $employeeworkinformation->has('area') ? h($employeeworkinformation->area->name) : '' ?></td>
                     
-                    <td class="actions">
-                        <?= $this->Html->link('<i class="material-icons">visibility</i>', ['action' => 'view', $employeeworkinformation->id], ['escape' => false]) ?>
-                        <?= $this->Html->link('<i class="material-icons">edit</i>', ['action' => 'edit', $employeeworkinformation->id], ['escape' => false]) ?>
-                        <?= $this->Form->postLink('<i class="material-icons">delete</i>', ['action' => 'delete', $employeeworkinformation->id], ['confirm' => __('Está seguro que quiere eliminar:  {0}?', $employeeworkinformation->employeepersonalinformation->document.' - '.$employeeworkinformation->employeepersonalinformation->surname_father.' '.$employeeworkinformation->employeepersonalinformation->surname_mother.' '.$employeeworkinformation->employeepersonalinformation->name ), 'escape' => false]) ?>
+                    <!-- <td class="actions"> -->
+                        <!-- <?= $this->Html->link('<i class="material-icons">visibility</i>', ['action' => 'view', $employeeworkinformation->id], ['escape' => false]) ?> -->
+                        
+                        <!-- <?= $this->Form->postLink('<i class="material-icons">delete</i>', ['action' => 'delete', $employeeworkinformation->id], ['confirm' => __('Está seguro que quiere eliminar:  {0}?', $employeeworkinformation->employeepersonalinformation->document.' - '.$employeeworkinformation->employeepersonalinformation->surname_father.' '.$employeeworkinformation->employeepersonalinformation->surname_mother.' '.$employeeworkinformation->employeepersonalinformation->name ), 'escape' => false]) ?> -->
 
+                    <!-- </td> -->
+                    <td>
+                        <div class="btn-group">
+                        <!-- <button class="btn btn-white btn-demo-space">Action</button> -->
+                        <button class="btn btn-white dropdown-toggle btn-demo-space" data-toggle="dropdown" aria-expanded="false"> <span class="caret"></span> </button>
+                        <ul class="dropdown-menu">
+                          <li>
+                              <?= $this->Html->link('<i class="material-icons">edit</i> Editar', ['action' => 'edit', $employeeworkinformation->id], ['escape' => false]) ?>
+                          </li>
+                          <li>
+                              <?= $this->Html->link('<i class="material-icons">add</i> Informacion Fammiliar', ['controller'=>'Employeedataaditionals', 'action' => 'add', $employeeworkinformation->id], ['escape' => false]) ?>
+                          </li>
+                          <li>
+                              <?= $this->Html->link('<i class="material-icons">add</i> Editar', ['action' => 'edit', $employeeworkinformation->id], ['escape' => false]) ?>
+                          </li>
+                        </ul>
+                      </div>
                     </td>
 
                 </tr>

@@ -23,7 +23,7 @@
               <ul class="nav nav-tabs" role="tablist">
                 <li class="">
                   <!-- <a href="#tab1hellowWorld" role="tab" data-toggle="tab" aria-expanded="true">Datos personales</a> -->
-                  <?= $this->Html->link('Datos personales', ['controller' => 'Employeepersonalinformations', 'action' => 'view', $idemployeepersonalinformation  ], ['class' => '']) ?>
+                  <?= $this->Html->link('Datos personales', ['controller' => 'Employeepersonalinformations', 'action' => 'edit', $idemployeepersonalinformation  ], ['class' => '']) ?>
 
                   <!-- 
                     $employeepersonalinformation->id
@@ -279,6 +279,7 @@
                                 <div class="form-group">
                                     <?= $this->Form->button('Guardar', ['class' => 'btn btn-success btn-cons']) ?>
                                     <!-- <?= $this->Html->link('Cancelar', ['controller' => 'Employeeworkinformations', 'action' => 'index'], ['class' => 'btn btn-white btn-cons']) ?> -->
+                                    <?= $this->Html->link('Cancelar', ['controller' => 'Employeepersonalinformations', 'action' => 'index'], ['class' => 'btn btn-white btn-cons']) ?>
                                 </div>
 
                             <?= $this->Form->end() ?>

@@ -12,12 +12,12 @@ use App\Controller\AppController;
  */
 class EmployeepersonalinformationsController extends AppController
 {
-    
     public function initialize()
     {
         parent::initialize();
-        $this->viewBuilder()->setLayout('default2');
+        $this->viewBuilder()->setLayout('maintenance');
     }
+
 
     /**
      * Index method
@@ -27,7 +27,7 @@ class EmployeepersonalinformationsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Documenttypes', 'Nationalities', 'Sendingcountries', 'Streettypes', 'Zonetypes', 'Ubigeos']
+            'contain' => ['Documenttypes', 'Geographicallocations', 'Nationalities', 'Sendingcountries', 'Streettypes', 'Zonetypes']
         ];
         $employeepersonalinformations = $this->paginate($this->Employeepersonalinformations);
 
@@ -44,7 +44,7 @@ class EmployeepersonalinformationsController extends AppController
     public function view($id = null)
     {
         $employeepersonalinformation = $this->Employeepersonalinformations->get($id, [
-            'contain' => ['Documenttypes', 'Nationalities', 'Sendingcountries', 'Streettypes', 'Zonetypes', 'Ubigeos', 'Employeeworkinformations']
+            'contain' => ['Documenttypes', 'Geographicallocations', 'Nationalities', 'Sendingcountries', 'Streettypes', 'Zonetypes']
         ]);
 
         $this->set('employeepersonalinformation', $employeepersonalinformation);
@@ -58,7 +58,6 @@ class EmployeepersonalinformationsController extends AppController
     public function add()
     {
         $employeepersonalinformation = $this->Employeepersonalinformations->newEntity();
-        
         if ($this->request->is('post')) {
             $employeepersonalinformation = $this->Employeepersonalinformations->patchEntity($employeepersonalinformation, $this->request->getData());
             $employeepersonalinformation->user_created = $this->Auth->user('id');
@@ -66,37 +65,13 @@ class EmployeepersonalinformationsController extends AppController
             if ($this->Employeepersonalinformations->save($employeepersonalinformation)) {
                 $this->Flash->success(__('The employeepersonalinformation has been saved.'));
 
-                return $this->redirect(['action' => 'edit', $employeepersonalinformation->id]);
+                return $this->redirect(['controller'=>'Employeeworkinformations', 'action' => 'add', $employeepersonalinformation->id]);
             }
             $this->Flash->error(__('The employeepersonalinformation could not be saved. Please, try again.'));
         }
-        // $documenttypes = $this->Employeepersonalinformations->Documenttypes->find('list', ['limit' => 200]);
-        // $nationalities = $this->Employeepersonalinformations->Nationalities->find('list', ['limit' => 200]);
-        // $sendingcountries = $this->Employeepersonalinformations->Sendingcountries->find('list', ['limit' => 200]);
-        // $streettypes = $this->Employeepersonalinformations->Streettypes->find('list', ['limit' => 200]);
-        // $zonetypes = $this->Employeepersonalinformations->Zonetypes->find('list', ['limit' => 200]);
-        
-        // $this->set(compact('employeepersonalinformation', 'documenttypes', 'nationalities', 'sendingcountries', 'streettypes', 'zonetypes', ''));
-
-
-        // $employeepersonalinformation = $this->Employeepersonalinformations->newEntity();
-        // if ($this->request->is('post')) {
-        //     $employeepersonalinformation = $this->Employeepersonalinformations->patchEntity($employeepersonalinformation, $this->request->getData());
-        //     $employeepersonalinformation->user_created = $this->Auth->user('id');
-
-        //     if ($this->Employeepersonalinformations->save($employeepersonalinformation)) {
-        //         $this->Flash->success(__('The employeepersonalinformation has been saved.'));
-
-        //         return $this->redirect(['controller'=>'Employeeworkinformations', 'action' => 'add', $employeepersonalinformation->id]);
-        //     }
-        //     $this->Flash->error(__('The employeepersonalinformation could not be saved. Please, try again.'));
-        // }
         
         $documenttypes = $this->Employeepersonalinformations->Documenttypes->find('list', ['limit' => 200,  'keyField' => 'id', 'valueField' => 'abbreviated_description']);
-        
-        $ubigeos = $this->Employeepersonalinformations->Ubigeos->find('list', ['limit' => 200,  'keyField' => 'id', 'valueField' => 'populated_center']);
-
-        //$geographicallocations = $this->Employeepersonalinformations->Geographicallocations->find('list', ['limit' => 200,  'keyField' => 'id', 'valueField' => 'populated_center']);
+        $geographicallocations = $this->Employeepersonalinformations->Geographicallocations->find('list', ['limit' => 200,  'keyField' => 'id', 'valueField' => 'populated_center']);
         $nationalities = $this->Employeepersonalinformations->Nationalities->find('list', ['limit' => 200,  'keyField' => 'id', 'valueField' => 'description']);
         $sendingcountries = $this->Employeepersonalinformations->Sendingcountries->find('list', ['limit' => 200,  'keyField' => 'id', 'valueField' => 'description']);
         $streettypes = $this->Employeepersonalinformations->Streettypes->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'description']);
@@ -107,8 +82,7 @@ class EmployeepersonalinformationsController extends AppController
 
         $departmentos = array('1' => 'Amazonas', '2' => 'Cajamarca');
 
-
-        $this->set(compact('employeepersonalinformation', 'documenttypes', 'ubigeos', 'nationalities', 'sendingcountries', 'streettypes', 'zonetypes', 'departmentos'));
+        $this->set(compact('employeepersonalinformation', 'documenttypes', 'geographicallocations', 'nationalities', 'sendingcountries', 'streettypes', 'zonetypes', 'departmentos'));
     }
 
     /**
@@ -126,40 +100,33 @@ class EmployeepersonalinformationsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $employeepersonalinformation = $this->Employeepersonalinformations->patchEntity($employeepersonalinformation, $this->request->getData());
             $employeepersonalinformation->user_modified = $this->Auth->user('id');
-
+            
             if ($this->Employeepersonalinformations->save($employeepersonalinformation)) {
                 $this->Flash->success(__('The employeepersonalinformation has been saved.'));
 
-                return $this->redirect(['action' => 'edit', $employeepersonalinformation->id]);
+                return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The employeepersonalinformation could not be saved. Please, try again.'));
         }
         // $documenttypes = $this->Employeepersonalinformations->Documenttypes->find('list', ['limit' => 200]);
+        // $geographicallocations = $this->Employeepersonalinformations->Geographicallocations->find('list', ['limit' => 200]);
         // $nationalities = $this->Employeepersonalinformations->Nationalities->find('list', ['limit' => 200]);
         // $sendingcountries = $this->Employeepersonalinformations->Sendingcountries->find('list', ['limit' => 200]);
         // $streettypes = $this->Employeepersonalinformations->Streettypes->find('list', ['limit' => 200]);
         // $zonetypes = $this->Employeepersonalinformations->Zonetypes->find('list', ['limit' => 200]);
-        // $ubigeos = $this->Employeepersonalinformations->Ubigeos->find('list', ['limit' => 200]);
+        // $this->set(compact('employeepersonalinformation', 'documenttypes', 'geographicallocations', 'nationalities', 'sendingcountries', 'streettypes', 'zonetypes'));
 
         $documenttypes = $this->Employeepersonalinformations->Documenttypes->find('list', ['limit' => 200,  'keyField' => 'id', 'valueField' => 'abbreviated_description']);
-        
-        $ubigeos = $this->Employeepersonalinformations->Ubigeos->find('list', ['limit' => 200,  'keyField' => 'id', 'valueField' => 'populated_center']);
-
-        //$geographicallocations = $this->Employeepersonalinformations->Geographicallocations->find('list', ['limit' => 200,  'keyField' => 'id', 'valueField' => 'populated_center']);
+        $geographicallocations = $this->Employeepersonalinformations->Geographicallocations->find('list', ['limit' => 200,  'keyField' => 'id', 'valueField' => 'populated_center']);
         $nationalities = $this->Employeepersonalinformations->Nationalities->find('list', ['limit' => 200,  'keyField' => 'id', 'valueField' => 'description']);
         $sendingcountries = $this->Employeepersonalinformations->Sendingcountries->find('list', ['limit' => 200,  'keyField' => 'id', 'valueField' => 'description']);
         $streettypes = $this->Employeepersonalinformations->Streettypes->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'description']);
-
         $zonetypes = $this->Employeepersonalinformations->Zonetypes->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'description']);
-
-        // $departments = $this->loadModel('Departments')->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'description']);
-
+        
         $departmentos = array('1' => 'Amazonas', '2' => 'Cajamarca');
 
+        $this->set(compact('employeepersonalinformation', 'documenttypes', 'geographicallocations', 'nationalities', 'sendingcountries', 'streettypes', 'zonetypes', 'departmentos'));
 
-        $this->set(compact('employeepersonalinformation', 'documenttypes', 'ubigeos', 'nationalities', 'sendingcountries', 'streettypes', 'zonetypes', 'departmentos'));
-
-        // $this->set(compact('employeepersonalinformation', 'documenttypes', 'nationalities', 'sendingcountries', 'streettypes', 'zonetypes', 'ubigeos'));
     }
 
     /**

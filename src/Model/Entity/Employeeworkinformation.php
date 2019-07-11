@@ -138,4 +138,11 @@ class Employeeworkinformation extends Entity
         'payrolldetails' => true,
         'residencecontrols' => true
     ];
+
+
+    // protected function _getFullName()
+    // {
+    //     return $this->first_name . '  ' . $this->last_name;
+    // }
+    
 }

@@ -201,8 +201,8 @@
                                     </div> -->
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="ubigeo_id">Localidad</label>
-                                            <input name="ubigeo_id" type="text" value="<?= h($employeepersonalinformation->ubigeo->populated_center); ?>" disabled="disabled" class="form-control">
+                                            <label for="geographicallocation_id">Localidad</label>
+                                            <input name="geographicallocation_id" type="text" value="<?= h($employeepersonalinformation->geographicallocation->populated_center); ?>" disabled="disabled" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -336,3 +336,4 @@
             </div>
 
 <!-- End header tabs -->
+

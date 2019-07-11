@@ -15,7 +15,7 @@ class EmployeeworkinformationsController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->viewBuilder()->setLayout('maintenance');
+        $this->viewBuilder()->setLayout('default2');
     }
 
     
@@ -29,7 +29,30 @@ class EmployeeworkinformationsController extends AppController
         $this->paginate = [
             'contain' => ['Laborregimes', 'Educationalsituations', 'Activities', 'Contracttypes', 'Periodicityremunerations', 'Situations', 'Specialsituations', 'Paymenttypes', 'Occupationalcategories', 'Doublepayagreements', 'Payrolltypes', 'Proyects', 'Employeetypes', 'Positions', 'Tasks', 'Areas', 'Specialities', 'Employeepersonalinformations']
         ];
-        $employeeworkinformations = $this->paginate($this->Employeeworkinformations);
+
+        // $query = $articles->find()
+        //                     ->distinct($articles)
+        //                     ->contain('Tags', function (\Cake\ORM\Query $q) use ($filter) {
+        //                         return $q->where($filter);
+        //                     })
+        //                     ->innerJoinWith('Tags', function (\Cake\ORM\Query $q) use ($filter) {
+        //                         return $q->where($filter);
+        //                     });
+
+        $employeeworkinformations = $this->paginate(
+
+                                        $this->Employeeworkinformations->find('all', [
+                                            'conditions' => [
+                                                'proyect_id =' => $this->getRequest()->getSession()->read('proyect_id') ? $this->getRequest()->getSession()->read('proyect_id') : 0
+                                            ]
+                                        ])
+
+                                        // $this->Employeeworkinformations->find()
+                                        //     [
+                                        //         'proyect_id' => $this->getRequest()->getSession()->read('proyect_id') ? $this->getRequest()->getSession()->read('proyect_id') : 0,
+                                        //     ]
+                                        // )
+                                    );
 
         $this->set(compact('employeeworkinformations'));
     }
@@ -60,6 +83,7 @@ class EmployeeworkinformationsController extends AppController
         $employeeworkinformation = $this->Employeeworkinformations->newEntity();
         if ($this->request->is('post')) {
             $employeeworkinformation = $this->Employeeworkinformations->patchEntity($employeeworkinformation, $this->request->getData());
+
             $employeeworkinformation->user_created = $this->Auth->user('id');
 
             if ($this->Employeeworkinformations->save($employeeworkinformation)) {
@@ -80,7 +104,16 @@ class EmployeeworkinformationsController extends AppController
         $occupationalcategories = $this->Employeeworkinformations->Occupationalcategories->find('list', ['keyField' => 'id', 'valueField' => 'description']);
         $doublepayagreements = $this->Employeeworkinformations->Doublepayagreements->find('list', ['keyField' => 'id', 'valueField' => 'description']);
         $payrolltypes = $this->Employeeworkinformations->Payrolltypes->find('list', ['keyField' => 'id', 'valueField' => 'description']);
-        $proyects = $this->Employeeworkinformations->Proyects->find('list', ['keyField' => 'id', 'valueField' => 'name']);
+        $proyects = $this->Employeeworkinformations->Proyects->find(
+                                        'list', 
+                                        [
+                                            'conditions' => [
+                                                                'id' => $this->getRequest()->getSession()->read('proyect_id') ? $this->getRequest()->getSession()->read('proyect_id') : 0,
+                                                            ],
+                                            'keyField' => 'id', 
+                                            'valueField' => 'name', 
+                                        ]
+                                    );
         $employeetypes = $this->Employeeworkinformations->Employeetypes->find('list', ['keyField' => 'id', 'valueField' => 'description']);
         $positions = $this->Employeeworkinformations->Positions->find('list');
         $tasks = $this->Employeeworkinformations->Tasks->find('list');
@@ -119,6 +152,7 @@ class EmployeeworkinformationsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $employeeworkinformation = $this->Employeeworkinformations->patchEntity($employeeworkinformation, $this->request->getData());
+            $employeeworkinformation->user_modified = $this->Auth->user('id');
             if ($this->Employeeworkinformations->save($employeeworkinformation)) {
                 $this->Flash->success(__('The employeeworkinformation has been saved.'));
 
@@ -126,24 +160,49 @@ class EmployeeworkinformationsController extends AppController
             }
             $this->Flash->error(__('The employeeworkinformation could not be saved. Please, try again.'));
         }
-        $laborregimes = $this->Employeeworkinformations->Laborregimes->find('list', ['limit' => 200]);
-        $educationalsituations = $this->Employeeworkinformations->Educationalsituations->find('list', ['limit' => 200]);
-        $activities = $this->Employeeworkinformations->Activities->find('list', ['limit' => 200]);
-        $contracttypes = $this->Employeeworkinformations->Contracttypes->find('list', ['limit' => 200]);
-        $periodicityremunerations = $this->Employeeworkinformations->Periodicityremunerations->find('list', ['limit' => 200]);
-        $situations = $this->Employeeworkinformations->Situations->find('list', ['limit' => 200]);
-        $specialsituations = $this->Employeeworkinformations->Specialsituations->find('list', ['limit' => 200]);
-        $paymenttypes = $this->Employeeworkinformations->Paymenttypes->find('list', ['limit' => 200]);
-        $occupationalcategories = $this->Employeeworkinformations->Occupationalcategories->find('list', ['limit' => 200]);
-        $doublepayagreements = $this->Employeeworkinformations->Doublepayagreements->find('list', ['limit' => 200]);
-        $payrolltypes = $this->Employeeworkinformations->Payrolltypes->find('list', ['limit' => 200]);
-        $proyects = $this->Employeeworkinformations->Proyects->find('list', ['limit' => 200]);
-        $employeetypes = $this->Employeeworkinformations->Employeetypes->find('list', ['limit' => 200]);
-        $positions = $this->Employeeworkinformations->Positions->find('list', ['limit' => 200]);
-        $tasks = $this->Employeeworkinformations->Tasks->find('list', ['limit' => 200]);
-        $areas = $this->Employeeworkinformations->Areas->find('list', ['limit' => 200]);
-        $specialities = $this->Employeeworkinformations->Specialities->find('list', ['limit' => 200]);
-        $employeepersonalinformations = $this->Employeeworkinformations->Employeepersonalinformations->find('list', ['limit' => 200]);
+        $laborregimes = $this->Employeeworkinformations->Laborregimes->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $educationalsituations = $this->Employeeworkinformations->Educationalsituations->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $activities = $this->Employeeworkinformations->Activities->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $contracttypes = $this->Employeeworkinformations->Contracttypes->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $periodicityremunerations = $this->Employeeworkinformations->Periodicityremunerations->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $situations = $this->Employeeworkinformations->Situations->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $specialsituations = $this->Employeeworkinformations->Specialsituations->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $paymenttypes = $this->Employeeworkinformations->Paymenttypes->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $occupationalcategories = $this->Employeeworkinformations->Occupationalcategories->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $doublepayagreements = $this->Employeeworkinformations->Doublepayagreements->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $payrolltypes = $this->Employeeworkinformations->Payrolltypes->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        
+        $proyects = $this->Employeeworkinformations->Proyects->find(
+                                        'list', 
+                                        [
+                                            'conditions' => [
+                                                                'id' => $this->getRequest()->getSession()->read('proyect_id') ? $this->getRequest()->getSession()->read('proyect_id') : 0,
+                                                            ],
+                                            'keyField' => 'id', 
+                                            'valueField' => 'name', 
+                                        ]
+                                    );
+
+        $employeetypes = $this->Employeeworkinformations->Employeetypes->find('list', ['keyField' => 'id', 'valueField' => 'description']);
+        $positions = $this->Employeeworkinformations->Positions->find('list');
+        $tasks = $this->Employeeworkinformations->Tasks->find('list');
+        $areas = $this->Employeeworkinformations->Areas->find('list');
+        $specialities = $this->Employeeworkinformations->Specialities->find('list');
+        $employeepersonalinformations = $this->Employeeworkinformations->employeepersonalinformations->find(
+                                        'list',
+                                        [
+                                            'conditions' => [
+                                                                'id' => $employeeworkinformation->employeepersonalinformation_id
+                                                            ],
+                                            'keyField' => 'id',
+                                            'valueField' => function ($employeepersonalinformation) {
+                                                return $employeepersonalinformation->document.' - '.$employeepersonalinformation->surname_father.' '.$employeepersonalinformation->surname_mother.' '.$employeepersonalinformation->name;
+                                            }
+
+                                        ]
+                                    );
+
+        //$employeepersonalinformations = $this->Employeeworkinformations->Employeepersonalinformations->find('list', ['limit' => 200]);
         $this->set(compact('employeeworkinformation', 'laborregimes', 'educationalsituations', 'activities', 'contracttypes', 'periodicityremunerations', 'situations', 'specialsituations', 'paymenttypes', 'occupationalcategories', 'doublepayagreements', 'payrolltypes', 'proyects', 'employeetypes', 'positions', 'tasks', 'areas', 'specialities', 'employeepersonalinformations'));
     }
 

@@ -1,21 +1,21 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\EmployeepersonalinformationsTable;
+use App\Model\Table\EmployeedataaditionalsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\EmployeepersonalinformationsTable Test Case
+ * App\Model\Table\EmployeedataaditionalsTable Test Case
  */
-class EmployeepersonalinformationsTableTest extends TestCase
+class EmployeedataaditionalsTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\EmployeepersonalinformationsTable
+     * @var \App\Model\Table\EmployeedataaditionalsTable
      */
-    public $Employeepersonalinformations;
+    public $Employeedataaditionals;
 
     /**
      * Fixtures
@@ -23,13 +23,7 @@ class EmployeepersonalinformationsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.Employeepersonalinformations',
-        'app.Documenttypes',
-        'app.Nationalities',
-        'app.Sendingcountries',
-        'app.Streettypes',
-        'app.Zonetypes',
-        'app.Ubigeos',
+        'app.Employeedataaditionals',
         'app.Employeeworkinformations'
     ];
 
@@ -41,8 +35,8 @@ class EmployeepersonalinformationsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::getTableLocator()->exists('Employeepersonalinformations') ? [] : ['className' => EmployeepersonalinformationsTable::class];
-        $this->Employeepersonalinformations = TableRegistry::getTableLocator()->get('Employeepersonalinformations', $config);
+        $config = TableRegistry::getTableLocator()->exists('Employeedataaditionals') ? [] : ['className' => EmployeedataaditionalsTable::class];
+        $this->Employeedataaditionals = TableRegistry::getTableLocator()->get('Employeedataaditionals', $config);
     }
 
     /**
@@ -52,7 +46,7 @@ class EmployeepersonalinformationsTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Employeepersonalinformations);
+        unset($this->Employeedataaditionals);
 
         parent::tearDown();
     }

@@ -20,6 +20,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime|null $created
  * @property int|null $user_modified
  * @property \Cake\I18n\FrozenTime|null $modified
+ * @property int $ubigeo_id
  * @property int $nationality_id
  * @property int $sendingcountry_id
  * @property int $streettype_id
@@ -37,15 +38,13 @@ use Cake\ORM\Entity;
  * @property string|null $zone_name
  * @property string|null $reference
  * @property string|null $place_birth
- * @property int $ubigeos_id
  *
  * @property \App\Model\Entity\Documenttype $documenttype
+ * @property \App\Model\Entity\Ubigeo $ubigeo
  * @property \App\Model\Entity\Nationality $nationality
  * @property \App\Model\Entity\Sendingcountry $sendingcountry
  * @property \App\Model\Entity\Streettype $streettype
  * @property \App\Model\Entity\Zonetype $zonetype
- * @property \App\Model\Entity\Ubigeo $ubigeo
- * @property \App\Model\Entity\Employeeworkinformation[] $employeeworkinformations
  */
 class Employeepersonalinformation extends Entity
 {
@@ -89,13 +88,12 @@ class Employeepersonalinformation extends Entity
         'zone_name' => true,
         'reference' => true,
         'place_birth' => true,
-        'ubigeo_id' => true,
         'documenttype' => true,
+        'ubigeo' => true,
         'nationality' => true,
         'sendingcountry' => true,
         'streettype' => true,
         'zonetype' => true,
-        'ubigeo' => true,
-        'employeeworkinformations' => true
+        'geographicallocation_id' => true
     ];
 }

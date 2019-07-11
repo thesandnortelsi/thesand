@@ -36,6 +36,7 @@ class Documenttype extends Entity
         'created' => true,
         'user_modified' => true,
         'modified' => true,
-        'employeepersonalinformations' => true
+        'employeepersonalinformations' => true,
+        'employeedataaditionals' => true
     ];
 }
